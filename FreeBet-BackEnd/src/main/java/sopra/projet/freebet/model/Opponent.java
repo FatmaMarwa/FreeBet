@@ -12,7 +12,7 @@ import javax.persistence.Table;
 import javax.persistence.Version;
 
 @Entity
-@Table(name = "Oppenent")
+@Table(name = "Opponent")
 public class Opponent {
 
 	@Id
