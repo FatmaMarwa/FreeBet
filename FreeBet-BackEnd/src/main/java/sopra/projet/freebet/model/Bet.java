@@ -63,6 +63,17 @@ public class Bet {
 		this.betDate = date;
 		this.gain = gain;
 	}
+	
+
+	public Bet(Float mise, Boolean resultatPari, TypeBet type, Date betDate, Float gain, List<Game> games) {
+		super();
+		this.mise = mise;
+		this.resultatPari = resultatPari;
+		this.type = type;
+		this.betDate = betDate;
+		this.gain = gain;
+		this.games = games;
+	}
 
 	public Long getId() {
 		return id;

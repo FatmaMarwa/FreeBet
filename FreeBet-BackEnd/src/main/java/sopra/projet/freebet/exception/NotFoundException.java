@@ -1,4 +1,4 @@
-package sopra.formation.bg.exception;
+package sopra.projet.freebet.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

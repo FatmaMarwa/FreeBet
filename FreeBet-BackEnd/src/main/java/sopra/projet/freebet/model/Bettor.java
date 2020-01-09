@@ -69,6 +69,18 @@ public class Bettor {
 		this.login = login;
 	}
 
+	public Bettor(String nom, String prenom, Date ddn, Float soldeCagnotte, Civility civilite, Adress adress,
+			Login login) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+		this.ddn = ddn;
+		this.soldeCagnotte = soldeCagnotte;
+		this.civilite = civilite;
+		this.adress = adress;
+		this.login = login;
+	}
+
 	public Long getId() {
 		return id;
 	}

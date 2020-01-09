@@ -46,6 +46,14 @@ public class Admin {
 		this.login = login;
 	}
 
+	public Admin(String nom, String prenom, Adress adress, Login login) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+		this.adress = adress;
+		this.login = login;
+	}
+
 	public Long getId() {
 		return id;
 	}

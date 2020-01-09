@@ -45,6 +45,15 @@ public class Login {
 		this.mail = mail;
 		this.motDePasse = motdepasse;
 	}
+	
+	
+
+	public Login(String pseudo, String mail, String motDePasse) {
+		super();
+		this.pseudo = pseudo;
+		this.mail = mail;
+		this.motDePasse = motDePasse;
+	}
 
 	public Long getId() {
 		return id;
