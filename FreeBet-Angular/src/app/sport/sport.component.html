@@ -1,5 +1,5 @@
 <div class="card mt-3">
-            <div class="card-header bg-primary text-white">Liste des élèves</div>
+            <div class="card-header bg-primary text-white">Liste des Sports</div>
             <div class="card-body">
               <table class="table table-hover">
                 <thead>
@@ -78,9 +78,9 @@
       <input type="text" class="form-control" placeholder="Entrer le nom du Sport" id="nom" [(ngModel)]="currentSport.nom">
     </div>
     <div class="form-group">
-      <label for="typeSport">Type de Sport</label>
-      <select class="form-control" placeholder="Choisir le type de Sport" id="TypeSport"[(ngModel)]="currentSport.typeSport">
-        <option value="{{form.id}}" *ngFor="let form of typesport()"> {{form.typesport}}</option>
+      <label for="typeSport">Type de Sport:</label>
+      <select class="form-control" placeholder="Entrer le Type de Sport" id="typeSport" [(ngModel)]="currentSport.typeSport">
+        <option value="{{tsport}}" *ngFor="let tsport of typeSport()">{{tsport}}</option>
       </select>
     </div>
     </div>

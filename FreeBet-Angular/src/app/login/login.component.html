@@ -1,1 +1,106 @@
-<p>login works!</p>
+<div class="card mt-3">
+  <div class="card-header bg-primary text-white">Liste des login</div>
+  <div class="card-body">
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th scope="col">Identifiant</th>
+        <th scope="col">Version</th>
+        <th scope="col">Pseudo</th>
+        <th scope="col">Mail</th>
+        <th scope="col">MotDePasse</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let login of list()">
+        <th scope="row" (click)="detail(content, login.id)" style="cursor: pointer">{{ login.id }}</th>
+        <td (click)="detail(content, login.id)" style="cursor: pointer">{{login.version}}</td>
+        <td (click)="detail(content, login.id)" style="cursor: pointer">{{login.pseudo}}</td>
+        <td (click)="detail(content, login.id)" style="cursor: pointer">{{login.mail}}</td>
+        <td (click)="detail(content, login.id)" style="cursor: pointer">{{login.mdp}}</td>
+        <td>
+          <div class="btn-group btn-group-sm">
+            <button type="button" class="btn btn-info" (click)="edit(login.id)">
+              <fa name="pencil"></fa>
+            </button>
+            <button type="button" class="btn btn-danger" (click)="delete(login.id)">
+              <fa name="trash" inverse="true"></fa>
+            </button>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <div class="card-footer">
+      <button type="button" class="btn btn-success btn-lg" (click)="add()">
+        <fa name="plus"></fa>
+      </button>
+    </div>
+  </div>
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Détail du login</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <table class="table table-sm">
+      <tbody>
+      <tr>
+        <th>Identifiant</th>
+        <td>{{modalLogin.id}}</td>
+      </tr>
+      <tr>
+        <th>Version</th>
+        <td>{{modalLogin.version}}</td>
+      </tr>
+      <tr>
+        <th>Pseudo</th>
+        <td>{{modalLogin.pseudo}}</td>
+      </tr>
+      <tr>
+        <th>Mail</th>
+        <td>{{modalLogin.mail}}</td>
+      </tr>
+      <tr>
+        <th>MotDePasse</th>
+        <td>{{modalLogin.mdp}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</ng-template>
+
+<div class="card mt-3" *ngIf="currentLogin">
+  <div class="card-header bg-primary text-white">Edition du login</div>
+  <div class="card-body">
+    <div class="form-group">
+      <label for="pseudo">Pseudo:</label>
+      <input type="text" class="form-control" placeholder="Entrer le pseudo" id="pseudo" [(ngModel)]="currentLogin.pseudo">
+    </div>
+    <div class="form-group">
+      <label for="mail">Mail</label>
+      <input type="text" class="form-control" placeholder="Entrer le mail" id="mail"
+             [(ngModel)]="currentLogin.mail">
+    </div>
+    <div class="form-group">
+      <label for="mdp">MotDePasse</label>
+      <input type="text" class="form-control" placeholder="Entrer le mot de passe" id="mdp"
+             [(ngModel)]="currentLogin.mail">
+    </div>
+  </div>
+  <div class="card-footer">
+    <div class="btn-group btn-group-lg">
+      <button type="button" class="btn btn-primary" (click)="save()">
+        <fa name="check"></fa>
+      </button>
+      <button type="button" class="btn btn-warning" (click)="cancel()">
+        <fa name="undo" inverse="true"></fa>
+      </button>
+    </div>
+  </div>
+</div>
+
