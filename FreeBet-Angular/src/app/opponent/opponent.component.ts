@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Opponent} from './opponent';
+import {Opponent} from '../Model/opponent';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {GameHttpService} from '../game/game-http.service';
-import {Game} from '../game/game';
+import {Game} from '../Model/game';
 import {Sport} from '../Model/sport';
 import {OpponentHttpService} from './opponent-http.service';
 import {SportHttpService} from '../sport/sport-http.service';

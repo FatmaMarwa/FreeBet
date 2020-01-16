@@ -1,7 +1,7 @@
-import {Bet} from '../Model/bet';
-import {Sport} from '../Model/sport';
-import {Opponent} from '../opponent/opponent';
-import {Statistique} from '../Model/statistique';
+import {Bet} from './bet';
+import {Sport} from './sport';
+import {Opponent} from './opponent';
+import {Statistique} from './statistique';
 
 export class Game {
   id: number;

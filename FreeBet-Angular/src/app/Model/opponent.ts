@@ -1,4 +1,4 @@
-import {Game} from '../game/game';
+import {Game} from './game';
 
 export class Opponent {
   id: number;

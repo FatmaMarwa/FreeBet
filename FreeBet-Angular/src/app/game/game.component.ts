@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Game} from './game';
+import {Game} from '../Model/game';
 import {GameHttpService} from './game-http.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {BetHttpService} from '../bet/bet-http.service';

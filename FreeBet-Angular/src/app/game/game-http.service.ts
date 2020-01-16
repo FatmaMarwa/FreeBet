@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Game} from './game';
+import {Game} from '../Model/game';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {AppConfigService} from '../app-config.service';
@@ -7,7 +7,7 @@ import {BetHttpService} from '../bet/bet-http.service';
 import {OpponentHttpService} from '../opponent/opponent-http.service';
 import {SportHttpService} from '../sport/sport-http.service';
 import {Bet} from '../Model/bet';
-import {Opponent} from '../opponent/opponent';
+import {Opponent} from '../Model/opponent';
 import {Statistique} from '../Model/statistique';
 
 @Injectable({
