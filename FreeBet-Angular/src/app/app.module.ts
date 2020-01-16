@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AdminComponent } from './admin/admin.component';
+import { LoginComponent } from './login/login.component';
 
 import { BettorComponent } from './bettor/bettor.component';
 import { BetComponent } from './bet/bet.component';
@@ -15,9 +17,11 @@ import { SportComponent } from './sport/sport.component';
     AppComponent,
     BettorComponent,
     BetComponent,
-    SportComponent
-    ],
-
+    SportComponent,
+    AppComponent,
+    AdminComponent,
+    LoginComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule
