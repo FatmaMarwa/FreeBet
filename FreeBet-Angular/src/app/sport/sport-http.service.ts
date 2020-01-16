@@ -40,7 +40,7 @@ export class SportHttpService {
       }, err => console.log(err));
     }
 
-    delete (id: number) {
+    delete1 (id: number) {
       this.http.delete<Sport>(this.appConfig.backEnd + 'sport/' + id).subscribe(resp => {
         this.load();
       }, err => console.log(err));

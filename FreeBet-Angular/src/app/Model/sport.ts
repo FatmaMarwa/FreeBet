@@ -1,10 +1,12 @@
+import {Game} from '../game/game';
+import {Opponent} from '../opponent/opponent';
 
 export class Sport {
   id: number;
   version: number = 0;
   nom: string;
   typeSport: string;
-  game: Game;
+  game: Game
   opponentSport: Opponent [];
 
 

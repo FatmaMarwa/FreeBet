@@ -1,1 +1,98 @@
-<p>sport works!</p>
+<div class="card mt-3">
+            <div class="card-header bg-primary text-white">Liste des élèves</div>
+            <div class="card-body">
+              <table class="table table-hover">
+                <thead>
+                <tr>
+                  <th scope="col">Identifiant</th>
+                  <th scope="col">Version</th>
+                  <th scope="col">Nom</th>
+                  <th scope="col">Type</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let sport of list()">
+                  <th scope="row" (click)="detail(content, sport.id)" style="cursor: pointer">{{ sport.id }}</th>
+                  <td (click)="detail(content, sport.id)" style="cursor: pointer">{{sport.version}}</td>
+                  <td (click)="detail(content, sport.id)" style="cursor: pointer">{{sport.nom}}</td>
+                  <td (click)="detail(content, sport.id)" style="cursor: pointer">{{sport.typeSport}}</td>
+                  <td (click)="detail(content, sport.id)" style="cursor: pointer">
+                  </td>
+                  <td>
+                    <div class="btn-group btn-group-sm">
+                      <button type="button" class="btn btn-info" (click)="edit(sport.id)">
+                        <fa name="pencil"></fa>
+                      </button>
+                      <button type="button" class="btn btn-danger" (click)="delete1(sport.id)">
+                        <fa name="trash" inverse="true"></fa>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+              <div class="card-footer">
+                <button type="button" class="btn btn-success btn-lg" (click)="add()">
+                  <fa name="plus"></fa>
+                </button>
+              </div>
+            </div>
+            </div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Détail de l'élève</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <table class="table table-sm">
+      <tbody>
+      <tr>
+        <th>Identifiant</th>
+        <td>{{modalSport.id}}</td>
+      </tr>
+      <tr>
+        <th>Version</th>
+        <td>{{modalSport.version}}</td>
+      </tr>
+      <tr>
+        <th>Nom</th>
+        <td>{{modalSport.nom}}</td>
+      </tr>
+      <tr>
+        <th>Prénom</th>
+        <td>{{modalSport.typeSport}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</ng-template>
+
+<div class="card mt-3" *ngIf="currentSport">
+  <div class="card-header bg-primary text-white">Edition d'un Sport</div>
+  <div class="card-body">
+    <div class="form-group">
+      <label for="nom">Nom:</label>
+      <input type="text" class="form-control" placeholder="Entrer le nom du Sport" id="nom" [(ngModel)]="currentSport.nom">
+    </div>
+    <div class="form-group">
+      <label for="typeSport">Type de Sport</label>
+      <select class="form-control" placeholder="Choisir le type de Sport" id="TypeSport"[(ngModel)]="currentSport.typeSport">
+        <option value="{{form.id}}" *ngFor="let form of typesport()"> {{form.typesport}}</option>
+      </select>
+    </div>
+    </div>
+    </div>
+<div class="card-footer">
+  <div class="btn-group btn-group-lg">
+    <button type="button" class="btn btn-primary" (click)="save()">
+      <fa name="check"></fa>
+    </button>
+    <button type="button" class="btn btn-warning" (click)="cancel()">
+      <fa name="undo" inverse="true"></fa>
+    </button>
+  </div>
+</div>
+
