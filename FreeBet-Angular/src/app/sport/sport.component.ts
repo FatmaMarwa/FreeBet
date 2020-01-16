@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Sport} from '../Model/sport';
 import {SportHttpService} from './sport-http.service';
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'sport,[sport]',
