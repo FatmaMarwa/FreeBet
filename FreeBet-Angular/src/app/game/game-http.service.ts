@@ -30,9 +30,11 @@ export class GameHttpService {
   findAll(): Array<Game>{
     return this.games;
   }
+
   findById(id: number): Observable<Game>{
     return this.http.get<Game>(this.appConfig.backEnd + 'game/' + id);
   }
+
   save(game: Game){
     if(game){
       if (game.opponents){
@@ -58,4 +60,5 @@ export class GameHttpService {
       this.load()
     }, err => console.log(err));
   }
+
 }
