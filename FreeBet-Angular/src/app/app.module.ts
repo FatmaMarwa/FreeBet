@@ -10,6 +10,7 @@ import { BettorComponent } from './bettor/bettor.component';
 import { BetComponent } from './bet/bet.component';
 
 import { SportComponent } from './sport/sport.component';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { SportComponent } from './sport/sport.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

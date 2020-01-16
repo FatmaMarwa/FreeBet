@@ -5,9 +5,11 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {AppConfigService} from '../app-config.service';
-import {Admin} from './admin';
 import {AdminHttpService} from '../admin/admin-http.service';
 import {Login} from './Login';
+
+class BettorHttpServices {
+}
 
 @Injectable({
   providedIn: 'root'

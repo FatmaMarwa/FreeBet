@@ -7,7 +7,7 @@ import {GameHttpService} from '../game/game-http.service';
 import {AppConfigService} from '../app-config.service';
 
 @Injectable({
-  providedIn : 'root'
+  providedIn: 'root'
 })
 
 export class SportHttpService {
@@ -42,13 +42,14 @@ export class SportHttpService {
         this.load();
       }, err => console.log(err));
     }
-
-    delete (id: number) {
-      this.http.delete<Sport>(this.appConfig.backEnd + 'sport/' + id).subscribe(resp => {
-        this.load();
-      }, err => console.log(err));
   }
-}
+
+  delete(id: number) {
+    this.http.delete<Sport>(this.appConfig.backEnd + 'sport/' + id).subscribe(resp => {
+      this.load();
+    }, err => console.log(err));
+  }
+
 }
 
 

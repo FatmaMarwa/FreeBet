@@ -4,6 +4,8 @@ import {AdminHttpService} from '../admin/admin-http.service';
 import {Login} from './Login';
 import {LoginHttpService} from './login-http.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {Bettor} from '../Model/bettor';
+import {BettorHttpService} from '../bettor/bettor-http.service';
 
 @Component({
   selector: 'login, [login]',
@@ -15,7 +17,7 @@ export class LoginComponent implements OnInit {
 
   modalLogin: Login = null;
 
-  constructor(private modalService: NgbModal, private loginService: LoginHttpService, private adminService: AdminHttpService, private bettorService: BettorHttpServices) { }
+  constructor(private modalService: NgbModal, private loginService: LoginHttpService, private adminService: AdminHttpService, private bettorService: BettorHttpService) { }
 
   ngOnInit() {
   }
