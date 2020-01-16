@@ -30,6 +30,10 @@ export class BettorComponent implements OnInit {
     return this.bettorService.findAll();
   }
 
+  civilites(){
+    return this.bettorService.civilites;
+  }
+
   logins(){
     return this.loginService.findAll();
   }

@@ -1,1 +1,177 @@
+<div class="card mt-3">
+  <div class="card-header bg-primary text-white">Liste des bettor</div>
+  <div class="card-body">
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th scope="col">Identifiant</th>
+        <th scope="col">Version</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Prénom</th>
+        <th scope="col">Date de Naissance</th>
+        <th scope="col">Solde de Cagnotte</th>
+        <th scope="col">Civilité</th>
+        <th scope="col"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let bettor of list()">
+        <th scope="row" (click)="detail(content, bettor.id)" style="cursor: pointer">{{ bettor.id }}</th>
+        <td (click)="detail(content, bettor.id)" style="cursor: pointer">{{bettor.version}}</td>
+        <td (click)="detail(content, bettor.id)" style="cursor: pointer">{{bettor.nom}}</td>
+        <td (click)="detail(content, bettor.id)" style="cursor: pointer">{{bettor.prenom}}</td>
+        <td (click)="detail(content, bettor.id)" style="cursor: pointer">{{bettor.ddn | date:'dd/MM/yyyy' }}</td>
+        <td (click)="detail(content, bettor.id)" style="cursor: pointer">{{bettor.soldeCagnotte}}</td>
+        <td (click)="detail(content, bettor.id)" style="cursor: pointer">{{bettor.civilite}}</td>
+        <td>
+          <div class="btn-group btn-group-sm">
+            <button type="button" class="btn btn-info" (click)="edit(bettor.id)">
+              <fa name="pencil"></fa>
+            </button>
+            <button type="button" class="btn btn-danger" (click)="delete(bettor.id)">
+              <fa name="trash" inverse="true"></fa>
+            </button>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <div class="card-footer">
+      <button type="button" class="btn btn-success btn-lg" (click)="add()">
+        <fa name="plus"></fa>
+      </button>
+    </div>
+  </div>
+</div>
 
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Détail du bettor</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <table class="table table-sm">
+      <tbody>
+      <tr>
+        <th>Identifiant</th>
+        <td>{{modalBettor.id}}</td>
+      </tr>
+      <tr>
+        <th>Version</th>
+        <td>{{modalBettor.version}}</td>
+      </tr>
+      <tr>
+        <th>Nom</th>
+        <td>{{modalBettor.nom}}</td>
+      </tr>
+      <tr>
+        <th>Prénom</th>
+        <td>{{modalBettor.prenom}}</td>
+      </tr>
+      <tr>
+        <th>Prénom</th>
+        <td>{{modalBettor.prenom}}</td>
+      </tr>
+      <tr>
+        <th>Prénom</th>
+        <td>{{modalBettor.prenom}}</td>
+      </tr>
+      <tr>
+        <th>Prénom</th>
+        <td>{{modalBettor.prenom}}</td>
+      </tr>
+      <tr>
+        <th>Pseudo</th>
+        <td>{{modalBettor.login.pseudo}}</td>
+      </tr>
+      <tr>
+        <th>Mail</th>
+        <td>{{modalBettor.login.mail}}</td>
+      </tr>
+      <tr>
+        <th>MotDePasse</th>
+        <td>{{modalBettor.login.mdp}}</td>
+      </tr>
+      <tr>
+        <th>Rue</th>
+        <td>{{modalBettor.adress.rue}}</td>
+      </tr>
+      <tr>
+        <th>Code postal</th>
+        <td>{{modalBettor.adress.codePostal}}</td>
+      </tr>
+      <tr>
+        <th>Ville</th>
+        <td>{{modalBettor.adress.ville}}</td>
+      </tr>
+      <tr>
+        <th>Pays</th>
+        <td>{{modalBettor.adress.ville}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</ng-template>
+
+<div class="card mt-3" *ngIf="currentBettor">
+  <div class="card-header bg-primary text-white">Edition de l'bettor</div>
+  <div class="card-body">
+    <div class="form-group">
+      <label for="nom">Nom:</label>
+      <input type="text" class="form-control" placeholder="Entrer le nom" id="nom" [(ngModel)]="currentBettor.nom">
+    </div>
+    <div class="form-group">
+      <label for="prenom">Prénom:</label>
+      <input type="text" class="form-control" placeholder="Entrer le prénom" id="prenom"
+             [(ngModel)]="currentBettor.prenom">
+    </div>
+    <fieldset>
+      <legend>Adresse</legend>
+      <div class="form-group">
+        <label for="rue">Rue:</label>
+        <input type="text" class="form-control" placeholder="Entrer la rue" id="rue"
+               [(ngModel)]="currentBettor.adress.rue">
+      </div>
+      <div class="form-group">
+        <label for="codePostal">Code postal:</label>
+        <input type="text" class="form-control" placeholder="Entrer le code postal" id="codePostal"
+               [(ngModel)]="currentBettor.adress.codePostal">
+      </div>
+      <div class="form-group">
+        <label for="ville">Ville:</label>
+        <input type="text" class="form-control" placeholder="Entrer la ville" id="ville"
+               [(ngModel)]="currentBettor.adress.ville">
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Login</legend>
+      <div class="form-group">
+        <label for="pseudo">Pseudo:</label>
+        <input type="text" class="form-control" placeholder="Entrer le pseudo" id="pseudo"
+               [(ngModel)]="currentBettor.login.pseudo">
+      </div>
+      <div class="form-group">
+        <label for="mail">Mail:</label>
+        <input type="text" class="form-control" placeholder="Entrer le mail" id="mail"
+               [(ngModel)]="currentBettor.login.mail">
+      </div>
+      <div class="form-group">
+        <label for="mdp">MotDePasse:</label>
+        <input type="text" class="form-control" placeholder="Entrer le mot de passe" id="mdp"
+               [(ngModel)]="currentBettor.login.mdp">
+      </div>
+    </fieldset>
+  </div>
+  <div class="card-footer">
+    <div class="btn-group btn-group-lg">
+      <button type="button" class="btn btn-primary" (click)="save()">
+        <fa name="check"></fa>
+      </button>
+      <button type="button" class="btn btn-warning" (click)="cancel()">
+        <fa name="undo" inverse="true"></fa>
+      </button>
+    </div>
+  </div>
+</div>
