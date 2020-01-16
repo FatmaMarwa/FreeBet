@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import sopra.projet.freebet.exception.NotFoundException;
 import sopra.projet.freebet.model.Bettor;
+import sopra.projet.freebet.model.Civility;
 import sopra.projet.freebet.repository.IBettorRepository;
 
 @CrossOrigin("*")
@@ -62,6 +63,11 @@ public class BettorControllerRest {
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable Long id) {
 		bettorRepo.deleteById(id);
+	}
+	
+	@GetMapping("/civilites")
+	public Civility[] civilite() {
+		return Civility.values();
 	}
 	
 }
