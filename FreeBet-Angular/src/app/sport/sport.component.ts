@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Sport} from '../Model/sport';
 import {SportHttpService} from './sport-http.service';
-import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {GameHttpService} from '../game/game-http.service';
+import {OpponentHttpService} from '../opponent/opponent-http.service';
 
 @Component({
   selector: 'sport,[sport]',
@@ -14,7 +15,7 @@ export class SportComponent implements OnInit {
 
   modalSport: Sport = null;
 
-  constructor(private modalService: NgbModal, private sportService: SportHttpService, private gameService: GameHttpService, private opponentService: OpponentHttp, typeSportService: TypeSportHttpServic) {
+  constructor(private modalService: NgbModal, private sportService: SportHttpService, private gameService: GameHttpService, private opponentService: OpponentHttpService) {
   }
 
   ngOnInit() {
@@ -30,9 +31,6 @@ export class SportComponent implements OnInit {
 
   opponents() {
     return this.opponentService.findAll();
-  }
-  typesport() {
-    return this.typeSportService.findAll();
   }
 
   add() {
@@ -63,8 +61,9 @@ export class SportComponent implements OnInit {
 
     this.cancel();
   }
+
   delete1(id: number) {
-    this.sportService.delete1(id);
+    this.sportService.delete(id);
   }
 
   cancel() {
