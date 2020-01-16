@@ -16,7 +16,7 @@ export class BettorComponent implements OnInit {
 
   modalBettor:Bettor = null;
 
-  constructor(private modalService:NgbModal,,private betService:BetHttpService,private bettorService:BettorHttpService,private loginService:LoginHttpService) { }
+  constructor(private modalService:NgbModal,private betService:BetHttpService,private bettorService:BettorHttpService,private loginService:LoginHttpService) { }
 
   ngOnInit() {
   }

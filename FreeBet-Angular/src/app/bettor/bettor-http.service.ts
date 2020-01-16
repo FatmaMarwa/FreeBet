@@ -2,6 +2,9 @@ import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 
 import {Observable} from "rxjs";
+import {BetHttpService} from "../bet/bet-http.service";
+import {AppConfigService} from "../app-config.service";
+import {Bettor} from "../Model/bettor";
 
 @Injectable({
   providedIn: 'root'
@@ -10,13 +13,23 @@ import {Observable} from "rxjs";
 export class BettorHttpService{
   bettors:Array<Bettor>;
 
+  civilites:Array<string>
+
   constructor(private appConfig: AppConfigService, private betService: BetHttpService, private loginService: LoginHttpService,private http: HttpClient) {
     this.load();
+    this.loadCiv();
   }
 
   load() {
     this.http.get<Array<Bettor>>(this.appConfig.backEnd + 'bettor').subscribe(resp => {
         this.bettors = resp;
+      },
+      err => console.log(err));
+  }
+
+  loadCiv(){
+    this.http.get<Array<string>>(this.appConfig.backEnd+ 'bettor/civilites').subscribe(resp =>{
+        this.civilites=resp;
       },
       err => console.log(err));
   }
@@ -30,9 +43,6 @@ export class BettorHttpService{
 
   save(bettor: Bettor) {
     if (bettor) {
-      if (bettor.bettortor && !bettor.bettortor.id) {
-        bettor.bettortor = null;
-      }
       if (!bettor.id) {
         this.http.post<Bettor>(this.appConfig.backEnd + 'bettor', bettor).subscribe(resp => {
           this.load();
