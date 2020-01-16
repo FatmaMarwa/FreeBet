@@ -15,7 +15,7 @@ export class AdminHttpService {
 
   admins: Array<Admin>;
 
-  constructor(private appConfig: AppConfigService, private loginService: LoginHttpService, private http: HttpClient) {
+  constructor(private appConfig: AppConfigService, private http: HttpClient) {
     this.load();
   }
 

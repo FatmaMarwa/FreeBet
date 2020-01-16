@@ -18,5 +18,5 @@ export class Sport {
     this.game = game;
     this.opponentSport = opponentSport;
   }
-}
 
+}
