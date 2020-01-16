@@ -1,4 +1,4 @@
-export class Adresse {
+export class Adress {
 
   rue: string;
   ville: string;
@@ -6,7 +6,7 @@ export class Adresse {
   pays: string;
 
 
-  constructor(rue: string, ville: string, codePostal: string, pays: string) {
+  constructor(rue?: string, ville?: string, codePostal?: string, pays?: string) {
     this.rue = rue;
     this.ville = ville;
     this.codePostal = codePostal;
