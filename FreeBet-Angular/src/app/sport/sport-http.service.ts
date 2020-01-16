@@ -18,6 +18,7 @@ export class SportHttpService {
 
   constructor(private appConfig: AppConfigService, private  http: HttpClient, private gameService: GameHttpService, private opponentService: OpponentHttpService) {
     this.load();
+    this.loadtypeSport();
   }
 
   load() {
@@ -26,6 +27,13 @@ export class SportHttpService {
       },
       err => console.log(err));
 
+  }
+
+  loadtypeSport() {
+    this.http.get<Array<string>>(this.appConfig.backEnd + 'sport/typeSports').subscribe(resp => {
+        this.typeSports = resp;
+      },
+      err => console.log(err));
   }
 
   findAll(): Array<Sport> {

@@ -1,1 +1,19 @@
-<p>game works!</p>
+<table>
+  <thead>
+  <tr>
+    <th scope="col">Date de la rencontre</th>
+    <th scope="col">Cote1</th>
+    <th scope="col">Cote2</th>
+    <th scope="col">Résultat du match</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let game of list()">
+    <th scope="row">{{game.gameDate}}</th>
+    <td>{{game.cote1}}</td>
+    <td>{{game.cote2}}</td>
+    <td>{{game.resultatMatch}}</td>
+  </tr>
+  </tbody>
+</table>
+
