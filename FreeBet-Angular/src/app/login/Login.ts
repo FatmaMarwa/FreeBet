@@ -1,4 +1,5 @@
 import {Admin} from '../admin/admin';
+import {Bettor} from '../Model/bettor';
 
 
 export class Login {

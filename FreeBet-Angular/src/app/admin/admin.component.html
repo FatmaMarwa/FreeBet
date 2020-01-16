@@ -1,1 +1,148 @@
+<div class="card mt-3">
+  <div class="card-header bg-primary text-white">Liste des admin</div>
+  <div class="card-body">
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th scope="col">Identifiant</th>
+        <th scope="col">Version</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Prénom</th>
+        <th scope="col"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let admin of list()">
+        <th scope="row" (click)="detail(content, admin.id)" style="cursor: pointer">{{ admin.id }}</th>
+        <td (click)="detail(content, admin.id)" style="cursor: pointer">{{admin.version}}</td>
+        <td (click)="detail(content, admin.id)" style="cursor: pointer">{{admin.nom}}</td>
+        <td (click)="detail(content, admin.id)" style="cursor: pointer">{{admin.prenom}}</td>
+        <td>
+          <div class="btn-group btn-group-sm">
+            <button type="button" class="btn btn-info" (click)="edit(admin.id)">
+              <fa name="pencil"></fa>
+            </button>
+            <button type="button" class="btn btn-danger" (click)="delete(admin.id)">
+              <fa name="trash" inverse="true"></fa>
+            </button>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <div class="card-footer">
+      <button type="button" class="btn btn-success btn-lg" (click)="add()">
+        <fa name="plus"></fa>
+      </button>
+    </div>
+  </div>
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Détail de l'admin</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <table class="table table-sm">
+      <tbody>
+      <tr>
+        <th>Identifiant</th>
+        <td>{{modalAdmin.id}}</td>
+      </tr>
+      <tr>
+        <th>Version</th>
+        <td>{{modalAdmin.version}}</td>
+      </tr>
+      <tr>
+        <th>Nom</th>
+        <td>{{modalAdmin.nom}}</td>
+      </tr>
+      <tr>
+        <th>Prénom</th>
+        <td>{{modalAdmin.prenom}}</td>
+      </tr>
+      <tr>
+        <th>Pseudo</th>
+        <td>{{modalAdmin.login.pseudo}}</td>
+      </tr>
+      <tr>
+        <th>Mail</th>
+        <td>{{modalAdmin.login.mail}}</td>
+      </tr>
+      <tr>
+        <th>MotDePasse</th>
+        <td>{{modalAdmin.login.mdp}}</td>
+      </tr>
+      <tr>
+        <th>Rue</th>
+        <td>{{modalAdmin.adresse.rue}}</td>
+      </tr>
+      <tr>
+        <th>Code postal</th>
+        <td>{{modalAdmin.adresse.codePostal}}</td>
+      </tr>
+      <tr>
+        <th>Ville</th>
+        <td>{{modalAdmin.adresse.ville}}</td>
+      </tr>
+      <tr>
+        <th>Pays</th>
+        <td>{{modalAdmin.adresse.ville}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</ng-template>
+
+<div class="card mt-3" *ngIf="currentAdmin">
+  <div class="card-header bg-primary text-white">Edition de l'admin</div>
+  <div class="card-body">
+    <div class="form-group">
+      <label for="nom">Nom:</label>
+      <input type="text" class="form-control" placeholder="Entrer le nom" id="nom" [(ngModel)]="currentAdmin.nom">
+    </div>
+    <div class="form-group">
+      <label for="prenom">Prénom:</label>
+      <input type="text" class="form-control" placeholder="Entrer le prénom" id="prenom"
+             [(ngModel)]="currentAdmin.prenom">
+    </div>
+    <fieldset>
+      <legend>Adresse</legend>
+      <div class="form-group">
+        <label for="rue">Rue:</label>
+        <input type="text" class="form-control" placeholder="Entrer la rue" id="rue"
+               [(ngModel)]="currentAdmin.adresse.rue">
+      </div>
+      <div class="form-group">
+        <label for="codePostal">Code postal:</label>
+        <input type="text" class="form-control" placeholder="Entrer le code postal" id="codePostal"
+               [(ngModel)]="currentAdmin.adresse.codePostal">
+      </div>
+      <div class="form-group">
+        <label for="ville">Ville:</label>
+        <input type="text" class="form-control" placeholder="Entrer la ville" id="ville"
+               [(ngModel)]="currentAdmin.adresse.ville">
+      </div>
+    </fieldset>
+    <div class="form-group">
+      <label for="formateur">Formateur:</label>
+      <select class="form-control" placeholder="Choisir le formateur" id="formateur" [(ngModel)]="currentEleve.formateur.id">
+        <option value="{{form.id}}" *ngFor="let form of formateurs()">{{form.prenom}} {{form.nom}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="card-footer">
+    <div class="btn-group btn-group-lg">
+      <button type="button" class="btn btn-primary" (click)="save()">
+        <fa name="check"></fa>
+      </button>
+      <button type="button" class="btn btn-warning" (click)="cancel()">
+        <fa name="undo" inverse="true"></fa>
+      </button>
+    </div>
+  </div>
+</div>
 
