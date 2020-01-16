@@ -1,4 +1,5 @@
-import {Bet} from "../bet/bet";
+import {Bet} from "./bet";
+import {Adress} from "./adress";
 
 export class Bettor{
   id: number;

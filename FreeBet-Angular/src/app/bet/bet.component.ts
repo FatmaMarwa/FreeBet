@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {Bet} from "./bet";
+import {Bet} from "../Model/bet";
 import {BetHttpService} from "./bet-http.service";
-import {Bettor} from "../bettor/bettor";
+import {Bettor} from "../Model/bettor";
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {BettorHttpService} from "../bettor/bettor-http.service";
 
 @Component({
   selector: 'bet,[bet]',
@@ -52,7 +53,7 @@ export class BetComponent implements OnInit {
       this.currentBet = resp;
 
       if (!this.currentBet.bettor) {
-        this.currentBet.bettor = new Formateur();
+        this.currentBet.bettor = new Bettor();
       }
     }, error => {
       console.log(error);

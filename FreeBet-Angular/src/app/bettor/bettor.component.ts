@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {Bettor} from "./bettor";
+import {Bettor} from "../Model/bettor";
 import {BetHttpService} from "../bet/bet-http.service";
-import {Bet} from "../bet/bet";
+import {Bet} from "../Model/bet";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {BettorHttpService} from "./bettor-http.service";
+import {Adress} from "../Model/adress";
 
 @Component({
   selector: 'app-bettor',

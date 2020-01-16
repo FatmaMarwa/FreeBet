@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Sport} from './sport';
+import {Sport} from '../Model/sport';
 import {SportHttpService} from './sport-http.service';
 
 @Component({

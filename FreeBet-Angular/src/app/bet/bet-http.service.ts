@@ -1,8 +1,9 @@
 import {Injectable} from "@angular/core";
-import {Bet} from "./bet";
+import {Bet} from "../Model/bet";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {AppConfigService} from '../app-config.service';
+import {BettorHttpService} from "../bettor/bettor-http.service";
 
 @Injectable({
   providedIn: 'root'
