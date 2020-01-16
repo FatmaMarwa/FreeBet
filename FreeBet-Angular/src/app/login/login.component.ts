@@ -3,6 +3,7 @@ import {Admin} from '../admin/admin';
 import {AdminHttpService} from '../admin/admin-http.service';
 import {Login} from './Login';
 import {LoginHttpService} from './login-http.service';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'login, [login]',

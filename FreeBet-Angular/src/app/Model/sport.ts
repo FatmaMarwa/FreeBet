@@ -1,3 +1,5 @@
+import {Game} from '../game/game';
+import {Opponent} from '../opponent/opponent';
 
 export class Sport {
   id: number;
@@ -8,7 +10,7 @@ export class Sport {
   opponentSport: Opponent [];
 
 
-  constructor(id: number, version: number, nom: string, typeSport: string, game: Game, opponentSport: Opponent[]) {
+  constructor(id?: number, version?: number, nom?: string, typeSport?: string, game?: Game, opponentSport?: Opponent[]) {
     this.id = id;
     this.version = version;
     this.nom = nom;

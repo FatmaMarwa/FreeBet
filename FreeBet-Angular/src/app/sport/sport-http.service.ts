@@ -2,6 +2,9 @@ import {Sport} from '../Model/sport';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Injectable} from '@angular/core';
+import {OpponentHttpService} from '../opponent/opponent-http.service';
+import {GameHttpService} from '../game/game-http.service';
+import {AppConfigService} from '../app-config.service';
 
 @Injectable({
   providedIn : 'root'
@@ -13,7 +16,7 @@ export class SportHttpService {
 
   typeSports: Array<string>;
 
-  constructor(private appConfig: appConfigService, private  http: HttpClient, private gameService: GameHttpservice, private opponentService: OpponentHttpService) {
+  constructor(private appConfig: AppConfigService, private  http: HttpClient, private gameService: GameHttpService, private opponentService: OpponentHttpService) {
     this.load();
   }
 

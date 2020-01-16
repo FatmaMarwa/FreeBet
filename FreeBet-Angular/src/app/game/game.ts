@@ -1,3 +1,8 @@
+import {Bet} from '../Model/bet';
+import {Sport} from '../Model/sport';
+import {Opponent} from '../opponent/opponent';
+import {Statistique} from '../Model/statistique';
+
 export class Game {
   id: number;
   version: number = 0;
@@ -8,10 +13,10 @@ export class Game {
   bet: Bet[];
   sport: Sport;
   opponent: Opponent[];
-  statistical: Statistical[];
+  statistical: Statistique[];
 
 
-  constructor(id?: number, version?: number, gameDate?: Date, cote1?: number, cote2?: number, resultatMatch?: boolean, bet?: Bet[], sport?: Sport, opponent?: Opponent[], statistical?: Statistical[]) {
+  constructor(id?: number, version?: number, gameDate?: Date, cote1?: number, cote2?: number, resultatMatch?: boolean, bet?: Bet[], sport?: Sport, opponent?: Opponent[], statistical?: Statistique[]) {
     this.id = id;
     this.version = version;
     this.gameDate = gameDate;

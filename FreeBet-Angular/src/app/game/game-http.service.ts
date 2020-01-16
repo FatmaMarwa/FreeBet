@@ -2,6 +2,10 @@ import {Injectable} from '@angular/core';
 import {Game} from './game';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {AppConfigService} from '../app-config.service';
+import {BetHttpService} from '../bet/bet-http.service';
+import {OpponentHttpService} from '../opponent/opponent-http.service';
+import {SportHttpService} from '../sport/sport-http.service';
 
 @Injectable({
   providedIn: 'root'
