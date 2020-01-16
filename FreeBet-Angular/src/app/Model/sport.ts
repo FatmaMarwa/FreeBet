@@ -6,7 +6,7 @@ export class Sport {
   version: number = 0;
   nom: string;
   typeSport: string;
-  game: Game;
+  game: Game
   opponentSport: Opponent [];
 
 
