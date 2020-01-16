@@ -1,3 +1,5 @@
+import {Bettor} from "./bettor";
+
 export class Bet {
   id: number;
   version: number = 0;
