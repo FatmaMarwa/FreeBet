@@ -2,15 +2,22 @@ import {Injectable} from '@angular/core';
 import {Game} from './game';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {AppConfigService} from '../app-config.service';
+import {BetHttpService} from '../bet/bet-http.service';
+import {OpponentHttpService} from '../opponent/opponent-http.service';
+import {SportHttpService} from '../sport/sport-http.service';
+import {Bet} from '../Model/bet';
+import {Opponent} from '../opponent/opponent';
+import {Statistique} from '../Model/statistique';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GameHttpService {
-  games: Array<Game>
+  games: Array<Game>;
 
 
-  constructor(private appConfig: AppConfigService, private betService: BetHttpService, private opponentService: OpponentHttpService, private sportService: SportHttpService, private statisticalService: StatisticalHttpService , private http: HttpClient) {
+  constructor(private appConfig: AppConfigService, private betService: BetHttpService, private opponentService: OpponentHttpService, private sportService: SportHttpService, private http: HttpClient) {
     this.load();
   }
 
@@ -28,17 +35,11 @@ export class GameHttpService {
   }
   save(game: Game){
     if(game){
-      if (game.bet && !game.bet.id){
-        game.bet = null;
-      }
-      if (game.opponent && !game.opponent.id){
-        game.opponent = null;
+      if (game.opponents){
+        game.opponents = null;
       }
       if (game.sport && !game.sport.id){
         game.sport = null;
-      }
-      if (game.statistical && !game.statistical.id){
-        game.statistical = null;
       }
       if(!game.id){
         this.http.post<Game>(this.appConfig.backEnd + 'game/' + game.id, game).subscribe( resp =>{
