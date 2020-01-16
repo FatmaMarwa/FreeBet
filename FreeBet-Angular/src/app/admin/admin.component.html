@@ -127,12 +127,24 @@
                [(ngModel)]="currentAdmin.adresse.ville">
       </div>
     </fieldset>
-    <div class="form-group">
-      <label for="formateur">Formateur:</label>
-      <select class="form-control" placeholder="Choisir le formateur" id="formateur" [(ngModel)]="currentEleve.formateur.id">
-        <option value="{{form.id}}" *ngFor="let form of formateurs()">{{form.prenom}} {{form.nom}}</option>
-      </select>
-    </div>
+    <fieldset>
+      <legend>Login</legend>
+      <div class="form-group">
+        <label for="pseudo">Pseudo:</label>
+        <input type="text" class="form-control" placeholder="Entrer le pseudo" id="pseudo"
+               [(ngModel)]="currentAdmin.login.pseudo">
+      </div>
+      <div class="form-group">
+        <label for="mail">Mail:</label>
+        <input type="text" class="form-control" placeholder="Entrer le mail" id="mail"
+               [(ngModel)]="currentAdmin.login.mail">
+      </div>
+      <div class="form-group">
+        <label for="mdp">MotDePasse:</label>
+        <input type="text" class="form-control" placeholder="Entrer le mot de passe" id="mdp"
+               [(ngModel)]="currentAdmin.login.mdp">
+      </div>
+    </fieldset>
   </div>
   <div class="card-footer">
     <div class="btn-group btn-group-lg">
