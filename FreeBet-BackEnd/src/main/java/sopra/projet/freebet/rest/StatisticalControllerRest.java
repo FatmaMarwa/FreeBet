@@ -15,9 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import sopra.projet.freebet.exception.NotFoundException;
-import sopra.projet.freebet.model.Admin;
+import sopra.projet.freebet.model.Code;
 import sopra.projet.freebet.model.Statistical;
-import sopra.projet.freebet.repository.IAdminRepository;
 import sopra.projet.freebet.repository.IStatisticalRepository;
 
 @CrossOrigin("*")
@@ -64,6 +63,11 @@ public class StatisticalControllerRest {
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable Long id) {
 		statisticalRepo.deleteById(id);
+	}
+	
+	@GetMapping("/code")
+	public Code[] codes() {
+		return Code.values();
 	}
 	
 }

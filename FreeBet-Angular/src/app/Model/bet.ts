@@ -1,4 +1,5 @@
 import {Bettor} from "./bettor";
+import {Game} from "../game/game";
 
 export class Bet {
   id: number;

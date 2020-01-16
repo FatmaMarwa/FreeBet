@@ -15,9 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import sopra.projet.freebet.exception.NotFoundException;
-import sopra.projet.freebet.model.Admin;
 import sopra.projet.freebet.model.Sport;
-import sopra.projet.freebet.repository.IAdminRepository;
+import sopra.projet.freebet.model.TypeSport;
 import sopra.projet.freebet.repository.ISportRepository;
 
 @CrossOrigin("*")
@@ -64,6 +63,11 @@ public class SportControllerRest {
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable Long id) {
 		sportRepo.deleteById(id);
+	}
+	
+	@GetMapping("/typeSport")
+	public TypeSport[] typesport() {
+		return TypeSport.values();
 	}
 	
 }

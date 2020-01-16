@@ -5,6 +5,7 @@ import {Observable} from "rxjs";
 import {BetHttpService} from "../bet/bet-http.service";
 import {AppConfigService} from "../app-config.service";
 import {Bettor} from "../Model/bettor";
+import {LoginHttpService} from "../login/login-http.service";
 
 @Injectable({
   providedIn: 'root'

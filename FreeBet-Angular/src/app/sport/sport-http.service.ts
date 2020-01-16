@@ -11,6 +11,8 @@ export class SportHttpService {
 
   sports: Array<Sport>;
 
+  typeSports: Array<string>;
+
   constructor(private appConfig: appConfigService, private  http: HttpClient, private gameService: GameHttpservice, private opponentService: OpponentHttpService) {
     this.load();
   }

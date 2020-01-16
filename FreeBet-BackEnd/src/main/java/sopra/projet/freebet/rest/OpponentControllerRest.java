@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import sopra.projet.freebet.exception.NotFoundException;
+import sopra.projet.freebet.model.ChampionShip;
 import sopra.projet.freebet.model.Opponent;
 import sopra.projet.freebet.repository.IOpponentRepository;
 
@@ -64,4 +64,8 @@ public class OpponentControllerRest {
 		opponentRepo.deleteById(id);
 	}
 	
+	@GetMapping("/championship")
+	public ChampionShip[] champ() {
+		return ChampionShip.values();
+	}
 }

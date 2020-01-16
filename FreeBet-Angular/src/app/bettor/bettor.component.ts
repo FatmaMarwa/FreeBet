@@ -5,9 +5,10 @@ import {Bet} from "../Model/bet";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {BettorHttpService} from "./bettor-http.service";
 import {Adress} from "../Model/adress";
+import {LoginHttpService} from "../login/login-http.service";
 
 @Component({
-  selector: 'app-bettor',
+  selector: 'bettor,[bettor]',
   templateUrl: './bettor.component.html',
   styleUrls: ['./bettor.component.css']
 })

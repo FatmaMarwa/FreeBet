@@ -4,6 +4,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {AppConfigService} from '../app-config.service';
 import {BettorHttpService} from "../bettor/bettor-http.service";
+import {GameHttpService} from "../game/game-http.service";
 
 @Injectable({
   providedIn: 'root'

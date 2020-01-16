@@ -4,6 +4,7 @@ import {BetHttpService} from "./bet-http.service";
 import {Bettor} from "../Model/bettor";
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {BettorHttpService} from "../bettor/bettor-http.service";
+import {GameHttpService} from "../game/game-http.service";
 
 @Component({
   selector: 'bet,[bet]',
