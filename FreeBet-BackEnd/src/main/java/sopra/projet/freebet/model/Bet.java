@@ -54,12 +54,12 @@ public class Bet {
 	@ManyToMany
 	@JoinTable(name = "Bet_Game", joinColumns = {
 			@JoinColumn(name = "BET_ID") }, inverseJoinColumns = @JoinColumn(name = "GAME_ID"))
-	@JsonView(Views.ViewGame.class)
+	@JsonView(Views.ViewBet.class)
 	private List<Game> games = new ArrayList<Game>();
 
 	@ManyToOne
 	@JoinColumn(name = "bettor_id")
-	@JsonView(Views.ViewGameDetail.class)
+	@JsonView(Views.ViewBetDetail.class)
 	private Bettor bettorr;
 
 	public Bet() {

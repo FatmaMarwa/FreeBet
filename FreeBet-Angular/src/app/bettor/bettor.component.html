@@ -17,7 +17,7 @@
         <td (click)="detail(content, bettor.id)" style="cursor: pointer">{{bettor.nom}}</td>
         <td (click)="detail(content, bettor.id)" style="cursor: pointer">{{bettor.prenom}}</td>
         <td (click)="detail(content, bettor.id)" style="cursor: pointer">{{bettor.ddn | date:'yyyy-MM-dd' }}</td>
-        <td (click)="detail(content, bettor.id)" style="cursor: pointer">{{bettor.soldecagnotte}}</td>
+        <td (click)="detail(content, bettor.id)" style="cursor: pointer">{{bettor.soldeCagnotte}}</td>
         <td (click)="detail(content, bettor.id)" style="cursor: pointer">{{bettor.civilite}}</td>
         <td>
           <div class="btn-group btn-group-sm">
@@ -72,7 +72,7 @@
       </tr>
       <tr>
         <th>Solde de Cagnotte</th>
-        <td>{{modalBettor?.soldecagnotte}}</td>
+        <td>{{modalBettor?.soldeCagnotte}}</td>
       </tr>
       <tr>
         <th>Civilité</th>
@@ -131,7 +131,7 @@
     <div class="form-group">
       <label for="solde">Solde de Cagnotte:</label>
       <input type="number" class="form-control" placeholder="Entrer le solde de la cagnotte" id="solde"
-             [(ngModel)]="currentBettor.soldecagnotte">
+             [(ngModel)]="currentBettor.soldeCagnotte">
     </div>
     <div class="form-group">
       <label for="civilite">Civilité:</label>
@@ -155,6 +155,11 @@
         <label for="ville">Ville:</label>
         <input type="text" class="form-control" placeholder="Entrer la ville" id="ville"
                [(ngModel)]="currentBettor.adress.ville">
+      </div>
+      <div class="form-group">
+        <label for="ville">Ville:</label>
+        <input type="text" class="form-control" placeholder="Entrer la ville" id="ville"
+               [(ngModel)]="currentBettor.adress.pays">
       </div>
     </fieldset>
     <fieldset>

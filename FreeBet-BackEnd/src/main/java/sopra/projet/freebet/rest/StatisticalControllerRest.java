@@ -14,9 +14,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import sopra.projet.freebet.exception.NotFoundException;
 import sopra.projet.freebet.model.Code;
 import sopra.projet.freebet.model.Statistical;
+import sopra.projet.freebet.model.Views;
 import sopra.projet.freebet.repository.IStatisticalRepository;
 
 @CrossOrigin("*")
@@ -24,18 +27,20 @@ import sopra.projet.freebet.repository.IStatisticalRepository;
 @RequestMapping("/statistical")
 
 public class StatisticalControllerRest {
-	
+
 	@Autowired
 	private IStatisticalRepository statisticalRepo;
-	
+
 	@GetMapping("")
+	@JsonView(Views.ViewStatistical.class)
 	public List<Statistical> list() {
 		List<Statistical> stats = statisticalRepo.findAll();
 
 		return stats;
 	}
-	
+
 	@GetMapping("/{id}")
+	@JsonView(Views.ViewStatisticalDetail.class)
 	public Statistical find(@PathVariable Long id) {
 		Optional<Statistical> opt = statisticalRepo.findById(id);
 
@@ -47,6 +52,7 @@ public class StatisticalControllerRest {
 	}
 
 	@PostMapping("")
+	@JsonView(Views.ViewStatistical.class)
 	public Statistical create(@RequestBody Statistical statistical) {
 		statistical = statisticalRepo.save(statistical);
 
@@ -54,6 +60,7 @@ public class StatisticalControllerRest {
 	}
 
 	@PutMapping("/{id}")
+	@JsonView(Views.ViewStatistical.class)
 	public Statistical update(@RequestBody Statistical statistical, @PathVariable Long id) {
 		statistical = statisticalRepo.save(statistical);
 
@@ -64,10 +71,10 @@ public class StatisticalControllerRest {
 	public void delete(@PathVariable Long id) {
 		statisticalRepo.deleteById(id);
 	}
-	
+
 	@GetMapping("/code")
 	public Code[] codes() {
 		return Code.values();
 	}
-	
+
 }

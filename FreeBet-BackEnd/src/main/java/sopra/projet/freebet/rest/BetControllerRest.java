@@ -14,9 +14,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import sopra.projet.freebet.exception.NotFoundException;
 import sopra.projet.freebet.model.Bet;
 import sopra.projet.freebet.model.TypeBet;
+import sopra.projet.freebet.model.Views;
 import sopra.projet.freebet.repository.IBetRepository;
 
 @CrossOrigin("*")
@@ -29,6 +32,7 @@ public class BetControllerRest {
 	private IBetRepository betRepo;
 	
 	@GetMapping("")
+	@JsonView(Views.ViewBet.class)
 	public List<Bet> list() {
 		List<Bet> bets = betRepo.findAll();
 
@@ -36,6 +40,7 @@ public class BetControllerRest {
 	}
 	
 	@GetMapping("/{id}")
+	@JsonView(Views.ViewBetDetail.class)
 	public Bet find(@PathVariable Long id) {
 		Optional<Bet> opt = betRepo.findById(id);
 
@@ -47,6 +52,7 @@ public class BetControllerRest {
 	}
 
 	@PostMapping("")
+	@JsonView(Views.ViewBet.class)
 	public Bet create(@RequestBody Bet bet) {
 		bet = betRepo.save(bet);
 
@@ -54,6 +60,7 @@ public class BetControllerRest {
 	}
 
 	@PutMapping("/{id}")
+	@JsonView(Views.ViewBet.class)
 	public Bet update(@RequestBody Bet bet, @PathVariable Long id) {
 		bet = betRepo.save(bet);
 
