@@ -25,6 +25,7 @@ import {GameHttpService} from './game/game-http.service';
 import {LoginHttpService} from './login/login-http.service';
 import {SportHttpService} from './sport/sport-http.service';
 import {OpponentHttpService} from './opponent/opponent-http.service';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import {OpponentHttpService} from './opponent/opponent-http.service';
     LoginComponent,
     GameComponent,
     OpponentComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
