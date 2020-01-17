@@ -14,8 +14,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import sopra.projet.freebet.exception.NotFoundException;
 import sopra.projet.freebet.model.Login;
+import sopra.projet.freebet.model.Views;
 import sopra.projet.freebet.repository.ILoginRepository;
 
 @CrossOrigin("*")
@@ -23,18 +26,20 @@ import sopra.projet.freebet.repository.ILoginRepository;
 @RequestMapping("/login")
 
 public class LoginControllerRest {
-	
+
 	@Autowired
 	private ILoginRepository loginRepo;
-	
+
 	@GetMapping("")
+	@JsonView(Views.ViewLogin.class)
 	public List<Login> list() {
 		List<Login> logins = loginRepo.findAll();
 
 		return logins;
 	}
-	
+
 	@GetMapping("/{id}")
+	@JsonView(Views.ViewLoginDetail.class)
 	public Login find(@PathVariable Long id) {
 		Optional<Login> opt = loginRepo.findById(id);
 
@@ -46,6 +51,7 @@ public class LoginControllerRest {
 	}
 
 	@PostMapping("")
+	@JsonView(Views.ViewLogin.class)
 	public Login create(@RequestBody Login login) {
 		login = loginRepo.save(login);
 
@@ -53,6 +59,7 @@ public class LoginControllerRest {
 	}
 
 	@PutMapping("/{id}")
+	@JsonView(Views.ViewLogin.class)
 	public Login update(@RequestBody Login login, @PathVariable Long id) {
 		login = loginRepo.save(login);
 
@@ -63,5 +70,5 @@ public class LoginControllerRest {
 	public void delete(@PathVariable Long id) {
 		loginRepo.deleteById(id);
 	}
-	
+
 }

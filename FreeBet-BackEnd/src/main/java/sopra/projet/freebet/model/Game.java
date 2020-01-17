@@ -55,7 +55,7 @@ public class Game {
 	List<Bet> bets_game = new ArrayList<Bet>();
 
 	@OneToOne
-	@JsonView(Views.ViewCommon.class)
+	@JsonView(Views.ViewGame.class)
 	private Sport sport;
 
 	@OneToMany(mappedBy = "game_opponent")
