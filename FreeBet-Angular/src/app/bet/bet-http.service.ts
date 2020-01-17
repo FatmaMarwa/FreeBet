@@ -13,8 +13,11 @@ import {GameHttpService} from "../game/game-http.service";
 export class BetHttpService{
   bets:Array<Bet>;
 
+  typesBets:Array<string>;
+
   constructor(private appConfig: AppConfigService,private http: HttpClient) {
     this.load();
+    this.loadTypeBet();
   }
 
   load() {
@@ -23,6 +26,14 @@ export class BetHttpService{
       },
       err => console.log(err));
   }
+
+  loadTypeBet(){
+    this.http.get<Array<string>>(this.appConfig.backEnd+ 'bet/typeBet').subscribe(resp =>{
+        this.typesBets=resp;
+      },
+      err => console.log(err));
+  }
+
   findAll(): Array<Bet> {
     return this.bets;
   }
