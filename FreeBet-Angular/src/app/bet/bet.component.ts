@@ -35,7 +35,7 @@ export class BetComponent implements OnInit {
     return this.bettorService.findAll();
   }*/
 
- /* betgames(){
+  /*betgames(){
     return this.gameService.findAll();
   }*/
 

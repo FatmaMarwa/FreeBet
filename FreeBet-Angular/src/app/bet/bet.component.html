@@ -9,7 +9,8 @@
         <th scope="col">Type du Bet</th>
         <th scope="col">Date du Bet</th>
         <th scope="col">Gain</th>
-        <th scope="col"></th>
+        <th scope="col">Games</th>
+        <th></th>
       </tr>
       </thead>
       <tbody>
@@ -19,7 +20,14 @@
         <td (click)="detail(content, bet.id)" style="cursor: pointer">{{bet.type}}</td>
         <td (click)="detail(content, bet.id)" style="cursor: pointer">{{bet.betDate | date:'yyyy-MM-dd HH:mm' }}</td>
         <td (click)="detail(content, bet.id)" style="cursor: pointer">{{bet.gain}}</td>
-        <td (click)="detail(content, bet.id)" style="cursor: pointer">{{bet.games}}</td>
+        <td (click)="detail(content, bet.id)" style="cursor: pointer" >
+          <ul *ngFor="let game of bet.games">
+            <li>{{game.id}}</li>
+              <ul *ngFor="let opp of game.opponents">
+                <li >{{opp.nom}}</li>
+              </ul>
+          </ul>
+        </td>
         <td (click)="detail(content, bet.id)" style="cursor: pointer">{{bet.bettor}}</td>
         <td>
           <div class="btn-group btn-group-sm">
@@ -77,7 +85,9 @@
       </tr>
       <tr>
         <th>Games</th>
-        <td>{{modalBet.games}}</td>
+        <ul *ngFor="let game of modalBet.games">
+         <li>{{game.id}}</li>
+        </ul>
       </tr>
       <tr>
         <th>Pseudo</th>
