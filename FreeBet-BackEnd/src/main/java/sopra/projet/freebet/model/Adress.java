@@ -3,19 +3,25 @@ package sopra.projet.freebet.model;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Embeddable
 public class Adress {
 
 	@Column(name = "street", length = 100)
+	@JsonView(Views.ViewCommon.class)
 	private String rue;
 
 	@Column(name = "city", length = 50)
+	@JsonView(Views.ViewCommon.class)
 	private String ville;
 
 	@Column(name = "postal_code", length = 50)
+	@JsonView(Views.ViewCommon.class)
 	private String codePostal;
 
 	@Column(name = "country", length = 100)
+	@JsonView(Views.ViewCommon.class)
 	private String pays;
 
 	public Adress() {

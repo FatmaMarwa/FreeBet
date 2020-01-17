@@ -14,24 +14,33 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Table(name = "Sport")
 public class Sport {
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
 	@Column(name = "name")
+	@JsonView(Views.ViewCommon.class)
 	private String nom;
 	@Enumerated(EnumType.STRING)
+	@JsonView(Views.ViewCommon.class)
 	private TypeSport sportType;
 	@Enumerated(EnumType.STRING)
+	@JsonView(Views.ViewCommon.class)
 	private Duree duree;
 	@OneToOne(mappedBy = "sport")
+	@JsonView(Views.ViewSport.class)
 	private Game game;
 
 	@OneToMany(mappedBy = "sport_opponent")
+	@JsonView(Views.ViewSportDetail.class)
 	List<Opponent> opponentSport = new ArrayList<Opponent>();
 
 	public Sport() {

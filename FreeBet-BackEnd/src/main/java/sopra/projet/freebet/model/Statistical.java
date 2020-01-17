@@ -11,24 +11,31 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Table(name = "Statistical")
 public class Statistical {
 
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "code")
+	@JsonView(Views.ViewCommon.class)
 	private Code code;
 	@Column(name = "result")
+	@JsonView(Views.ViewCommon.class)
 	private int resultat;
 
 	@ManyToOne
 	@JoinColumn(name = "GAME_ID")
+	@JsonView(Views.ViewStatistical.class)
 	private Game game_stat;
 
 	public Statistical() {

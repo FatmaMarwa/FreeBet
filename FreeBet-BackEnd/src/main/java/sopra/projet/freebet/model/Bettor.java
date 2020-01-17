@@ -15,40 +15,52 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Table(name = "Bettor")
 public class Bettor {
 
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
 
 	@Column(name = "lastname", length = 100)
+	@JsonView(Views.ViewCommon.class)
 	private String nom;
 
 	@Column(name = "firstname", length = 100)
+	@JsonView(Views.ViewCommon.class)
 	private String prenom;
 
 	@Column(name = "date_birth", length = 50)
+	@JsonView(Views.ViewCommon.class)
 	private Date ddn;
 
 	@Column(name = "money_balance", length = 100)
+	@JsonView(Views.ViewCommon.class)
 	private Float soldeCagnotte;
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "civility")
+	@JsonView(Views.ViewCommon.class)
 	private Civility civilite;
 
 	@Embedded
 	@Column(name = "adress")
+	@JsonView(Views.ViewCommon.class)
 	private Adress adress;
 
 	@OneToOne
+	@JsonView(Views.ViewBettor.class)
 	private Login login;
 
 	@OneToMany(mappedBy = "bettorr")
+	@JsonView(Views.ViewBettorDetail.class)
 	List<Bet> bets;
 
 	public Bettor() {

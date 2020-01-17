@@ -11,28 +11,36 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Table(name = "Opponent")
 public class Opponent {
 
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
 
 	@Column(name = "name")
+	@JsonView(Views.ViewCommon.class)
 	private String nom;
 	@Enumerated(EnumType.STRING)
 	@Column(name = "championship")
+	@JsonView(Views.ViewCommon.class)
 	private ChampionShip championnat;
 
 	@ManyToOne
 	@JoinColumn(name = "SPORT_NAME")
+	@JsonView(Views.ViewOpponent.class)
 	private Sport sport_opponent;
 
 	@ManyToOne
 	@JoinColumn(name = "GAME_ID")
+	@JsonView(Views.ViewOpponent.class)
 	private Game game_opponent;
 
 	public Opponent() {

@@ -8,29 +8,38 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Table(name = "Login")
 public class Login {
 
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
 
 	@Column(name = "pseudo", length = 50)
+	@JsonView(Views.ViewCommon.class)
 	private String pseudo;
 
 	@Column(name = "mail", length = 100)
+	@JsonView(Views.ViewCommon.class)
 	private String mail;
 
 	@Column(name = "password", length = 50)
+	@JsonView(Views.ViewCommon.class)
 	private String motDePasse;
 
 	@OneToOne(mappedBy = "login")
+	@JsonView(Views.ViewLogin.class)
 	private Admin admin;
 
 	@OneToOne(mappedBy = "login")
+	@JsonView(Views.ViewLogin.class)
 	private Bettor bettor;
 
 	public Login() {
@@ -45,8 +54,6 @@ public class Login {
 		this.mail = mail;
 		this.motDePasse = motdepasse;
 	}
-	
-	
 
 	public Login(String pseudo, String mail, String motdepasse) {
 		super();
@@ -110,7 +117,5 @@ public class Login {
 	public void setBettor(Bettor bettor) {
 		this.bettor = bettor;
 	}
-
-
 
 }
