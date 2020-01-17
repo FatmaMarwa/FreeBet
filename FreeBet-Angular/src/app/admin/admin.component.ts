@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Admin} from './admin';
+import {Admin} from '../Model/admin';
 import {AdminHttpService} from './admin-http.service';
 import {Login} from '../login/Login';
 import {Adress} from '../Model/adress';
@@ -17,7 +17,7 @@ export class AdminComponent implements OnInit {
 
   modalAdmin: Admin = null;
 
-  constructor(private modalService: NgbModal, private adminService: AdminHttpService, private loginService: LoginHttpService) { }
+  constructor(private modalService: NgbModal, private adminService: AdminHttpService) { }
 
   ngOnInit() {
   }
@@ -26,13 +26,13 @@ export class AdminComponent implements OnInit {
     return this.adminService.findAll();
   }
 
-  logins() {
+  /*logins() {
     return this.loginService.findAll();
-  }
+  }*/
 
   add() {
     this.currentAdmin = new Admin();
-    this.currentAdmin.adresse = new Adress();
+    this.currentAdmin.adress = new Adress();
     this.currentAdmin.login = new Login();
   }
 
@@ -52,8 +52,8 @@ export class AdminComponent implements OnInit {
       if (!this.currentAdmin.login) {
         this.currentAdmin.login = new Login();
       }
-      if (!this.currentAdmin.adresse) {
-        this.currentAdmin.adresse = new Adress();
+      if (!this.currentAdmin.adress) {
+        this.currentAdmin.adress = new Adress();
       }
 
 

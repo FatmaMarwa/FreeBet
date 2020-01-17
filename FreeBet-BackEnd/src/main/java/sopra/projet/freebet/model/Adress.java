@@ -22,11 +22,11 @@ public class Adress {
 		super();
 	}
 
-	public Adress(String rue, String ville, String codepostal, String pays) {
+	public Adress(String rue, String ville, String codePostal, String pays) {
 		super();
 		this.rue = rue;
 		this.ville = ville;
-		this.codePostal = codepostal;
+		this.codePostal = codePostal;
 		this.pays = pays;
 	}
 
@@ -50,8 +50,8 @@ public class Adress {
 		return codePostal;
 	}
 
-	public void setCodepostal(String codepostal) {
-		this.codePostal = codepostal;
+	public void setCodepostal(String codePostal) {
+		this.codePostal = codePostal;
 	}
 
 	public String getPays() {

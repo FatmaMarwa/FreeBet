@@ -5,7 +5,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {AppConfigService} from '../app-config.service';
-import {Admin} from './admin';
+import {Admin} from '../Model/admin';
 import {LoginHttpService} from '../login/login-http.service';
 
 @Injectable({
@@ -36,10 +36,8 @@ export class AdminHttpService {
 
   save(admin: Admin) {
     if (admin) {
-      if (admin.login && !admin.login.id) {
-        admin.login = null;
-      }
       if (!admin.id) {
+        console.log(admin)
         this.http.post<Admin>(this.appConfig.backEnd + 'admin', admin).subscribe(resp => {
           this.load();
         }, err => console.log(err));

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Admin} from '../admin/admin';
+import {Admin} from '../Model/admin';
 import {AdminHttpService} from '../admin/admin-http.service';
 import {Login} from './Login';
 import {LoginHttpService} from './login-http.service';

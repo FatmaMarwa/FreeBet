@@ -1,5 +1,5 @@
 import {Login} from '../login/Login';
-import {Adress} from '../Model/adress';
+import {Adress} from './adress';
 
 
 export class Admin{
@@ -8,16 +8,16 @@ export class Admin{
   nom: string;
   prenom: string;
   login: Login;
-  adresse: Adress;
+  adress: Adress;
 
 
-  constructor(id?: number, version?: number, nom?: string, prenom?: string, login?: Login, adresse?: Adress) {
+  constructor(id?: number, version?: number, nom?: string, prenom?: string, login?: Login, adress?: Adress) {
     this.id = id;
     this.version = version;
     this.nom = nom;
     this.prenom = prenom;
     this.login = login;
-    this.adresse = adresse;
+    this.adress = adress;
   }
 
 }
