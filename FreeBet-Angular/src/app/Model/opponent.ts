@@ -1,4 +1,9 @@
+<<<<<<< HEAD:FreeBet-Angular/src/app/Model/opponent.ts
 import {Game} from './game';
+=======
+import {Game} from '../game/game';
+import {Sport} from '../Model/sport';
+>>>>>>> master:FreeBet-Angular/src/app/opponent/opponent.ts
 
 export class Opponent {
   id: number;

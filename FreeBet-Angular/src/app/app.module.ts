@@ -10,6 +10,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { GameComponent } from './game/game.component';
 import { OpponentComponent } from './opponent/opponent.component';
+import {AngularFontAwesomeModule} from 'angular-font-awesome';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {HttpClientModule} from '@angular/common/http';
+import {AppConfigService} from './app-config.service';
+import {AdminHttpService} from './admin/admin-http.service';
+import {BetHttpService} from './bet/bet-http.service';
+import {BettorHttpService} from './bettor/bettor-http.service';
+import {GameHttpService} from './game/game-http.service';
+import {LoginHttpService} from './login/login-http.service';
+import {SportHttpService} from './sport/sport-http.service';
+import {OpponentHttpService} from './opponent/opponent-http.service';
 
 
 @NgModule({
@@ -27,9 +38,14 @@ import { OpponentComponent } from './opponent/opponent.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    AngularFontAwesomeModule,
+    NgbModule,
+    HttpClientModule,
+
+
   ],
-  providers: [],
+  providers: [AppConfigService, AdminHttpService, BetHttpService, BettorHttpService, GameHttpService, LoginHttpService, SportHttpService, OpponentHttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
