@@ -19,36 +19,47 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Table(name = "Bet")
 public class Bet {
 
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
 
 	@Column(name = "stake")
+	@JsonView(Views.ViewCommon.class)
 	private Float mise;
 	@Column(name = "bet_result")
+	@JsonView(Views.ViewCommon.class)
 	private Boolean resultatPari;
 	@Enumerated(EnumType.STRING)
 	@Column(name = "type_bet")
+	@JsonView(Views.ViewCommon.class)
 	private TypeBet type;
 	@Temporal(TemporalType.DATE)
 	@Column(name = "bet_date")
+	@JsonView(Views.ViewCommon.class)
 	private Date betDate;
 	@Column(name = "gain")
+	@JsonView(Views.ViewCommon.class)
 	private Float gain;
 
 	@ManyToMany
 	@JoinTable(name = "Bet_Game", joinColumns = {
 			@JoinColumn(name = "BET_ID") }, inverseJoinColumns = @JoinColumn(name = "GAME_ID"))
+	@JsonView(Views.ViewGame.class)
 	private List<Game> games = new ArrayList<Game>();
 
 	@ManyToOne
 	@JoinColumn(name = "bettor_id")
+	@JsonView(Views.ViewGameDetail.class)
 	private Bettor bettorr;
 
 	public Bet() {
@@ -63,7 +74,6 @@ public class Bet {
 		this.betDate = date;
 		this.gain = gain;
 	}
-	
 
 	public Bet(Float mise, Boolean resultatPari, TypeBet type, Date betDate, Float gain, List<Game> games) {
 		super();

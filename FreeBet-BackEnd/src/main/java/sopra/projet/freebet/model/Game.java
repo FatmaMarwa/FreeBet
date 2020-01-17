@@ -16,40 +16,54 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Table(name = "Game")
 public class Game {
 
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
 
 	@Temporal(TemporalType.DATE)
 	@Column(name = "date_game")
+	@JsonView(Views.ViewCommon.class)
 	private Date gameDate;
 	@Column(name = "date_gameend")
+	@JsonView(Views.ViewCommon.class)
 	private Date gameEnd;
 	@Column(name = "odds1")
+	@JsonView(Views.ViewCommon.class)
 	private Float cote1;
 	@Column(name = "oddsN")
+	@JsonView(Views.ViewCommon.class)
 	private Float coteN;
 	@Column(name = "odds2")
+	@JsonView(Views.ViewCommon.class)
 	private Float cote2;
 	@Column(name = "game_done")
+	@JsonView(Views.ViewCommon.class)
 	private Boolean resultatMatch;
 
 	@ManyToMany(mappedBy = "games")
+	@JsonView(Views.ViewGameDetail.class)
 	List<Bet> bets_game = new ArrayList<Bet>();
 
 	@OneToOne
+	@JsonView(Views.ViewCommon.class)
 	private Sport sport;
 
 	@OneToMany(mappedBy = "game_opponent")
+	@JsonView(Views.ViewGame.class)
 	List<Opponent> opponentGame = new ArrayList<Opponent>();
 
 	@OneToMany(mappedBy = "game_stat")
+	@JsonView(Views.ViewGame.class)
 	List<Statistical> stat = new ArrayList<Statistical>();
 
 	public Game() {
@@ -65,7 +79,6 @@ public class Game {
 		this.cote2 = cote2;
 		this.resultatMatch = resultatMatch;
 	}
-	
 
 	public Game(Date gameDate, Float cote1, Float coteN, Float cote2, Boolean resultatMatch) {
 		super();
@@ -86,7 +99,8 @@ public class Game {
 		this.stat = stat;
 	}
 
-	public Game(Date gameDate, Date gameEnd, Float cote1, Float coteN, Float cote2, Boolean resultatMatch, List<Statistical> stat) {
+	public Game(Date gameDate, Date gameEnd, Float cote1, Float coteN, Float cote2, Boolean resultatMatch,
+			List<Statistical> stat) {
 		super();
 		this.gameDate = gameDate;
 		this.gameEnd = gameEnd;

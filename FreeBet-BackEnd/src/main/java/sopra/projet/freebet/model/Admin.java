@@ -9,27 +9,37 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+
+
 @Entity
 @Table(name = "Admin")
 public class Admin {
 
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
 
 	@Column(name = "lastname", length = 100)
+	@JsonView(Views.ViewCommon.class)
 	private String nom;
 
 	@Column(name = "firstname", length = 100)
+	@JsonView(Views.ViewCommon.class)
 	private String prenom;
 
 	@Embedded
 	@Column(name = "adress")
+	@JsonView(Views.ViewCommon.class)
 	private Adress adress;
 
 	@OneToOne
+	@JsonView(Views.ViewAdminDetail.class)
 	private Login login;
 
 	public Admin() {
