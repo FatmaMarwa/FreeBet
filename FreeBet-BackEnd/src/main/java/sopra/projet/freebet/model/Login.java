@@ -48,11 +48,11 @@ public class Login {
 	
 	
 
-	public Login(String pseudo, String mail, String motDePasse) {
+	public Login(String pseudo, String mail, String motdepasse) {
 		super();
 		this.pseudo = pseudo;
 		this.mail = mail;
-		this.motDePasse = motDePasse;
+		this.motDePasse = motdepasse;
 	}
 
 	public Long getId() {
@@ -91,8 +91,24 @@ public class Login {
 		return motDePasse;
 	}
 
-	public void setMotDePasse(String motDePasse) {
-		this.motDePasse = motDePasse;
+	public void setMotDePasse(String motdepasse) {
+		this.motDePasse = motdepasse;
+	}
+
+	public Admin getAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(Admin admin) {
+		this.admin = admin;
+	}
+
+	public Bettor getBettor() {
+		return bettor;
+	}
+
+	public void setBettor(Bettor bettor) {
+		this.bettor = bettor;
 	}
 
 

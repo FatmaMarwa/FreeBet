@@ -46,11 +46,15 @@ public class Adress {
 		this.ville = ville;
 	}
 
-	public String getCodepostal() {
+
+
+
+
+	public String getCodePostal() {
 		return codePostal;
 	}
 
-	public void setCodepostal(String codePostal) {
+	public void setCodePostal(String codePostal) {
 		this.codePostal = codePostal;
 	}
 
