@@ -19,7 +19,7 @@ export class OpponentComponent implements OnInit {
   modalOpponent: Opponent = null;
 
 
-  constructor(private modalService: NgbModal, private opponentService: OpponentHttpService, private sportService: SportHttpService, private gameService: GameHttpService) {
+  constructor(private modalService: NgbModal, private opponentService: OpponentHttpService) {
   }
 
   ngOnInit() {
@@ -27,12 +27,11 @@ export class OpponentComponent implements OnInit {
   list() {
     return this.opponentService.findAll();
   }
-  sports() {
-    return this.sportService.findAll();
-  }
-  games() {
-    return this.gameService.findAll();
-  }
+ // sports() {
+  //  return this.sportService.findAll();
+  //}
+ // games() {
+//  }
 
   championnats() {
     return this.opponentService.championnats;

@@ -277,6 +277,8 @@ public class FormationTestSpring {
 		Statistical st2 = new Statistical(Code.result1, 4);
 		Statistical st3 = new Statistical(Code.result1, 2);
 		Statistical st4 = new Statistical(Code.result1, 2);
+		
+		
 
 		List<Statistical> lstats1 = new ArrayList<Statistical>();
 		lstats1.add(st1);

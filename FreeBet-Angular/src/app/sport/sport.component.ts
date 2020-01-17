@@ -16,7 +16,7 @@ export class SportComponent implements OnInit {
   modalSport: Sport = null;
 
 
-  constructor(private modalService: NgbModal, private sportService: SportHttpService, private gameService: GameHttpService, private opponentService: OpponentHttpService) {
+  constructor(private modalService: NgbModal, private sportService: SportHttpService, ) {
   }
 
   ngOnInit() {
@@ -26,17 +26,22 @@ export class SportComponent implements OnInit {
     return this.sportService.findAll();
   }
 
-  games() {
-    return this.gameService.findAll();
-  }
+ // games() {
+//    return this.gameService.findAll();
+ // }
 
-  opponents() {
-    return this.opponentService.findAll();
-  }
+ // opponents() {
+ //   return this.opponentService.findAll();
+//  }
 
   typeSport() {
     return this.sportService.typeSports;
   }
+  duree() {
+    return this.sportService.durees;
+  }
+
+
 
   add() {
     this.currentSport = new Sport();

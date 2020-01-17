@@ -2,6 +2,7 @@
   <thead>
   <tr>
     <th scope="col">Date de la rencontre</th>
+    <th scope="col">Date fin de rencontre</th>
     <th scope="col">Identifiant</th>
     <th scope="col">Version</th>
     <th scope="col">Cote1</th>
@@ -24,6 +25,7 @@
     <th scope="row" (click)="detail(content, game.id)" style="cursor: pointer">{{ game.id }}</th>
     <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.version}}</td>
     <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.gameDate}}</td>
+    <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.gameEnd}}</td>
     <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.cote1}}</td>
     <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.coteN}}</td>
     <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.cote2}}</td>
@@ -72,6 +74,10 @@
         <td>{{modalGame.gameDate}}</td>
       </tr>
       <tr>
+        <th>Date de fin de rencontre</th>
+        <td>{{modalGame.gameDate}}</td>
+      </tr>
+      <tr>
         <th>Cote 1</th>
         <td>{{modalGame.cote1}}</td>
       </tr>
@@ -98,7 +104,12 @@
     <div class="form-group">
       <label for="dtGame">Date de la rencontre:</label>
       <input type="datetime-local" class="form-control" placeholder="Entrer la date de la rencontre" id="dtGame"
-             [ngModel]="currentGame.gameDate | date:'MM/DD/YYYY HH:MM'" (ngModelChange)="currentGame.gameDate=$event">
+             [ngModel]="currentGame.gameDate | date:'yyyy-MM-dd HH:mm'" (ngModelChange)="currentGame.gameDate=$event">
+    </div>
+    <div class="form-group">
+      <label for="dtEnd">Date de fin de rencontre:</label>
+      <input type="datetime-local" class="form-control" placeholder="Entrer la date de la fin de rencontre" id="dtEnd"
+             [ngModel]="currentGame.gameEnd | date:'yyyy-MM-dd HH:mm'" (ngModelChange)="currentGame.gameEnd=$event">
     </div>
     <div class="form-group">
       <label for="cote1">Cote 1:</label>

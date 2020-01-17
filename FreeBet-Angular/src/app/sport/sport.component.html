@@ -52,6 +52,10 @@
         <th>Type de côtes</th>
         <td>{{modalSport.typeSport}}</td>
       </tr>
+      <tr>
+        <th>Durée de la Rencontre</th>
+        <td>{{modalSport.duree}}</td>
+      </tr>
       </tbody>
     </table>
   </div>
@@ -68,6 +72,12 @@
       <label for="typeSport">Type de côtes</label>
       <select class="form-control" placeholder="Entrer le Type de côtes" id="typeSport" [(ngModel)]="currentSport.typeSport">
         <option value="{{tsport}}" *ngFor="let tsport of typeSport()">{{tsport}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="duree">Durée d'une rencontre:</label>
+      <select class="form-control"  id="duree" [(ngModel)]="currentSport.typeSport">
+        <option value="{{duree}}" *ngFor="let duree of duree()">{{duree}}</option>
       </select>
     </div>
     </div>

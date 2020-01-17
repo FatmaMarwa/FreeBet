@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import sopra.projet.freebet.exception.NotFoundException;
+import sopra.projet.freebet.model.Civility;
+import sopra.projet.freebet.model.Duree;
 import sopra.projet.freebet.model.Sport;
 import sopra.projet.freebet.model.TypeSport;
 import sopra.projet.freebet.repository.ISportRepository;
@@ -69,5 +71,8 @@ public class SportControllerRest {
 	public TypeSport[] typesport() {
 		return TypeSport.values();
 	}
-	
+	@GetMapping("/durees")
+	public Duree[] duree() {
+		return Duree.values();
+	}
 }
