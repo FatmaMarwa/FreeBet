@@ -6,6 +6,7 @@ import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {BettorHttpService} from "./bettor-http.service";
 import {Adress} from "../Model/adress";
 import {LoginHttpService} from "../login/login-http.service";
+import {Login} from "../login/Login";
 
 @Component({
   selector: 'bettor,[bettor]',
@@ -17,14 +18,14 @@ export class BettorComponent implements OnInit {
 
   modalBettor:Bettor = null;
 
-  constructor(private modalService:NgbModal,private betService:BetHttpService,private bettorService:BettorHttpService,private loginService:LoginHttpService) { }
+  constructor(private modalService:NgbModal,private bettorService:BettorHttpService) { }
 
   ngOnInit() {
   }
 
-  bets(){
+ /* bets(){
     return this.betService.findAll();
-  }
+  }*/
 
   list(){
     return this.bettorService.findAll();
@@ -34,13 +35,14 @@ export class BettorComponent implements OnInit {
     return this.bettorService.civilites;
   }
 
-  logins(){
+  /*logins(){
     return this.loginService.findAll();
-  }
+  }*/
 
   add() {
     this.currentBettor = new Bettor();
     this.currentBettor.adress = new Adress();
+    this.currentBettor.login=new Login();
   }
 
   detail(content, id: number) {
@@ -58,6 +60,9 @@ export class BettorComponent implements OnInit {
 
       if (!this.currentBettor.adress) {
         this.currentBettor.adress = new Adress();
+      }
+      if (!this.currentBettor.login) {
+        this.currentBettor.login = new Login();
       }
     }, error => {
       console.log(error);
