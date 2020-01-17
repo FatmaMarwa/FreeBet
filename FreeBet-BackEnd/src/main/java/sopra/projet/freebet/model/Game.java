@@ -29,6 +29,8 @@ public class Game {
 	@Temporal(TemporalType.DATE)
 	@Column(name = "date_game")
 	private Date gameDate;
+	@Column(name = "date_gameend")
+	private Date gameEnd;
 	@Column(name = "odds1")
 	private Float cote1;
 	@Column(name = "oddsN")
@@ -54,7 +56,18 @@ public class Game {
 		super();
 	}
 
-	public Game(Date gameDate, Float cote1, Float coteN, Float cote2, boolean resultatMatch) {
+	public Game(Date gameDate, Date gameEnd, Float cote1, Float coteN, Float cote2, boolean resultatMatch) {
+		super();
+		this.gameDate = gameDate;
+		this.gameEnd = gameEnd;
+		this.cote1 = cote1;
+		this.coteN = coteN;
+		this.cote2 = cote2;
+		this.resultatMatch = resultatMatch;
+	}
+	
+
+	public Game(Date gameDate, Float cote1, Float coteN, Float cote2, Boolean resultatMatch) {
 		super();
 		this.gameDate = gameDate;
 		this.cote1 = cote1;
@@ -66,6 +79,17 @@ public class Game {
 	public Game(Date gameDate, Float cote1, Float coteN, Float cote2, Boolean resultatMatch, List<Statistical> stat) {
 		super();
 		this.gameDate = gameDate;
+		this.cote1 = cote1;
+		this.coteN = coteN;
+		this.cote2 = cote2;
+		this.resultatMatch = resultatMatch;
+		this.stat = stat;
+	}
+
+	public Game(Date gameDate, Date gameEnd, Float cote1, Float coteN, Float cote2, Boolean resultatMatch, List<Statistical> stat) {
+		super();
+		this.gameDate = gameDate;
+		this.gameEnd = gameEnd;
 		this.cote1 = cote1;
 		this.coteN = coteN;
 		this.cote2 = cote2;
@@ -159,6 +183,14 @@ public class Game {
 
 	public void setStat(List<Statistical> stat) {
 		this.stat = stat;
+	}
+
+	public Date getGameEnd() {
+		return gameEnd;
+	}
+
+	public void setGameEnd(Date gameEnd) {
+		this.gameEnd = gameEnd;
 	}
 
 }

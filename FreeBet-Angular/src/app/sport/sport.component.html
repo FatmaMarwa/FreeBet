@@ -8,6 +8,7 @@
                   <th scope="col">Version</th>
                   <th scope="col">Nom</th>
                   <th scope="col">Type</th>
+                  <th scope="col">Duree</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -16,6 +17,7 @@
                   <td (click)="detail(content, sport.id)" style="cursor: pointer">{{sport.version}}</td>
                   <td (click)="detail(content, sport.id)" style="cursor: pointer">{{sport.nom}}</td>
                   <td (click)="detail(content, sport.id)" style="cursor: pointer">{{sport.typeSport}}</td>
+                  <td (click)="detail(content, sport.id)" style="cursor: pointer">{{sport.duree}}</td>
                   <td (click)="detail(content, sport.id)" style="cursor: pointer">
                   </td>
                   <td>
@@ -62,8 +64,12 @@
         <td>{{modalSport.nom}}</td>
       </tr>
       <tr>
-        <th>Prénom</th>
+        <th>Type de Sport</th>
         <td>{{modalSport.typeSport}}</td>
+      </tr>
+      <tr>
+        <th>Durée de la Rencontre</th>
+        <td>{{modalSport.duree}}</td>
       </tr>
       </tbody>
     </table>
@@ -79,8 +85,14 @@
     </div>
     <div class="form-group">
       <label for="typeSport">Type de Sport:</label>
-      <select class="form-control" placeholder="Entrer le Type de Sport" id="typeSport" [(ngModel)]="currentSport.typeSport">
+      <select class="form-control"  id="typeSport" [(ngModel)]="currentSport.typeSport">
         <option value="{{tsport}}" *ngFor="let tsport of typeSport()">{{tsport}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="duree">Durée d'une rencontre:</label>
+      <select class="form-control"  id="duree" [(ngModel)]="currentSport.typeSport">
+        <option value="{{duree}}" *ngFor="let duree of duree()">{{duree}}</option>
       </select>
     </div>
     </div>

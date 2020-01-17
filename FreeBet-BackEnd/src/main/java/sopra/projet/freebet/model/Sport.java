@@ -26,7 +26,8 @@ public class Sport {
 	private String nom;
 	@Enumerated(EnumType.STRING)
 	private TypeSport sportType;
-
+	@Enumerated(EnumType.STRING)
+	private Duree duree;
 	@OneToOne(mappedBy = "sport")
 	private Game game;
 
@@ -89,6 +90,14 @@ public class Sport {
 
 	public void setOpponentSport(List<Opponent> opponentSport) {
 		this.opponentSport = opponentSport;
+	}
+
+	public Duree getDuree() {
+		return duree;
+	}
+
+	public void setDuree(Duree duree) {
+		this.duree = duree;
 	}
 
 }

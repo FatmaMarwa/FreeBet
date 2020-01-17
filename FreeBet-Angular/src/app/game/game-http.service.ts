@@ -19,7 +19,7 @@ export class GameHttpService {
 
   constructor(private appConfig: AppConfigService, private http: HttpClient) {
     this.load();
-    console.log("dkdjsqkjisnfqsd");
+
 
   }
 
@@ -48,7 +48,7 @@ export class GameHttpService {
         game.sport = null;
       }
       if(!game.id){
-        this.http.post<Game>(this.appConfig.backEnd + 'game/' + game.id, game).subscribe( resp =>{
+        this.http.post<Game>(this.appConfig.backEnd + 'game', game).subscribe( resp =>{
           this.load();
         }, err => console.log(err));
       }else {
