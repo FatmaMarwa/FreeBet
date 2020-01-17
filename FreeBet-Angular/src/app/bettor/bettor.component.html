@@ -16,7 +16,7 @@
       <tr *ngFor="let bettor of list()">
         <td (click)="detail(content, bettor.id)" style="cursor: pointer">{{bettor.nom}}</td>
         <td (click)="detail(content, bettor.id)" style="cursor: pointer">{{bettor.prenom}}</td>
-        <td (click)="detail(content, bettor.id)" style="cursor: pointer">{{bettor.ddn | date:'dd/MM/yyyy' }}</td>
+        <td (click)="detail(content, bettor.id)" style="cursor: pointer">{{bettor.ddn | date:'yyyy-MM-dd' }}</td>
         <td (click)="detail(content, bettor.id)" style="cursor: pointer">{{bettor.soldeCagnotte}}</td>
         <td (click)="detail(content, bettor.id)" style="cursor: pointer">{{bettor.civilite}}</td>
         <td>
@@ -68,7 +68,7 @@
       </tr>
       <tr>
         <th>Date de naissance</th>
-        <td>{{modalBettor.ddn | date:'dd/MM/yyyy'}}</td>
+        <td>{{modalBettor.ddn | date:'yyyy-MM-dd'}}</td>
       </tr>
       <tr>
         <th>Solde de Cagnotte</th>
@@ -125,8 +125,8 @@
     </div>
     <div class="form-group">
       <label for="ddn">Date de naissance:</label>
-      <input type="text" class="form-control" placeholder="Entrer la Date de naissance" id="ddn"
-             [(ngModel)]="currentBettor.ddn | date:'dd/MM/yyyy'" (ngModelChange)="currentBettor.ddn=$event">
+      <input type="date" class="form-control" placeholder="Entrer la Date de naissance" id="ddn"
+             [ngModel]="currentBettor.ddn | date:'yyyy-MM-dd'" (ngModelChange)="currentBettor.ddn=$event">
     </div>
     <div class="form-group">
       <label for="solde">Solde de Cagnotte:</label>

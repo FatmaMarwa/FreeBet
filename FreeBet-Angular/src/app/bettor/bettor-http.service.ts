@@ -44,6 +44,7 @@ export class BettorHttpService{
   save(bettor: Bettor) {
     if (bettor) {
       if (!bettor.id) {
+        console.log(bettor);
         this.http.post<Bettor>(this.appConfig.backEnd + 'bettor', bettor).subscribe(resp => {
           this.load();
         }, err => console.log(err));
