@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
   }
 
   admins() {
-    return this.loginService.findAll();
+    return this.adminService.findAll();
   }
 
   bettors() {
