@@ -8,6 +8,7 @@ import {OpponentComponent} from './opponent/opponent.component';
 import {StatistiqueComponent} from './statistique/statistique.component';
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
+import {HomeComponent} from './home/home.component';
 
 const routes: Routes = [
 
@@ -18,7 +19,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent },
   {path: 'game', component: GameComponent},
   {path: 'opponent', component:OpponentComponent },
-
+  {path: 'home', component: HomeComponent}
 
 ];
 
