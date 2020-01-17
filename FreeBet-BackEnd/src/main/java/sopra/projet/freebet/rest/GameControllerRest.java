@@ -14,10 +14,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import sopra.projet.freebet.exception.NotFoundException;
-import sopra.projet.freebet.model.Admin;
 import sopra.projet.freebet.model.Game;
-import sopra.projet.freebet.repository.IAdminRepository;
+import sopra.projet.freebet.model.Views;
 import sopra.projet.freebet.repository.IGameRepository;
 
 @CrossOrigin("*")
@@ -25,18 +26,20 @@ import sopra.projet.freebet.repository.IGameRepository;
 @RequestMapping("/game")
 
 public class GameControllerRest {
-	
+
 	@Autowired
 	private IGameRepository gameRepo;
-	
+
 	@GetMapping("")
+	@JsonView(Views.ViewGame.class)
 	public List<Game> list() {
 		List<Game> games = gameRepo.findAll();
 
 		return games;
 	}
-	
+
 	@GetMapping("/{id}")
+	@JsonView(Views.ViewGameDetail.class)
 	public Game find(@PathVariable Long id) {
 		Optional<Game> opt = gameRepo.findById(id);
 
@@ -48,6 +51,7 @@ public class GameControllerRest {
 	}
 
 	@PostMapping("")
+	@JsonView(Views.ViewGame.class)
 	public Game create(@RequestBody Game game) {
 		game = gameRepo.save(game);
 
@@ -55,6 +59,7 @@ public class GameControllerRest {
 	}
 
 	@PutMapping("/{id}")
+	@JsonView(Views.ViewGame.class)
 	public Game update(@RequestBody Game game, @PathVariable Long id) {
 		game = gameRepo.save(game);
 
@@ -65,5 +70,5 @@ public class GameControllerRest {
 	public void delete(@PathVariable Long id) {
 		gameRepo.deleteById(id);
 	}
-	
+
 }

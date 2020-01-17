@@ -13,9 +13,13 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.fasterxml.jackson.annotation.JsonView;
+
 import sopra.projet.freebet.exception.NotFoundException;
 import sopra.projet.freebet.model.ChampionShip;
 import sopra.projet.freebet.model.Opponent;
+import sopra.projet.freebet.model.Views;
 import sopra.projet.freebet.repository.IOpponentRepository;
 
 @CrossOrigin("*")
@@ -23,18 +27,20 @@ import sopra.projet.freebet.repository.IOpponentRepository;
 @RequestMapping("/opponent")
 
 public class OpponentControllerRest {
-	
+
 	@Autowired
 	private IOpponentRepository opponentRepo;
-	
+
 	@GetMapping("")
+	@JsonView(Views.ViewOpponent.class)
 	public List<Opponent> list() {
 		List<Opponent> opponents = opponentRepo.findAll();
 
 		return opponents;
 	}
-	
+
 	@GetMapping("/{id}")
+	@JsonView(Views.ViewOpponentDetail.class)
 	public Opponent find(@PathVariable Long id) {
 		Optional<Opponent> opt = opponentRepo.findById(id);
 
@@ -46,6 +52,7 @@ public class OpponentControllerRest {
 	}
 
 	@PostMapping("")
+	@JsonView(Views.ViewOpponent.class)
 	public Opponent create(@RequestBody Opponent opponent) {
 		opponent = opponentRepo.save(opponent);
 
@@ -53,6 +60,7 @@ public class OpponentControllerRest {
 	}
 
 	@PutMapping("/{id}")
+	@JsonView(Views.ViewOpponent.class)
 	public Opponent update(@RequestBody Opponent opponent, @PathVariable Long id) {
 		opponent = opponentRepo.save(opponent);
 
@@ -63,7 +71,7 @@ public class OpponentControllerRest {
 	public void delete(@PathVariable Long id) {
 		opponentRepo.deleteById(id);
 	}
-	
+
 	@GetMapping("/championship")
 	public ChampionShip[] champ() {
 		return ChampionShip.values();

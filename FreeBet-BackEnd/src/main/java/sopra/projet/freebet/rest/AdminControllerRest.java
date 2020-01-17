@@ -14,10 +14,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import sopra.projet.freebet.exception.NotFoundException;
 import sopra.projet.freebet.model.Admin;
 import sopra.projet.freebet.model.Civility;
 import sopra.projet.freebet.model.Login;
+import sopra.projet.freebet.model.Views;
 import sopra.projet.freebet.repository.IAdminRepository;
 import sopra.projet.freebet.repository.ILoginRepository;
 
@@ -33,6 +36,7 @@ public class AdminControllerRest {
 	private ILoginRepository loginRepo;
 	
 	@GetMapping("")
+	@JsonView(Views.ViewAdmin.class)
 	public List<Admin> list() {
 		List<Admin> admins = adminRepo.findAll();
 
@@ -40,6 +44,7 @@ public class AdminControllerRest {
 	}
 	
 	@GetMapping("/{id}")
+	@JsonView(Views.ViewAdminDetail.class)
 	public Admin find(@PathVariable Long id) {
 		Optional<Admin> opt = adminRepo.findById(id);
 
@@ -51,6 +56,7 @@ public class AdminControllerRest {
 	}
 
 	@PostMapping("")
+	@JsonView(Views.ViewAdmin.class)
 	public Admin create(@RequestBody Admin admin) {
 		Login login = loginRepo.save(admin.getLogin());
 		admin.setLogin(login);
@@ -60,6 +66,7 @@ public class AdminControllerRest {
 	}
 
 	@PutMapping("/{id}")
+	@JsonView(Views.ViewAdmin.class)
 	public Admin update(@RequestBody Admin admin, @PathVariable Long id) {
 		admin = adminRepo.save(admin);
 

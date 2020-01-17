@@ -14,11 +14,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import sopra.projet.freebet.exception.NotFoundException;
-import sopra.projet.freebet.model.Civility;
 import sopra.projet.freebet.model.Duree;
 import sopra.projet.freebet.model.Sport;
 import sopra.projet.freebet.model.TypeSport;
+import sopra.projet.freebet.model.Views;
 import sopra.projet.freebet.repository.ISportRepository;
 
 @CrossOrigin("*")
@@ -26,18 +28,20 @@ import sopra.projet.freebet.repository.ISportRepository;
 @RequestMapping("/sport")
 
 public class SportControllerRest {
-	
+
 	@Autowired
 	private ISportRepository sportRepo;
-	
+
 	@GetMapping("")
+	@JsonView(Views.ViewSport.class)
 	public List<Sport> list() {
 		List<Sport> sports = sportRepo.findAll();
 
 		return sports;
 	}
-	
+
 	@GetMapping("/{id}")
+	@JsonView(Views.ViewSportDetail.class)
 	public Sport find(@PathVariable Long id) {
 		Optional<Sport> opt = sportRepo.findById(id);
 
@@ -49,6 +53,7 @@ public class SportControllerRest {
 	}
 
 	@PostMapping("")
+	@JsonView(Views.ViewSport.class)
 	public Sport create(@RequestBody Sport sport) {
 		sport = sportRepo.save(sport);
 
@@ -56,6 +61,7 @@ public class SportControllerRest {
 	}
 
 	@PutMapping("/{id}")
+	@JsonView(Views.ViewSport.class)
 	public Sport update(@RequestBody Sport sport, @PathVariable Long id) {
 		sport = sportRepo.save(sport);
 
@@ -66,11 +72,12 @@ public class SportControllerRest {
 	public void delete(@PathVariable Long id) {
 		sportRepo.deleteById(id);
 	}
-	
+
 	@GetMapping("/typeSports")
 	public TypeSport[] typesport() {
 		return TypeSport.values();
 	}
+
 	@GetMapping("/durees")
 	public Duree[] duree() {
 		return Duree.values();

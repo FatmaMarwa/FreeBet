@@ -19,17 +19,14 @@ export class GameComponent implements OnInit {
   modalGame: Game = null;
 
   constructor(private modalService: NgbModal, private gameService: GameHttpService) {
-
   }
 
   ngOnInit() {
   }
+
   list(){
     return this.gameService.findAll();
-
   }
-
-
 
   add() {
     this.currentGame = new Game();
@@ -43,6 +40,7 @@ export class GameComponent implements OnInit {
     });
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title', scrollable: true})
   }
+
   edit(id: number){
     this.gameService.findById(id).subscribe(resp => {
       this.currentGame = resp;
@@ -53,13 +51,16 @@ export class GameComponent implements OnInit {
       console.log(error);
     });
   }
+
   save(){
     this.gameService.save(this.currentGame);
     this.cancel();
   }
+
   delete(id:number){
     this.gameService.delete(id);
   }
+
   cancel(){
     this.currentGame = null;
   }
