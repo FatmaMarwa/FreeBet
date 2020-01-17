@@ -26,7 +26,7 @@ export class AdminComponent implements OnInit {
     return this.adminService.findAll();
   }
 
-  formateurs() {
+  logins() {
     return this.loginService.findAll();
   }
 

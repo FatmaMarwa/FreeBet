@@ -67,7 +67,7 @@ export class SportComponent implements OnInit {
     this.cancel();
   }
 
-  delete1(id: number) {
+  delete(id: number) {
     this.sportService.delete(id);
   }
 
