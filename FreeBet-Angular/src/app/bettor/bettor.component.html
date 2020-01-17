@@ -1,11 +1,9 @@
 <div class="card mt-3">
-  <div class="card-header bg-primary text-white">Liste des bettor</div>
+  <div class="card-header bg-primary text-white">Liste des bettors</div>
   <div class="card-body">
     <table class="table table-hover">
       <thead>
       <tr>
-        <th scope="col">Identifiant</th>
-        <th scope="col">Version</th>
         <th scope="col">Nom</th>
         <th scope="col">Prénom</th>
         <th scope="col">Date de Naissance</th>
@@ -16,11 +14,9 @@
       </thead>
       <tbody>
       <tr *ngFor="let bettor of list()">
-        <th scope="row" (click)="detail(content, bettor.id)" style="cursor: pointer">{{ bettor.id }}</th>
-        <td (click)="detail(content, bettor.id)" style="cursor: pointer">{{bettor.version}}</td>
         <td (click)="detail(content, bettor.id)" style="cursor: pointer">{{bettor.nom}}</td>
         <td (click)="detail(content, bettor.id)" style="cursor: pointer">{{bettor.prenom}}</td>
-        <td (click)="detail(content, bettor.id)" style="cursor: pointer">{{bettor.ddn | date:'dd/MM/yyyy' }}</td>
+        <td (click)="detail(content, bettor.id)" style="cursor: pointer">{{bettor.ddn | date:'yyyy-MM-dd' }}</td>
         <td (click)="detail(content, bettor.id)" style="cursor: pointer">{{bettor.soldeCagnotte}}</td>
         <td (click)="detail(content, bettor.id)" style="cursor: pointer">{{bettor.civilite}}</td>
         <td>
@@ -71,16 +67,16 @@
         <td>{{modalBettor.prenom}}</td>
       </tr>
       <tr>
-        <th>Prénom</th>
-        <td>{{modalBettor.prenom}}</td>
+        <th>Date de naissance</th>
+        <td>{{modalBettor.ddn | date:'yyyy-MM-dd'}}</td>
       </tr>
       <tr>
-        <th>Prénom</th>
-        <td>{{modalBettor.prenom}}</td>
+        <th>Solde de Cagnotte</th>
+        <td>{{modalBettor.soldeCagnotte}}</td>
       </tr>
       <tr>
-        <th>Prénom</th>
-        <td>{{modalBettor.prenom}}</td>
+        <th>Civilité</th>
+        <td>{{modalBettor.civilite}}</td>
       </tr>
       <tr>
         <th>Pseudo</th>
@@ -126,6 +122,22 @@
       <label for="prenom">Prénom:</label>
       <input type="text" class="form-control" placeholder="Entrer le prénom" id="prenom"
              [(ngModel)]="currentBettor.prenom">
+    </div>
+    <div class="form-group">
+      <label for="ddn">Date de naissance:</label>
+      <input type="date" class="form-control" placeholder="Entrer la Date de naissance" id="ddn"
+             [ngModel]="currentBettor.ddn | date:'yyyy-MM-dd'" (ngModelChange)="currentBettor.ddn=$event">
+    </div>
+    <div class="form-group">
+      <label for="solde">Solde de Cagnotte:</label>
+      <input type="number" class="form-control" placeholder="Entrer le solde de la cagnotte" id="solde"
+             [(ngModel)]="currentBettor.soldeCagnotte">
+    </div>
+    <div class="form-group">
+      <label for="civilite">Civilité:</label>
+      <select class="form-control" placeholder="Entrer la civilité" id="civilite" [(ngModel)]="currentBettor.civilite">
+        <option value="{{civ}}" *ngFor="let civ of civilites()">{{civ}}</option>
+      </select>
     </div>
     <fieldset>
       <legend>Adresse</legend>

@@ -17,7 +17,9 @@ import org.springframework.web.bind.annotation.RestController;
 import sopra.projet.freebet.exception.NotFoundException;
 import sopra.projet.freebet.model.Admin;
 import sopra.projet.freebet.model.Civility;
+import sopra.projet.freebet.model.Login;
 import sopra.projet.freebet.repository.IAdminRepository;
+import sopra.projet.freebet.repository.ILoginRepository;
 
 @CrossOrigin("*")
 @RestController
@@ -27,6 +29,8 @@ public class AdminControllerRest {
 	
 	@Autowired
 	private IAdminRepository adminRepo;
+	@Autowired
+	private ILoginRepository loginRepo;
 	
 	@GetMapping("")
 	public List<Admin> list() {
@@ -48,6 +52,8 @@ public class AdminControllerRest {
 
 	@PostMapping("")
 	public Admin create(@RequestBody Admin admin) {
+		Login login = loginRepo.save(admin.getLogin());
+		admin.setLogin(login);
 		admin = adminRepo.save(admin);
 
 		return admin;

@@ -52,23 +52,23 @@
       <tbody>
       <tr>
         <th>Identifiant</th>
-        <td>{{modalLogin.id}}</td>
+        <td>{{modalLogin?.id}}</td>
       </tr>
       <tr>
         <th>Version</th>
-        <td>{{modalLogin.version}}</td>
+        <td>{{modalLogin?.version}}</td>
       </tr>
       <tr>
         <th>Pseudo</th>
-        <td>{{modalLogin.pseudo}}</td>
+        <td>{{modalLogin?.pseudo}}</td>
       </tr>
       <tr>
         <th>Mail</th>
-        <td>{{modalLogin.mail}}</td>
+        <td>{{modalLogin?.mail}}</td>
       </tr>
       <tr>
         <th>MotDePasse</th>
-        <td>{{modalLogin.mdp}}</td>
+        <td>{{modalLogin?.mdp}}</td>
       </tr>
       </tbody>
     </table>
@@ -90,7 +90,7 @@
     <div class="form-group">
       <label for="mdp">MotDePasse</label>
       <input type="text" class="form-control" placeholder="Entrer le mot de passe" id="mdp"
-             [(ngModel)]="currentLogin.mail">
+             [(ngModel)]="currentLogin.mdp">
     </div>
   </div>
   <div class="card-footer">
