@@ -6,13 +6,15 @@
                 <tr>
                   <th scope="col">Nom du sport</th>
                   <th scope="col">Type de côtes</th>
+                  <th scope="col">Durée de la rencontre</th>
                   <th scope="col"></th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr *ngFor="let sport of list()">
                   <td (click)="detail(content, sport.id)" style="cursor: pointer">{{sport.nom}}</td>
-                  <td (click)="detail(content, sport.id)" style="cursor: pointer">{{sport.typeSport}}</td>
+                  <td (click)="detail(content, sport.id)" style="cursor: pointer">{{sport.sportType}}</td>
+                  <td (click)="detail(content, sport.id)" style="cursor: pointer">{{sport.duree}}</td>
                   <td>
                     <div class="btn-group btn-group-sm">
                       <button type="button" class="btn btn-info" (click)="edit(sport.id)">
@@ -50,7 +52,7 @@
       </tr>
       <tr>
         <th>Type de côtes</th>
-        <td>{{modalSport.typeSport}}</td>
+        <td>{{modalSport.sportType}}</td>
       </tr>
       <tr>
         <th>Durée de la Rencontre</th>
@@ -70,13 +72,13 @@
     </div>
     <div class="form-group">
       <label for="typeSport">Type de côtes</label>
-      <select class="form-control" placeholder="Entrer le Type de côtes" id="typeSport" [(ngModel)]="currentSport.typeSport">
+      <select class="form-control" placeholder="Entrer le Type de côtes" id="typeSport" [(ngModel)]="currentSport.sportType">
         <option value="{{tsport}}" *ngFor="let tsport of typeSport()">{{tsport}}</option>
       </select>
     </div>
     <div class="form-group">
       <label for="duree">Durée d'une rencontre:</label>
-      <select class="form-control"  id="duree" [(ngModel)]="currentSport.typeSport">
+      <select class="form-control"  id="duree" [(ngModel)]="currentSport.duree">
         <option value="{{duree}}" *ngFor="let duree of duree()">{{duree}}</option>
       </select>
     </div>
