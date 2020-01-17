@@ -38,7 +38,7 @@ import { HomeComponent } from './home/home.component';
     AdminComponent,
     LoginComponent,
     GameComponent,
-    OpponentComponent
+    OpponentComponent,
     HomeComponent
   ],
   imports: [
