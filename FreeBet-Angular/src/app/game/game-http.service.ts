@@ -19,13 +19,17 @@ export class GameHttpService {
 
   constructor(private appConfig: AppConfigService, private http: HttpClient) {
     this.load();
+    console.log("dkdjsqkjisnfqsd");
+
   }
 
-  load(){
+  load() {
     this.http.get<Array<Game>>(this.appConfig.backEnd + 'game').subscribe(resp => {
-      this.games = resp;
-    },
+        this.games = resp;
+      },
       err => console.log(err));
+
+
   }
   findAll(): Array<Game>{
     return this.games;

@@ -18,7 +18,7 @@ export class GameComponent implements OnInit {
   currentGame: Game = null;
   modalGame: Game = null;
 
-  constructor(private modalService: NgbModal, private gameService: GameHttpService, private betService: BetHttpService, private opponentService: OpponentHttpService, private sportService: SportHttpService) {
+  constructor(private modalService: NgbModal, private gameService: GameHttpService, private opponentService: OpponentHttpService, private sportService: SportHttpService) {
 
   }
 
@@ -26,9 +26,7 @@ export class GameComponent implements OnInit {
   }
   list(){
     return this.gameService.findAll();
-  }
-  bets(){
-    return this.betService.findAll();
+
   }
   opponents(){
     return this.opponentService.findAll();
