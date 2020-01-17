@@ -1,5 +1,5 @@
-import {Game} from '../game/game';
-import {Opponent} from '../opponent/opponent';
+import {Game} from './game';
+import {Opponent} from './opponent';
 
 export class Sport {
   id: number;
