@@ -5,6 +5,7 @@ import {Observable} from 'rxjs';
 import {AppConfigService} from '../app-config.service';
 import {SportHttpService} from '../sport/sport-http.service';
 import {GameHttpService} from '../game/game-http.service';
+import {Sport} from '../Model/sport';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ import {GameHttpService} from '../game/game-http.service';
 export class OpponentHttpService {
 
   opponents: Array<Opponent>
-  championnats: Array<string> = ["NBA", "Premier League", "Ligue 1", "TOP 14", "ATP"];
+  championnats: Array<string> = ["NBA", "PremierLeague", "Ligue 1", "TOP 14", "ATP"];
 
   constructor(private appConfig: AppConfigService, private http: HttpClient) {
     this.load();
@@ -30,20 +31,16 @@ export class OpponentHttpService {
   findById(id: number): Observable<Opponent>{
     return this.http.get<Opponent>(this.appConfig.backEnd + 'opponent/' + id);
   }
-  save(opponent: Opponent){
-    if(opponent){
-      if (opponent.sport_opponent && !opponent.sport_opponent.id){
-        opponent.sport_opponent = null;
-      }
-      if (opponent.game_opponent && !opponent.game_opponent.id){
-        opponent.game_opponent = null;
-      }
-      if(!opponent.id){
-        this.http.post<Opponent>(this.appConfig.backEnd + 'opponent/' + opponent.id, opponent).subscribe( resp =>{
+
+  save(opponent: Opponent) {
+    if (opponent) {
+      if (!opponent.id) {
+        console.log(opponent);
+        this.http.post<Opponent>(this.appConfig.backEnd + 'opponent', opponent).subscribe(resp => {
           this.load();
         }, err => console.log(err));
-      }else {
-        this.http.put<Opponent>(this.appConfig.backEnd + 'opponent/' + opponent.id, opponent).subscribe(resp =>{
+      } else {
+        this.http.put<Opponent>(this.appConfig.backEnd + 'opponent/' + opponent.id, opponent).subscribe(resp => {
           this.load();
         }, err => console.log(err));
       }

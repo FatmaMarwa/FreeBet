@@ -5,6 +5,7 @@ import {Injectable} from '@angular/core';
 import {OpponentHttpService} from '../opponent/opponent-http.service';
 import {GameHttpService} from '../game/game-http.service';
 import {AppConfigService} from '../app-config.service';
+import {Bettor} from '../Model/bettor';
 
 @Injectable({
   providedIn: 'root'
@@ -55,10 +56,17 @@ export class SportHttpService {
   }
 
   save(sport: Sport) {
-    if (sport.id) {
-      this.http.post<Sport>(this.appConfig.backEnd + 'sport', sport).subscribe(resp => {
-        this.load();
-      }, err => console.log(err));
+    if (sport) {
+      if (!sport.id) {
+        console.log(sport);
+        this.http.post<Sport>(this.appConfig.backEnd + 'sport', sport).subscribe(resp => {
+          this.load();
+        }, err => console.log(err));
+      } else {
+        this.http.put<Sport>(this.appConfig.backEnd + 'sport/' + sport.id, sport).subscribe(resp => {
+          this.load();
+        }, err => console.log(err));
+      }
     }
   }
 
