@@ -65,7 +65,7 @@ public class SportControllerRest {
 		sportRepo.deleteById(id);
 	}
 	
-	@GetMapping("/typeSport")
+	@GetMapping("/typeSports")
 	public TypeSport[] typesport() {
 		return TypeSport.values();
 	}

@@ -8,7 +8,7 @@ import {AppConfigService} from '../app-config.service';
 import {AdminHttpService} from '../admin/admin-http.service';
 import {Login} from './Login';
 
-class BettorHttpServices {
+class BettorHttpService {
 }
 
 @Injectable({
@@ -18,7 +18,7 @@ export class LoginHttpService {
 
   logins: Array<Login>;
 
-  constructor(private appConfig: AppConfigService, private bettorServices: BettorHttpServices, private http: HttpClient) {
+  constructor(private appConfig: AppConfigService, private adminService: AdminHttpService, private bettorServices: BettorHttpService, private http: HttpClient) {
     this.load();
   }
 
