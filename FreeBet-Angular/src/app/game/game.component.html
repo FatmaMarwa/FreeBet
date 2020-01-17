@@ -2,18 +2,130 @@
   <thead>
   <tr>
     <th scope="col">Date de la rencontre</th>
+    <th scope="col">Identifiant</th>
+    <th scope="col">Version</th>
     <th scope="col">Cote1</th>
+    <th scope="col">CoteN</th>
     <th scope="col">Cote2</th>
-    <th scope="col">Résultat du match</th>
+    <th scope="col">Match terminé</th>
   </tr>
   </thead>
   <tbody>
   <tr *ngFor="let game of list()">
     <th scope="row">{{game.gameDate}}</th>
     <td>{{game.cote1}}</td>
+    <td>{{game.coteN}}</td>
     <td>{{game.cote2}}</td>
-    <td>{{game.resultatMatch}}</td>
+    <td>{{game.gameDone}}</td>
+  </tr>
+  </tbody>
+  <tbody>
+  <tr *ngFor="let game of list()">
+    <th scope="row" (click)="detail(content, game.id)" style="cursor: pointer">{{ game.id }}</th>
+    <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.version}}</td>
+    <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.gameDate}}</td>
+    <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.cote1}}</td>
+    <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.coteN}}</td>
+    <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.cote2}}</td>
+    <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.gameDone}}</td>
+    <td (click)="detail(content, game.id)" style="cursor: pointer">
+    </td>
+    <td>
+      <div class="btn-group btn-group-sm">
+        <button type="button" class="btn btn-info" (click)="edit(game.id)">
+          <fa name="pencil"></fa>
+        </button>
+        <button type="button" class="btn btn-danger" (click)="delete(game.id)">
+          <fa name="trash" inverse="true"></fa>
+        </button>
+      </div>
+    </td>
   </tr>
   </tbody>
 </table>
+<div class="card-footer">
+  <button type="button" class="btn btn-success btn-lg" (click)="add()">
+    <fa name="plus"></fa>
+  </button>
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Détail des matchs</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <table class="table table-sm">
+      <tbody>
+      <tr>
+        <th>Identifiant</th>
+        <td>{{modalGame.id}}</td>
+      </tr>
+      <tr>
+        <th>Version</th>
+        <td>{{modalGame.version}}</td>
+      </tr>
+      <tr>
+        <th>Date de la rencontre</th>
+        <td>{{modalGame.gameDate}}</td>
+      </tr>
+      <tr>
+        <th>Cote 1</th>
+        <td>{{modalGame.cote1}}</td>
+      </tr>
+      <tr>
+        <th>Cote N</th>
+        <td>{{modalGame.coteN}}</td>
+      </tr>
+      <tr>
+        <th>Cote 2</th>
+        <td>{{modalGame.cote2}}</td>
+      </tr>
+      <tr>
+        <th>Match terminé</th>
+        <td>{{modalGame.gameDate}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</ng-template>
+
+<div class="card mt-3" *ngIf="currentGame">
+  <div class="card-header bg-primary text-white">Edition d'une rencontre</div>
+  <div class="card-body">
+    <div class="form-group">
+      <label for="dtGame">Date de la rencontre:</label>
+      <input type="datetime-local" class="form-control" placeholder="Entrer la date de la rencontre" id="dtGame"
+             [ngModel]="currentGame.gameDate | date:'MM/DD/YYYY HH:MM'" (ngModelChange)="currentGame.gameDate=$event">
+    </div>
+    <div class="form-group">
+      <label for="cote1">Cote 1:</label>
+      <input type="number" class="form-control" placeholder="Entrer la cote 1" id="cote1" [(ngModel)]="currentGame.cote1">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="coteN">Cote N:</label>
+    <input type="number" class="form-control" placeholder="Entrer la cote N" id="coteN" [(ngModel)]="currentGame.coteN">
+  </div>
+<div class="form-group">
+  <label for="cote2">Cote 2:</label>
+  <input type="number" class="form-control" placeholder="Entrer la cote 2" id="cote2" [(ngModel)]="currentGame.cote2">
+</div>
+<div class="form-group form-check">
+  <label class="form-check-label">
+    <input class="form-check-input" type="checkbox" [(ngModel)]="currentGame.gameDone"> Match terminé
+  </label>
+</div>
+<div class="card-footer">
+  <div class="btn-group btn-group-lg">
+    <button type="button" class="btn btn-primary" (click)="save()">
+      <fa name="check"></fa>
+    </button>
+    <button type="button" class="btn btn-warning" (click)="cancel()">
+      <fa name="undo" inverse="true"></fa>
+    </button>
+  </div>
+</div>
 

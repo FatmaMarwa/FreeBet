@@ -33,6 +33,10 @@ export class OpponentComponent implements OnInit {
   games() {
     return this.gameService.findAll();
   }
+
+  championnats() {
+    return this.opponentService.championnats;
+  }
   add() {
     this.currentOpponent = new Opponent();
     this.currentOpponent.sport_opponent = new Sport();

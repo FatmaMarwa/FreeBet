@@ -11,7 +11,9 @@ import {GameHttpService} from '../game/game-http.service';
 })
 
 export class OpponentHttpService {
+
   opponents: Array<Opponent>
+  championnats: Array<string> = ["NBA", "Premier League", "Ligue 1", "TOP 14", "ATP"];
 
   constructor(private appConfig: AppConfigService, private sportService: SportHttpService, private gameService: GameHttpService, private http: HttpClient) {
     this.load();

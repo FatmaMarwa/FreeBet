@@ -1,1 +1,85 @@
-<p>opponent works!</p>
+<div class="card mt-3">
+  <div class="card-header bg-primary text-white">Liste des équipes</div>
+  <div class="card-body">
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th scope="col">Nom de l'equipe</th>
+        <th scope="col">Nom du championnat</th>
+        <th scope="col"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let opponent of list()">
+        <td (click)="detail(content, opponent.id)" style="cursor: pointer">{{opponent.nom}}</td>
+        <td (click)="detail(content, opponent.id)" style="cursor: pointer">{{opponent.championnat}}</td>
+        <td>
+          <div class="btn-group btn-group-sm">
+            <button type="button" class="btn btn-info" (click)="edit(opponent.id)">
+              <fa name="pencil"></fa>
+            </button>
+            <button type="button" class="btn btn-danger" (click)="delete(opponent.id)">
+              <fa name="trash" inverse="true"></fa>
+            </button>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <div class="card-footer">
+      <button type="button" class="btn btn-success btn-lg" (click)="add()">
+        <fa name="plus"></fa>
+      </button>
+    </div>
+  </div>
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Détails de l'equipe</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <table class="table table-sm">
+      <tbody>
+      <tr>
+        <th>Nom del'equipe</th>
+        <td>{{modalOpponent.nom}}</td>
+      </tr>
+      <tr>
+        <th>Nom du championnat</th>
+        <td>{{modalOpponent.championnat}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</ng-template>
+
+<div class="card mt-3" *ngIf="currentOpponent">
+  <div class="card-header bg-primary text-white">Edition de l'equipe</div>
+  <div class="card-body">
+    <div class="form-group">
+      <label for="nom">Nom de l'equipe:</label>
+      <input type="text" class="form-control" placeholder="Entrer le nom de l'equipe" id="nom" [(ngModel)]="currentOpponent.nom">
+    </div>
+    <div class="form-group">
+      <label for="championnat">Nom du championnat:</label>
+      <select class="form-control" placeholder="Entrer le championnat" id="championnat" [(ngModel)]="currentOpponent.championnat">
+        <option value="{{champ}}" *ngFor="let champ of championnats()">{{champ}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="card-footer">
+    <div class="btn-group btn-group-lg">
+      <button type="button" class="btn btn-primary" (click)="save()">
+        <fa name="check"></fa>
+      </button>
+      <button type="button" class="btn btn-warning" (click)="cancel()">
+        <fa name="undo" inverse="true"></fa>
+      </button>
+    </div>
+  </div>
+</div>
+
