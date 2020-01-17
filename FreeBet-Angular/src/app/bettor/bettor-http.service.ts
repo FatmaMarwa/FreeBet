@@ -16,7 +16,7 @@ export class BettorHttpService{
 
   civilites:Array<string>
 
-  constructor(private appConfig: AppConfigService, private betService: BetHttpService, private loginService: LoginHttpService,private http: HttpClient) {
+  constructor(private appConfig: AppConfigService,private http: HttpClient) {
     this.load();
     this.loadCiv();
   }

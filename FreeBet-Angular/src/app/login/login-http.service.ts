@@ -18,7 +18,7 @@ export class LoginHttpService {
 
   logins: Array<Login>;
 
-  constructor(private appConfig: AppConfigService, private loginService: LoginHttpService, private adminService: AdminHttpService, private bettorServices: BettorHttpServices, private http: HttpClient) {
+  constructor(private appConfig: AppConfigService, private bettorServices: BettorHttpServices, private http: HttpClient) {
     this.load();
   }
 

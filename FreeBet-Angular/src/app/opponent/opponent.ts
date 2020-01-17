@@ -1,4 +1,5 @@
 import {Game} from '../game/game';
+import {Sport} from '../Model/sport';
 
 export class Opponent {
   id: number;
