@@ -18,7 +18,7 @@
         <td (click)="detail(content, login.id)" style="cursor: pointer">{{login.version}}</td>
         <td (click)="detail(content, login.id)" style="cursor: pointer">{{login.pseudo}}</td>
         <td (click)="detail(content, login.id)" style="cursor: pointer">{{login.mail}}</td>
-        <td (click)="detail(content, login.id)" style="cursor: pointer">{{login.motdepasse}}</td>
+        <td (click)="detail(content, login.id)" style="cursor: pointer">{{login.motDePasse}}</td>
         <td>
           <div class="btn-group btn-group-sm">
             <button type="button" class="btn btn-info" (click)="edit(login.id)">
@@ -68,7 +68,7 @@
       </tr>
       <tr>
         <th>MotDePasse</th>
-        <td>{{modalLogin?.motdepasse}}</td>
+        <td>{{modalLogin?.motDePasse}}</td>
       </tr>
       </tbody>
     </table>
@@ -90,7 +90,7 @@
     <div class="form-group">
       <label for="mdp">MotDePasse</label>
       <input type="text" class="form-control" placeholder="Entrer le mot de passe" id="mdp"
-             [(ngModel)]="currentLogin.motdepasse">
+             [(ngModel)]="currentLogin.motDePasse">
     </div>
   </div>
   <div class="card-footer">

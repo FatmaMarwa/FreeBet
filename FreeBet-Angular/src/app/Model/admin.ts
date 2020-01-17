@@ -1,4 +1,4 @@
-import {Login} from '../login/Login';
+import {Login} from './Login';
 import {Adress} from './adress';
 
 

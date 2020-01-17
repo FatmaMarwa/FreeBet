@@ -4,20 +4,15 @@
               <table class="table table-hover">
                 <thead>
                 <tr>
-                  <th scope="col">Identifiant</th>
-                  <th scope="col">Version</th>
-                  <th scope="col">Nom</th>
-                  <th scope="col">Type</th>
+                  <th scope="col">Nom du sport</th>
+                  <th scope="col">Type de côtes</th>
+                  <th scope="col"></th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr *ngFor="let sport of list()">
-                  <th scope="row" (click)="detail(content, sport.id)" style="cursor: pointer">{{ sport.id }}</th>
-                  <td (click)="detail(content, sport.id)" style="cursor: pointer">{{sport.version}}</td>
                   <td (click)="detail(content, sport.id)" style="cursor: pointer">{{sport.nom}}</td>
                   <td (click)="detail(content, sport.id)" style="cursor: pointer">{{sport.typeSport}}</td>
-                  <td (click)="detail(content, sport.id)" style="cursor: pointer">
-                  </td>
                   <td>
                     <div class="btn-group btn-group-sm">
                       <button type="button" class="btn btn-info" (click)="edit(sport.id)">
@@ -41,7 +36,7 @@
 
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Détail de l'élève</h4>
+    <h4 class="modal-title" id="modal-basic-title">Détails du Sport</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -50,19 +45,11 @@
     <table class="table table-sm">
       <tbody>
       <tr>
-        <th>Identifiant</th>
-        <td>{{modalSport.id}}</td>
-      </tr>
-      <tr>
-        <th>Version</th>
-        <td>{{modalSport.version}}</td>
-      </tr>
-      <tr>
-        <th>Nom</th>
+        <th>Nom du sport</th>
         <td>{{modalSport.nom}}</td>
       </tr>
       <tr>
-        <th>Prénom</th>
+        <th>Type de côtes</th>
         <td>{{modalSport.typeSport}}</td>
       </tr>
       </tbody>
@@ -74,12 +61,12 @@
   <div class="card-header bg-primary text-white">Edition d'un Sport</div>
   <div class="card-body">
     <div class="form-group">
-      <label for="nom">Nom:</label>
+      <label for="nom">Nom du sport:</label>
       <input type="text" class="form-control" placeholder="Entrer le nom du Sport" id="nom" [(ngModel)]="currentSport.nom">
     </div>
     <div class="form-group">
-      <label for="typeSport">Type de Sport:</label>
-      <select class="form-control" placeholder="Entrer le Type de Sport" id="typeSport" [(ngModel)]="currentSport.typeSport">
+      <label for="typeSport">Type de côtes</label>
+      <select class="form-control" placeholder="Entrer le Type de côtes" id="typeSport" [(ngModel)]="currentSport.typeSport">
         <option value="{{tsport}}" *ngFor="let tsport of typeSport()">{{tsport}}</option>
       </select>
     </div>

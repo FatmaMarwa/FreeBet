@@ -87,12 +87,14 @@ public class Login {
 		this.mail = mail;
 	}
 
-	public String getMotdepasse() {
+	public String getMotDePasse() {
 		return motDePasse;
 	}
 
-	public void setMotdepasse(String motdepasse) {
-		this.motDePasse = motdepasse;
+	public void setMotDePasse(String motDePasse) {
+		this.motDePasse = motDePasse;
 	}
+
+
 
 }

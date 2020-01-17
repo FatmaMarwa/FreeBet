@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Admin} from '../Model/admin';
 import {AdminHttpService} from '../admin/admin-http.service';
-import {Login} from './Login';
+import {Login} from '../Model/Login';
 import {LoginHttpService} from './login-http.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {Bettor} from '../Model/bettor';

@@ -6,7 +6,7 @@ import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {BettorHttpService} from "./bettor-http.service";
 import {Adress} from "../Model/adress";
 import {LoginHttpService} from "../login/login-http.service";
-import {Login} from "../login/Login";
+import {Login} from "../Model/Login";
 
 @Component({
   selector: 'bettor,[bettor]',

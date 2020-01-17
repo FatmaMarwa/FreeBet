@@ -6,7 +6,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {AppConfigService} from '../app-config.service';
 import {AdminHttpService} from '../admin/admin-http.service';
-import {Login} from './Login';
+import {Login} from '../Model/Login';
 
 class BettorHttpService {
 }

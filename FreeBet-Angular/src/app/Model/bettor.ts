@@ -1,6 +1,6 @@
 import {Bet} from "./bet";
 import {Adress} from "./adress";
-import {Login} from "../login/Login";
+import {Login} from "./Login";
 
 export class Bettor{
   id: number;
