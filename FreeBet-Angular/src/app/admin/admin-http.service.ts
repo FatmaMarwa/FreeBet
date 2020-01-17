@@ -36,9 +36,9 @@ export class AdminHttpService {
 
   save(admin: Admin) {
     if (admin) {
-      if (admin.login && !admin.login.id) {
+     /* if (admin.login && !admin.login.id) {
         admin.login = null;
-      }
+      }*/
       if (!admin.id) {
         this.http.post<Admin>(this.appConfig.backEnd + 'admin', admin).subscribe(resp => {
           this.load();

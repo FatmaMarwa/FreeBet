@@ -17,7 +17,7 @@ export class AdminComponent implements OnInit {
 
   modalAdmin: Admin = null;
 
-  constructor(private modalService: NgbModal, private adminService: AdminHttpService, private loginService: LoginHttpService) { }
+  constructor(private modalService: NgbModal, private adminService: AdminHttpService) { }
 
   ngOnInit() {
   }
@@ -26,9 +26,9 @@ export class AdminComponent implements OnInit {
     return this.adminService.findAll();
   }
 
-  logins() {
+  /*logins() {
     return this.loginService.findAll();
-  }
+  }*/
 
   add() {
     this.currentAdmin = new Admin();

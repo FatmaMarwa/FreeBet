@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import sopra.projet.freebet.exception.NotFoundException;
 import sopra.projet.freebet.model.Bet;
+import sopra.projet.freebet.model.TypeBet;
 import sopra.projet.freebet.repository.IBetRepository;
 
 @CrossOrigin("*")
@@ -62,6 +63,11 @@ public class BetControllerRest {
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable Long id) {
 		betRepo.deleteById(id);
+	}
+	
+	@GetMapping("/typeBet")
+	public TypeBet[] typeBet() {
+		return TypeBet.values();
 	}
 	
 }

@@ -1,1 +1,89 @@
-<p>bet works!</p>
+<div class="card mt-3">
+  <div class="card-header bg-primary text-white">Liste des bets</div>
+  <div class="card-body">
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th scope="col">Mise</th>
+        <th scope="col">Resultat du Pari</th>
+        <th scope="col">Type du Bet</th>
+        <th scope="col">Date du Bet</th>
+        <th scope="col">Gain</th>
+        <th scope="col"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let bet of list()">
+        <td (click)="detail(content, bet.id)" style="cursor: pointer">{{bet.mise}}</td>
+        <td (click)="detail(content, bet.id)" style="cursor: pointer">{{bet.resultatPari}}</td>
+        <td (click)="detail(content, bet.id)" style="cursor: pointer">{{bet.type}}</td>
+        <td (click)="detail(content, bet.id)" style="cursor: pointer">{{bet.betDate | date:'yyyy-MM-dd HH:mm' }}</td>
+        <td (click)="detail(content, bet.id)" style="cursor: pointer">{{bet.gain}}</td>
+        <td (click)="detail(content, bet.id)" style="cursor: pointer">{{bet.games}}</td>
+        <td (click)="detail(content, bet.id)" style="cursor: pointer">{{bet.bettor}}</td>
+        <td>
+          <div class="btn-group btn-group-sm">
+            <button type="button" class="btn btn-info" (click)="edit(bet.id)">
+              <fa name="pencil"></fa>
+            </button>
+            <button type="button" class="btn btn-danger" (click)="delete(bet.id)">
+              <fa name="trash" inverse="true"></fa>
+            </button>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <div class="card-footer">
+      <button type="button" class="btn btn-success btn-lg" (click)="add()">
+        <fa name="plus"></fa>
+      </button>
+    </div>
+  </div>
+</div>
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Détail du bet</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <table class="table table-sm">
+      <tbody>
+      <tr>
+        <th>Identifiant</th>
+        <td>{{modalBet?.id}}</td>
+      </tr>
+      <tr>
+        <th>Version</th>
+        <td>{{modalBet?.version}}</td>
+      </tr>
+      <tr>
+        <th>Mise</th>
+        <td>{{modalBet?.mise}}</td>
+      </tr>
+      <tr>
+        <th>Resultat du bet</th>
+        <td>{{modalBet?.resultatPari}}</td>
+      </tr>
+      <tr>
+        <th>Date de bet</th>
+        <td>{{modalBet?.betDate | date:'yyyy-MM-dd HH:mm'}}</td>
+      </tr>
+      <tr>
+        <th>Gain</th>
+        <td>{{modalBet?.gain}}</td>
+      </tr>
+      <tr>
+        <th>Games</th>
+        <td>{{modalBet.games}}</td>
+      </tr>
+      <tr>
+        <th>Pseudo</th>
+        <td>{{modalBet?.bettor.login.pseudo}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</ng-template>
