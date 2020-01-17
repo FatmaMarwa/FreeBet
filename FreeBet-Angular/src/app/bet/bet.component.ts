@@ -16,7 +16,7 @@ export class BetComponent implements OnInit {
 
   modalBet: Bet=null;
 
-  constructor(private modalService: NgbModal,private betService:BetHttpService,private bettorService:BettorHttpService,private gameService:GameHttpService) {
+  constructor(private modalService: NgbModal,private betService:BetHttpService,private gameService:GameHttpService) {
 
   }
 
@@ -27,9 +27,9 @@ export class BetComponent implements OnInit {
     return this.betService.findAll();
   }
 
-  bettors(){
+ /* bettors(){
     return this.bettorService.findAll();
-  }
+  }*/
 
   games(){
     return this.gameService.findAll();

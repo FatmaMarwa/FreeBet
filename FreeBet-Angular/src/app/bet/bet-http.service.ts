@@ -13,7 +13,7 @@ import {GameHttpService} from "../game/game-http.service";
 export class BetHttpService{
   bets:Array<Bet>;
 
-  constructor(private appConfig: AppConfigService, private bettorService: BettorHttpService, private gameService: GameHttpService,private http: HttpClient) {
+  constructor(private appConfig: AppConfigService,private http: HttpClient) {
     this.load();
   }
 
