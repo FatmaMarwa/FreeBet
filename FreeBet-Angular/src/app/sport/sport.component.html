@@ -4,6 +4,8 @@
               <table class="table table-hover">
                 <thead>
                 <tr>
+                  <th scope="col">Identifiant</th>
+                  <th scope="col">Version</th>
                   <th scope="col">Nom du sport</th>
                   <th scope="col">Type de côtes</th>
                   <th scope="col">Durée de la rencontre</th>
@@ -12,9 +14,11 @@
                 </thead>
                 <tbody>
                 <tr *ngFor="let sport of list()">
+                  <th scope="row" (click)="detail(content, sport.id)" style="cursor: pointer">{{ sport.id }}</th>
+                  <td (click)="detail(content, sport.id)" style="cursor: pointer">{{sport.version}}</td>
                   <td (click)="detail(content, sport.id)" style="cursor: pointer">{{sport.nom}}</td>
                   <td (click)="detail(content, sport.id)" style="cursor: pointer">{{sport.sportType}}</td>
-                  <td (click)="detail(content, sport.id)" style="cursor: pointer">{{sport.duree?.duree}}</td>
+                  <td (click)="detail(content, sport.id)" style="cursor: pointer">{{sport.duree?.name}}</td>
                   <td>
                     <div class="btn-group btn-group-sm">
                       <button type="button" class="btn btn-info" (click)="edit(sport.id)">
@@ -47,6 +51,14 @@
     <table class="table table-sm">
       <tbody>
       <tr>
+        <th>Identifiant</th>
+        <td>{{modalSport.id}}</td>
+      </tr>
+      <tr>
+        <th>Version</th>
+        <td>{{modalSport.version}}</td>
+      </tr>
+      <tr>
         <th>Nom du sport</th>
         <td>{{modalSport?.nom}}</td>
       </tr>
@@ -56,7 +68,7 @@
       </tr>
       <tr>
         <th>Durée de la Rencontre</th>
-        <td>{{modalSport?.duree?.duree}}</td>
+        <td>{{modalSport?.duree?.name}}</td>
       </tr>
       </tbody>
     </table>

@@ -1,6 +1,8 @@
 <table>
   <thead>
   <tr>
+    <th scope="col">Identifiant</th>
+    <th scope="col">Version</th>
     <th scope="col">Date de la rencontre</th>
     <th scope="col">Date fin de rencontre</th>
     <th scope="col">Identifiant</th>
@@ -12,13 +14,6 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let game of list()">
-    <th scope="row">{{game.gameDate}}</th>
-    <td>{{game.cote1}}</td>
-    <td>{{game.coteN}}</td>
-    <td>{{game.cote2}}</td>
-    <td>{{game.gameDone}}</td>
-  </tr>
   </tbody>
   <tbody>
   <tr *ngFor="let game of list()">

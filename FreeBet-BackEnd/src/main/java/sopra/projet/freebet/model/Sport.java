@@ -53,6 +53,15 @@ public class Sport {
 		this.sportType = sportType;
 	}
 
+		
+	
+	public Sport(String nom, TypeSport sportType, Duree duree) {
+		super();
+		this.nom = nom;
+		this.sportType = sportType;
+		this.duree = duree;
+	}
+
 	public Long getId() {
 		return id;
 	}
