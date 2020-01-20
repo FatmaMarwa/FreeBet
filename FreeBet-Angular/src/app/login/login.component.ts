@@ -55,13 +55,11 @@ export class LoginComponent implements OnInit {
       this.currentLogin = resp;
 
       if (!this.currentLogin.admin) {
+        if (!this.currentLogin.bettor) {
+          this.currentLogin.bettor = new Bettor();
+        }
         this.currentLogin.admin = new Admin();
       }
-      if (!this.currentLogin.bettor) {
-        this.currentLogin.bettor = new Bettor();
-      }
-
-
     }, error => {
       console.log(error);
     });

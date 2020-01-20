@@ -59,7 +59,7 @@ public class Game {
 	private Sport sport;
 
 	@OneToMany(mappedBy = "game_opponent")
-	@JsonView(Views.ViewGame.class)
+	@JsonView(Views.ViewCommon.class)
 	List<Opponent> opponentGame = new ArrayList<Opponent>();
 
 	@OneToMany(mappedBy = "game_stat")
