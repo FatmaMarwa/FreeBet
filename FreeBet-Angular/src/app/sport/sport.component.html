@@ -48,15 +48,15 @@
       <tbody>
       <tr>
         <th>Nom du sport</th>
-        <td>{{modalSport.nom}}</td>
+        <td>{{modalSport?.nom}}</td>
       </tr>
       <tr>
         <th>Type de côtes</th>
-        <td>{{modalSport.sportType}}</td>
+        <td>{{modalSport?.sportType}}</td>
       </tr>
       <tr>
         <th>Durée de la Rencontre</th>
-        <td>{{modalSport.duree?.duree}}</td>
+        <td>{{modalSport?.duree?.duree}}</td>
       </tr>
       </tbody>
     </table>
@@ -72,13 +72,13 @@
     </div>
     <div class="form-group">
       <label for="typeSport">Type de côtes</label>
-      <select class="form-control" placeholder="Entrer le Type de côtes" id="typeSport" [(ngModel)]="currentSport.sportType">
+      <select class="form-control" id="typeSport" [(ngModel)]="currentSport.sportType">
         <option value="{{tsport}}" *ngFor="let tsport of typeSport()">{{tsport}}</option>
       </select>
     </div>
     <div class="form-group">
       <label for="duree">Durée d'une rencontre:</label>
-      <select class="form-control"  id="duree" [(ngModel)]="currentSport.duree.name">
+      <select class="form-control"  id="duree" [(ngModel)]="currentSport.duree">
         <option value="{{duree.name}}" *ngFor="let duree of duree()">{{duree.duree}}</option>
       </select>
     </div>
