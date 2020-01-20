@@ -14,7 +14,7 @@ import {Sport} from '../Model/sport';
 export class OpponentHttpService {
 
   opponents: Array<Opponent>
-  championnats: Array<string> = ["NBA", "PremierLeague", "Ligue 1", "TOP14", "ATP"];
+  championnats: Array<string> = ["NBA", "PremierLeague", "Ligue1", "Top14", "ATP"];
 
   constructor(private appConfig: AppConfigService, private http: HttpClient) {
     this.load();
