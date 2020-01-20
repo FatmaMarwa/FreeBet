@@ -68,6 +68,8 @@ public class AdminControllerRest {
 	@PutMapping("/{id}")
 	@JsonView(Views.ViewAdmin.class)
 	public Admin update(@RequestBody Admin admin, @PathVariable Long id) {
+		Login login = loginRepo.save(admin.getLogin());
+		admin.setLogin(login);
 		admin = adminRepo.save(admin);
 
 		return admin;
