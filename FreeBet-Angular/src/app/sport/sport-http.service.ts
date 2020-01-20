@@ -17,7 +17,8 @@ export class SportHttpService {
 
   typeSports: Array<string>;
 
-  durees: Array<number>;
+  durees: Array<string>;
+
 
   constructor(private appConfig: AppConfigService, private  http: HttpClient) {
     this.load();
@@ -41,7 +42,7 @@ export class SportHttpService {
   }
 
   loadduree() {
-    this.http.get<Array<number>>(this.appConfig.backEnd + 'sport/durees').subscribe(resp => {
+    this.http.get<Array<string>>(this.appConfig.backEnd + 'sport/durees').subscribe(resp => {
         this.durees = resp;
       },
       err => console.log(err));

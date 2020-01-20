@@ -53,6 +53,15 @@ public class Opponent {
 		this.championnat = championnat;
 	}
 
+	
+	public Opponent(Long id, int version, String nom, ChampionShip championnat) {
+		super();
+		this.id = id;
+		this.version = version;
+		this.nom = nom;
+		this.championnat = championnat;
+	}
+
 	public Long getId() {
 		return id;
 	}
