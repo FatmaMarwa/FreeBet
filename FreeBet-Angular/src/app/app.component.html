@@ -1,33 +1,50 @@
-<ul class="nav nav-pills">
+
+<ul class="navbar nav-pills navbar-fixed-top">
+  <div class="navbar-header">
+    <a class="navbar-brand" [routerLink]="['/home']" routerLinkActive="active"><img class="w-25" src="assets/img/FreeBetBleu.PNG"></a>
+  </div>
   <li class="nav-item">
-    <a class="nav-link" [routerLink]="['/admin']" routerLinkActive="active">Admin</a>
+    <a class="nav-link text-white" [routerLink]="['/football']" routerLinkActive="active"><i class="fas fa-futbol"></i>Football</a>
+    <ul class="dropdown-menu">
+      <li><a href="#">Game</a></li>
+      <li><a href="#">Opponent</a></li>
+    </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" [routerLink]="['/bet']" routerLinkActive="active">Bet</a>
+    <a class="nav-link text-white" [routerLink]="['/rugby']" routerLinkActive="active">Rugby</a>
+    <ul class="dropdown-menu">
+      <li><a href="#">Game</a></li>
+      <li><a href="#">Opponent</a></li>
+    </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" [routerLink]="['/bettor']" routerLinkActive="active">Bettor</a>
+    <a class="nav-link text-white" [routerLink]="['/tennis']" routerLinkActive="active">Tennis</a>
+    <ul class="dropdown-menu">
+      <li><a href="#">Game</a></li>
+      <li><a href="#">Opponent</a></li>
+    </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" [routerLink]="['/game']" routerLinkActive="active">Game</a>
+    <a class="nav-link text-white" [routerLink]="['/basket']" routerLinkActive="active">Basket</a>
+    <ul class="dropdown-menu">
+      <li><a href="#">Game</a></li>
+      <li><a href="#">Opponent</a></li>
+    </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" [routerLink]="['/login']" routerLinkActive="active">Login</a>
+    <a class="nav-link text-white" [routerLink]="['/skiAlpin']" routerLinkActive="active">Ski Alpin</a>
+    <ul class="dropdown-menu">
+      <li><a href="#">Game</a></li>
+      <li><a href="#">Opponent</a></li>
+    </ul>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" [routerLink]="['/opponent']" routerLinkActive="active">Opponent</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" [routerLink]="['/sport']" routerLinkActive="active">Sport</a>
-  </li>
+  <ul class="navbar nav-pills navbar-fixed-top ">
+    <li><a class="text-white" href="#"><span class="glyphicon glyphicon-user"></span> S'insrire</a></li>
+    <li><a class="text-white" href="#"><span class="	glyphicon glyphicon-log-in"></span> Se connecter</a></li>
+  </ul>
 </ul>
-<div>
-<p>Home icon on a styled link button:
-  <a href="#" class="btn btn-info btn-lg">
-    <span class="glyphicon glyphicon-home"></span> Home
-  </a>
-</p>
-</div>
+
+
 <div class="container">
   <router-outlet></router-outlet>
 </div>
