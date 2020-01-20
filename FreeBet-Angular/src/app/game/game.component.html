@@ -1,10 +1,10 @@
-<table width="2000">
+<table>
   <thead>
   <tr>
-    <th scope="col">Date de la rencontre</th>
-    <th scope="col">Date fin de rencontre</th>
     <th scope="col">Identifiant</th>
     <th scope="col">Version</th>
+    <th scope="col">Date de la rencontre</th>
+    <th scope="col">Date fin de rencontre</th>
     <th scope="col">Cote1</th>
     <th scope="col">CoteN</th>
     <th scope="col">Cote2</th>
@@ -12,13 +12,6 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let game of list()">
-    <th scope="row">{{game.gameDate}}</th>
-    <td>{{game.cote1}}</td>
-    <td>{{game.coteN}}</td>
-    <td>{{game.cote2}}</td>
-    <td>{{game.gameDone}}</td>
-  </tr>
   </tbody>
   <tbody>
   <tr *ngFor="let game of list()">
@@ -30,6 +23,8 @@
     <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.coteN}}</td>
     <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.cote2}}</td>
     <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.gameDone}}</td>
+    <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.opponents}}</td>
+    <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.sport}}</td>
     <td (click)="detail(content, game.id)" style="cursor: pointer">
     </td>
     <td>
@@ -83,7 +78,7 @@
       </tr>
       <tr>
         <th>Cote N</th>
-        <td>{{modalGame.coteN}}</td>
+        <td >{{modalGame.coteN}}</td>
       </tr>
       <tr>
         <th>Cote 2</th>

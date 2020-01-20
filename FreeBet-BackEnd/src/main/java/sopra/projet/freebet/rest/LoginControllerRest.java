@@ -61,6 +61,7 @@ public class LoginControllerRest {
 	@PutMapping("/{id}")
 	@JsonView(Views.ViewLogin.class)
 	public Login update(@RequestBody Login login, @PathVariable Long id) {
+		System.out.println(login);
 		login = loginRepo.save(login);
 
 		return login;

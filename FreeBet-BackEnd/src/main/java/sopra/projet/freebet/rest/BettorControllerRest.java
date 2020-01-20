@@ -69,6 +69,8 @@ public class BettorControllerRest {
 	@PutMapping("/{id}")
 	@JsonView(Views.ViewBettor.class)
 	public Bettor update(@RequestBody Bettor bettor, @PathVariable Long id) {
+		Login login = loginRepo.save(bettor.getLogin());
+		bettor.setLogin(login);
 		bettor = bettorRepo.save(bettor);
 
 		return bettor;

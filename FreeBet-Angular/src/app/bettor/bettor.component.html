@@ -80,31 +80,31 @@
       </tr>
       <tr>
         <th>Pseudo</th>
-        <td>{{modalBettor?.login.pseudo}}</td>
+        <td>{{modalBettor?.login?.pseudo}}</td>
       </tr>
       <tr>
         <th>Mail</th>
-        <td>{{modalBettor?.login.mail}}</td>
+        <td>{{modalBettor.login?.mail}}</td>
       </tr>
       <tr>
         <th>MotDePasse</th>
-        <td>{{modalBettor.login.motDePasse}}</td>
+        <td>{{modalBettor.login?.motDePasse}}</td>
       </tr>
       <tr>
         <th>Rue</th>
-        <td>{{modalBettor?.adress.rue}}</td>
+        <td>{{modalBettor.adress?.rue}}</td>
       </tr>
       <tr>
         <th>Code postal</th>
-        <td>{{modalBettor.adress.codePostal}}</td>
+        <td>{{modalBettor.adress?.codePostal}}</td>
       </tr>
       <tr>
         <th>Ville</th>
-        <td>{{modalBettor?.adress.ville}}</td>
+        <td>{{modalBettor.adress?.ville}}</td>
       </tr>
       <tr>
         <th>Pays</th>
-        <td>{{modalBettor.adress.pays}}</td>
+        <td>{{modalBettor.adress?.pays}}</td>
       </tr>
       </tbody>
     </table>
@@ -157,8 +157,8 @@
                [(ngModel)]="currentBettor.adress.ville">
       </div>
       <div class="form-group">
-        <label for="ville">Ville:</label>
-        <input type="text" class="form-control" placeholder="Entrer la ville" id="ville"
+        <label for="pays">Pays:</label>
+        <input type="text" class="form-control" placeholder="Entrer le pays" id="pays"
                [(ngModel)]="currentBettor.adress.pays">
       </div>
     </fieldset>
@@ -176,7 +176,7 @@
       </div>
       <div class="form-group">
         <label for="mdp">MotDePasse:</label>
-        <input type="text" class="form-control" placeholder="Entrer le mot de passe" id="mdp"
+        <input type="password" class="form-control" placeholder="Entrer le mot de passe" id="mdp"
                [(ngModel)]="currentBettor.login.motDePasse">
       </div>
     </fieldset>

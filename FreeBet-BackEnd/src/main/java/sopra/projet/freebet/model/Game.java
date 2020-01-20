@@ -8,7 +8,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -54,12 +56,13 @@ public class Game {
 	@JsonView(Views.ViewGameDetail.class)
 	List<Bet> bets_game = new ArrayList<Bet>();
 
-	@OneToOne
+	@ManyToOne
+	@JoinColumn(name = "SPORT_ID")
 	@JsonView(Views.ViewGame.class)
-	private Sport sport;
+	private Sport sport_game;
 
 	@OneToMany(mappedBy = "game_opponent")
-	@JsonView(Views.ViewGame.class)
+	@JsonView(Views.ViewCommon.class)
 	List<Opponent> opponentGame = new ArrayList<Opponent>();
 
 	@OneToMany(mappedBy = "game_stat")
@@ -108,6 +111,29 @@ public class Game {
 		this.coteN = coteN;
 		this.cote2 = cote2;
 		this.resultatMatch = resultatMatch;
+		this.stat = stat;
+	}
+	
+	
+	public Game(Date gameDate, Float cote1, Float coteN, Float cote2,
+			List<Opponent> opponentGame) {
+		super();
+		this.gameDate = gameDate;
+		this.cote1 = cote1;
+		this.coteN = coteN;
+		this.cote2 = cote2;
+		this.opponentGame = opponentGame;
+	}
+
+	public Game(Date gameDate, Float cote1, Float coteN, Float cote2, Boolean resultatMatch,
+			List<Opponent> opponentGame, List<Statistical> stat) {
+		super();
+		this.gameDate = gameDate;
+		this.cote1 = cote1;
+		this.coteN = coteN;
+		this.cote2 = cote2;
+		this.resultatMatch = resultatMatch;
+		this.opponentGame = opponentGame;
 		this.stat = stat;
 	}
 
@@ -176,11 +202,11 @@ public class Game {
 	}
 
 	public Sport getSport() {
-		return sport;
+		return sport_game;
 	}
 
 	public void setSport(Sport sport) {
-		this.sport = sport;
+		this.sport_game = sport;
 	}
 
 	public List<Opponent> getOpponentGame() {

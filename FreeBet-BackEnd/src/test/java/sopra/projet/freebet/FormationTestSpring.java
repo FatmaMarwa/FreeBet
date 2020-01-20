@@ -17,6 +17,7 @@ import sopra.projet.freebet.model.Bettor;
 import sopra.projet.freebet.model.ChampionShip;
 import sopra.projet.freebet.model.Civility;
 import sopra.projet.freebet.model.Code;
+import sopra.projet.freebet.model.Duree;
 import sopra.projet.freebet.model.Game;
 import sopra.projet.freebet.model.Login;
 import sopra.projet.freebet.model.Opponent;
@@ -171,8 +172,15 @@ public class FormationTestSpring {
 		stats1.add(dst3);
 		stats1.add(dst4);
 
-		Game dgame1 = new Game(dtevent1, 1.06F, null, 9.30F, true, stats1);
-		Game dgame2 = new Game(dtevent2, 9.10F, null, 1.07F, true, stats2);
+		List<Opponent> opps1 = new ArrayList<Opponent>();
+		opps1.add(Blazers);
+		opps1.add(Lakers);
+		List<Opponent> opps2 = new ArrayList<Opponent>();
+		opps2.add(Pacers);
+		opps2.add(Pels);
+		
+		Game dgame1 = new Game(dtevent1, 1.06F, null, 9.30F, true,opps1, stats1);
+		Game dgame2 = new Game(dtevent2, 9.10F, null, 1.07F, true,opps2, stats2);
 		gameRepo.save(dgame1);
 		gameRepo.save(dgame2);
 
@@ -268,9 +276,16 @@ public class FormationTestSpring {
 
 		bettorRepo.save(l1bet);
 		bettorRepo.save(l2bet);
+		
+		List<Opponent> opps1 = new ArrayList<Opponent>();
+		opps1.add(amiens);
+		opps1.add(psg);
+		List<Opponent> opps2 = new ArrayList<Opponent>();
+		opps2.add(dijon);
+		opps2.add(marseille);
 
-		Game amienspsg = new Game(date1, 9.1F, 5.2F, 1.2F, true);
-		Game dijonmetz = new Game(date1, 2.1F, 3.2F, 3.4F, true);
+		Game amienspsg = new Game(date1, 9.1F, 5.2F, 1.2F,opps1);
+		Game dijonmetz = new Game(date1, 2.1F, 3.2F, 3.4F, opps2);
 		Game toulousebrest = new Game(date2, 2.2F, 3.4F, 3.2F, false);
 
 		Statistical st1 = new Statistical(Code.result1, 1);
@@ -307,6 +322,8 @@ public class FormationTestSpring {
 		betRepo.save(lb1);
 		betRepo.save(lb2);
 
+		Sport sp = new Sport("balle", TypeSport.one, Duree.A);
+		sportRepo.save(sp);
 	}
 
 }

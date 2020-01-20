@@ -35,12 +35,12 @@ public class Sport {
 	@Enumerated(EnumType.STRING)
 	@JsonView(Views.ViewCommon.class)
 	private Duree duree;
-	@OneToOne(mappedBy = "sport")
-	@JsonView(Views.ViewSport.class)
-	private Game game;
-
-	@OneToMany(mappedBy = "sport_opponent")
+	@OneToMany(mappedBy = "sport_game")
 	@JsonView(Views.ViewSportDetail.class)
+	List <Game> games = new ArrayList<Game>();
+	
+	@OneToMany(mappedBy = "sport_opponent")
+	@JsonView(Views.ViewSport.class)
 	List<Opponent> opponentSport = new ArrayList<Opponent>();
 
 	public Sport() {
@@ -51,6 +51,15 @@ public class Sport {
 		super();
 		this.nom = nom;
 		this.sportType = sportType;
+	}
+
+		
+	
+	public Sport(String nom, TypeSport sportType, Duree duree) {
+		super();
+		this.nom = nom;
+		this.sportType = sportType;
+		this.duree = duree;
 	}
 
 	public Long getId() {
@@ -85,12 +94,20 @@ public class Sport {
 		this.sportType = sportType;
 	}
 
-	public Game getGame() {
-		return game;
+	public Duree getDuree() {
+		return duree;
 	}
 
-	public void setGame(Game game) {
-		this.game = game;
+	public void setDuree(Duree duree) {
+		this.duree = duree;
+	}
+
+	public List<Game> getGames() {
+		return games;
+	}
+
+	public void setGames(List<Game> games) {
+		this.games = games;
 	}
 
 	public List<Opponent> getOpponentSport() {
@@ -99,14 +116,6 @@ public class Sport {
 
 	public void setOpponentSport(List<Opponent> opponentSport) {
 		this.opponentSport = opponentSport;
-	}
-
-	public Duree getDuree() {
-		return duree;
-	}
-
-	public void setDuree(Duree duree) {
-		this.duree = duree;
 	}
 
 }
