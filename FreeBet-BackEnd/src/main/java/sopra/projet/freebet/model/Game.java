@@ -8,7 +8,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -54,9 +56,10 @@ public class Game {
 	@JsonView(Views.ViewGameDetail.class)
 	List<Bet> bets_game = new ArrayList<Bet>();
 
-	@OneToOne
+	@ManyToOne
+	@JoinColumn(name = "SPORT_ID")
 	@JsonView(Views.ViewGame.class)
-	private Sport sport;
+	private Sport sport_game;
 
 	@OneToMany(mappedBy = "game_opponent")
 	@JsonView(Views.ViewCommon.class)
@@ -176,11 +179,11 @@ public class Game {
 	}
 
 	public Sport getSport() {
-		return sport;
+		return sport_game;
 	}
 
 	public void setSport(Sport sport) {
-		this.sport = sport;
+		this.sport_game = sport;
 	}
 
 	public List<Opponent> getOpponentGame() {

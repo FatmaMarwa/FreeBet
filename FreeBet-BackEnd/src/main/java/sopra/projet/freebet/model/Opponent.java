@@ -34,7 +34,7 @@ public class Opponent {
 	private ChampionShip championnat;
 
 	@ManyToOne
-	@JoinColumn(name = "SPORT_NAME")
+	@JoinColumn(name = "SPORT_ID")
 	@JsonView(Views.ViewOpponent.class)
 	private Sport sport_opponent;
 

@@ -7,11 +7,11 @@ export class Sport {
   nom: string;
   sportType: string;
   duree: string;
-  game: Game;
+  game: Game [];
   opponentSport: Opponent [];
 
 
-  constructor(id?: number, version?: number, nom?: string, sportType?: string, duree?: string, game?: Game, opponentSport?: Opponent[]) {
+  constructor(id?: number, version?: number, nom?: string, sportType?: string, duree?: string, game?: Game[], opponentSport?: Opponent[]) {
     this.id = id;
     this.version = version;
     this.nom = nom;
@@ -20,5 +20,4 @@ export class Sport {
     this.game = game;
     this.opponentSport = opponentSport;
   }
-
 }
