@@ -14,7 +14,7 @@ import {Sport} from '../Model/sport';
 export class OpponentHttpService {
 
   opponents: Array<Opponent>
-  championnats: Array<string> = ["NBA", "PremierLeague", "Ligue 1", "TOP 14", "ATP"];
+  championnats: Array<string> = ["NBA", "PremierLeague", "Ligue 1", "TOP14", "ATP"];
 
   constructor(private appConfig: AppConfigService, private http: HttpClient) {
     this.load();
@@ -34,6 +34,12 @@ export class OpponentHttpService {
 
   save(opponent: Opponent) {
     if (opponent) {
+      if (opponent.sport_opponent) {
+        opponent.sport_opponent = null;
+      }
+      if (opponent.game_opponent) {
+        opponent.game_opponent = null;
+      }
       if (!opponent.id) {
         console.log(opponent);
         this.http.post<Opponent>(this.appConfig.backEnd + 'opponent', opponent).subscribe(resp => {
