@@ -58,6 +58,9 @@ export class SportHttpService {
 
   save(sport: Sport) {
     if (sport) {
+      if (sport.duree) {
+        sport.duree = null;
+      }
       if (!sport.id) {
         console.log(sport);
         this.http.post<Sport>(this.appConfig.backEnd + 'sport', sport).subscribe(resp => {
