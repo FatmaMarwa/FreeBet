@@ -17,6 +17,7 @@ import sopra.projet.freebet.model.Bettor;
 import sopra.projet.freebet.model.ChampionShip;
 import sopra.projet.freebet.model.Civility;
 import sopra.projet.freebet.model.Code;
+import sopra.projet.freebet.model.Duree;
 import sopra.projet.freebet.model.Game;
 import sopra.projet.freebet.model.Login;
 import sopra.projet.freebet.model.Opponent;
@@ -307,6 +308,8 @@ public class FormationTestSpring {
 		betRepo.save(lb1);
 		betRepo.save(lb2);
 
+		Sport sp = new Sport("balle", TypeSport.one, Duree.A);
+		sportRepo.save(sp);
 	}
 
 }
