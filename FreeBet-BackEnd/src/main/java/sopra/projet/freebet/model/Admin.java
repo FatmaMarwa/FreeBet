@@ -3,6 +3,7 @@ package sopra.projet.freebet.model;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
@@ -38,7 +39,7 @@ public class Admin {
 	@JsonView(Views.ViewCommon.class)
 	private Adress adress;
 
-	@OneToOne
+	@OneToOne(fetch=FetchType.EAGER)
 	@JsonView(Views.ViewAdminDetail.class)
 	private Login login;
 
