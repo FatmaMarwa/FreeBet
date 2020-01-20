@@ -36,11 +36,11 @@ public class Sport {
 	@JsonView(Views.ViewCommon.class)
 	private Duree duree;
 	@OneToOne(mappedBy = "sport")
-	@JsonView(Views.ViewSport.class)
+	@JsonView(Views.ViewSportDetail.class)
 	private Game game;
 
 	@OneToMany(mappedBy = "sport_opponent")
-	@JsonView(Views.ViewSportDetail.class)
+	@JsonView(Views.ViewSport.class)
 	List<Opponent> opponentSport = new ArrayList<Opponent>();
 
 	public Sport() {
