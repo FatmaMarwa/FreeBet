@@ -3,7 +3,8 @@
   <tr>
 
     <th scope="col">Sport</th>
-    <th scope="col">Adversaires</th>
+    <th scope="col">Adversaire 1</th>
+    <th scope="col">Adversaire 2</th>
     <th scope="col">Date de la rencontre</th>
     <th scope="col">Date fin de rencontre</th>
     <th scope="col">Cote1</th>
@@ -20,13 +21,8 @@
   <tr *ngFor="let game of list()">
     <th scope="row"></th>
     <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.sport}}</td>
-    <td (click)="detail(content, game.id)" style="cursor: pointer"*ngFor="let oppo of game.opponent1">
-    <td (click)="detail(content, game.id)" style="cursor: pointer"*ngFor="let oppo of game.opponent2">
-      <ul>
-          <li >Adversaire: {{game.opponent1}}</li>
-          <li >Adversaire: {{game.opponent2}}</li>
-        </ul>
-    </td>
+    <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.opponent1}}
+    <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.opponent2}}</td>
     <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.gameDate| date:'yyyy-MM-dd HH:mm' }}</td>
     <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.gameEnd| date:'yyyy-MM-dd HH:mm' }}</td>
     <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.cote1}}</td>
