@@ -6,6 +6,7 @@ import {BetHttpService} from '../bet/bet-http.service';
 import {OpponentHttpService} from '../opponent/opponent-http.service';
 import {SportHttpService} from '../sport/sport-http.service';
 import {Sport} from '../Model/sport';
+import {Opponent} from "../Model/opponent";
 
 
 
@@ -31,7 +32,7 @@ export class GameComponent implements OnInit {
     return this.sportService.sports;
   }
   opponent() {
-    return this.opponentService.opponents;
+    return this.opponentService.findAll();
   }
   championnat() {
     return this.opponentService.championnats;
@@ -40,6 +41,8 @@ export class GameComponent implements OnInit {
   add() {
     this.currentGame = new Game();
     this.currentGame.sport_game = new Sport();
+    this.currentGame.opponent1= new Opponent();
+    this.currentGame.opponent2= new Opponent();
   }
   detail(content, id:number){
     this.gameService.findById(id).subscribe(resp =>{
