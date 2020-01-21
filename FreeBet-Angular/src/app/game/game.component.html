@@ -20,20 +20,9 @@
   <tbody>
   <tr *ngFor="let game of list()">
     <th scope="row"></th>
-<<<<<<< Updated upstream
-    <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.sport}}</td>
-    <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.opponent1}}
-    <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.opponent2}}</td>
-=======
-    <td (click)="detail(content, game.id)" style="cursor: pointer">{{game?.sport}}</td>
-    <td (click)="detail(content, game.id)" style="cursor: pointer">
-    <td (click)="detail(content, game.id)" style="cursor: pointer">
-      <ul>
-          <li> {{game.opponent1}}</li>
-          <li> {{game.opponent2}}</li>
-        </ul>
-    </td>
->>>>>>> Stashed changes
+    <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.sport_game?.nom}}</td>
+    <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.opponent1?.nom}}</td>
+    <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.opponent2?.nom}}</td>
     <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.gameDate| date:'yyyy-MM-dd HH:mm' }}</td>
     <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.gameEnd| date:'yyyy-MM-dd HH:mm' }}</td>
     <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.cote1}}</td>
@@ -75,7 +64,7 @@
 
       <tr>
         <th>Sport</th>
-        <td>{{modalGame.sport?.nom}}</td>
+        <td>{{modalGame.sport_game?.nom}}</td>
       </tr>
       <tr>
         <th>Opponent 1</th>
@@ -119,7 +108,7 @@
   <div class="card-body">
     <div class="form-group">
       <label for="sport">Sport:</label>
-      <select class="form-control"id="sport" [(ngModel)]="currentGame.sport">
+      <select class="form-control"id="sport" [(ngModel)]="currentGame.sport_game">
         <option value="{{sp.nom}}" *ngFor="let sp of sport()">{{sp.nom}}</option>
       </select>
       <div class="form-group" *ngIf="sportService.sports">
@@ -128,7 +117,7 @@
           <option value="{{champ}}" *ngFor="let champ of championnat()">{{champ}}</option>
         </select>
       </div>
-      <div class="form-group" *ngIf="currentGame.sport">
+      <div class="form-group" *ngIf="currentGame.sport_game">
         <label for="opp1">Adversaire 1:</label>
         <select class="form-control" id="opp1" [(ngModel)]="currentGame.opponent1">
           <option value="{{oppo1.nom}}" *ngFor="let oppo1 of opponent()">{{oppo1.nom}}</option>
