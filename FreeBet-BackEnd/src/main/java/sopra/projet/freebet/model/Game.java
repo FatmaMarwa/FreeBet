@@ -99,6 +99,22 @@ public class Game {
 	}
 
 	
+	
+
+	public Game(Date gameDate, Float cote1, Float coteN, Float cote2, Boolean resultatMatch, Opponent opponent1,
+			Opponent opponent2) {
+		super();
+		this.gameDate = gameDate;
+		this.cote1 = cote1;
+		this.coteN = coteN;
+		this.cote2 = cote2;
+		this.resultatMatch = resultatMatch;
+		this.opponent1 = opponent1;
+		this.opponent2 = opponent2;
+	}
+
+
+
 
 	public Game(Date gameDate, Date gameEnd, Float cote1, Float coteN, Float cote2, Boolean resultatMatch,
 			Sport sport_game, Opponent opponent1, Opponent opponent2) {

@@ -299,10 +299,10 @@ public class FormationTestSpring {
 		List<Opponent> opps2 = new ArrayList<Opponent>();
 		opps2.add(dijon);
 		opps2.add(marseille);
-		date1, 9.1F, 5.2F, 1.2F, amiens, psg, false
+		
 		Game amienspsg = new Game(date1, 9.1F, 5.2F, 1.2F, true, amiens, psg);
-		Game dijonmetz = new Game(date1, 2.1F, 3.2F, 3.4F, opps2);
-		Game toulousebrest = new Game(date2, 2.2F, 3.4F, 3.2F, false);
+		Game dijonmetz = new Game(date1, 2.1F, 3.2F, 3.4F, true, dijon, marseille);
+		Game toulousebrest = new Game(date2, 2.2F, 3.4F, 3.2F, false, toulouse, brest);
 
 		Statistical st1 = new Statistical(Code.result1, 1);
 		Statistical st2 = new Statistical(Code.result1, 4);
