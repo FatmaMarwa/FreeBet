@@ -14,11 +14,11 @@ export class Game {
   gameDone: boolean;
   bets: Bet[];
   sport: Sport;
-  opponents: Opponent[];
+  opponentGame: Opponent[];
   statisticals: Statistique[];
 
 
-  constructor(id?: number, version?: number, gameDate?: Date, gameEnd?: Date, cote1?: number, coteN?: number, cote2?: number, gameDone?: boolean, bets?: Bet[], sport?: Sport, opponents?: Opponent[], statisticals?: Statistique[]) {
+  constructor(id?: number, version?: number, gameDate?: Date, gameEnd?: Date, cote1?: number, coteN?: number, cote2?: number, gameDone?: boolean, bets?: Bet[], sport?: Sport, opponentGame?: Opponent[], statisticals?: Statistique[]) {
     this.id = id;
     this.version = version;
     this.gameDate = gameDate;
@@ -29,7 +29,7 @@ export class Game {
     this.gameDone = gameDone;
     this.bets = bets;
     this.sport = sport;
-    this.opponents = opponents;
+    this.opponentGame = opponentGame;
     this.statisticals = statisticals;
   }
 }
