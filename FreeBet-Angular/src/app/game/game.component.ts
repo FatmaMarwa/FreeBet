@@ -39,7 +39,7 @@ export class GameComponent implements OnInit {
 
   add() {
     this.currentGame = new Game();
-    this.currentGame.sport = new Sport();
+    this.currentGame.sport_game = new Sport();
   }
   detail(content, id:number){
     this.gameService.findById(id).subscribe(resp =>{
@@ -53,8 +53,8 @@ export class GameComponent implements OnInit {
   edit(id: number){
     this.gameService.findById(id).subscribe(resp => {
       this.currentGame = resp;
-     if(!this.currentGame.sport){
-       this.currentGame.sport = new Sport();
+     if(!this.currentGame.sport_game){
+       this.currentGame.sport_game = new Sport();
      }
     }, error =>{
       console.log(error);
