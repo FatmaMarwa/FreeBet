@@ -181,24 +181,26 @@ public class FormationTestSpring {
 		opps2.add(Pacers);
 		opps2.add(Pels);
 		
-		Game dgame1 = new Game(dtevent1, 1.06F, null, 9.30F, true,opps1, stats1);
-		Game dgame2 = new Game(dtevent2, 9.10F, null, 1.07F, true,opps2, stats2);
+		Game dgame1 = new Game(dtevent1, 1.06F, null, 9.30F, true,Basket,Blazers,Grizz);
+		Game dgame2 = new Game(dtevent2, 9.10F, null, 1.07F, true,Basket, Lakers,Warriors);
 		gameRepo.save(dgame1);
 		gameRepo.save(dgame2);
 		
-		Game dgame3 = new Game(dtevent1, 1.26F, null, 6.30F, true,Tennis, stats1);
-		Game dgame4 = new Game(dtevent2, 7.10F, null, 1.17F, true,Tennis, stats2);
-		gameRepo.save(dgame3);
-		gameRepo.save(dgame4);
-		
-		Opponent opp1 = new Opponent("Medvedev",ChampionShip.ATP,Tennis, dgame3);
-		Opponent opp2 = new Opponent("Federer",ChampionShip.ATP,Tennis, dgame3);
-		Opponent opp3 = new Opponent("Nadal",ChampionShip.ATP,Tennis, dgame4);
-		Opponent opp4 = new Opponent("Djokovic",ChampionShip.ATP,Tennis, dgame4);
+		Opponent opp1 = new Opponent("Medvedev",ChampionShip.ATP,Tennis);
+		Opponent opp2 = new Opponent("Federer",ChampionShip.ATP,Tennis);
+		Opponent opp3 = new Opponent("Nadal",ChampionShip.ATP,Tennis);
+		Opponent opp4 = new Opponent("Djokovic",ChampionShip.ATP,Tennis);
 		OpponentRepo.save(opp1);
 		OpponentRepo.save(opp2);
 		OpponentRepo.save(opp3);
 		OpponentRepo.save(opp4);
+		
+		Game dgame3 = new Game(dtevent1, 1.26F, null, 6.30F, true,Tennis,opp1,opp2);
+		Game dgame4 = new Game(dtevent2, 7.10F, null, 1.17F, true,Tennis, opp4,opp3);
+		gameRepo.save(dgame3);
+		gameRepo.save(dgame4);
+		
+
 		
 		List<Game> games1 = new ArrayList<Game>();
 		games1.add(dgame3);
