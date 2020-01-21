@@ -284,7 +284,7 @@ public class FormationTestSpring {
 		opps2.add(dijon);
 		opps2.add(marseille);
 
-		Game amienspsg = new Game(date1, 9.1F, 5.2F, 1.2F,opps1);
+		Game amienspsg = new Game(date1, 9.1F, 5.2F, 1.2F, opps1);
 		Game dijonmetz = new Game(date1, 2.1F, 3.2F, 3.4F, opps2);
 		Game toulousebrest = new Game(date2, 2.2F, 3.4F, 3.2F, false);
 
