@@ -23,8 +23,10 @@
         <td (click)="detail(content, bet.id)" style="cursor: pointer" >
           <ul *ngFor="let game of bet.games">
             <li>{{game.id}}</li>
-              <ul *ngFor="let opp of game.opponents">
-                <li >{{opp.nom}}</li>
+                <ul>
+                  <li >Côte 1: {{game.cote1}}</li>
+                  <li >Côte N: {{game.coteN}}</li>
+                  <li >Côte 2: {{game.cote2}}</li>
               </ul>
           </ul>
         </td>
@@ -49,9 +51,10 @@
     </div>
   </div>
 </div>
+
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Détail du bet</h4>
+    <h4 class="modal-title" id="modal-basic-title">Détail du pari</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -97,3 +100,60 @@
     </table>
   </div>
 </ng-template>
+
+<div class="card mt-3" *ngIf="currentBet">
+  <div class="card-header bg-primary text-white">Edition d'un Pari</div>
+  <div class="card-body">
+    <div class="form-group">
+      <label for="mise">Mise du pari:</label>
+      <input type="text" class="form-control" placeholder="Entrer la mise du pari" id="mise" [(ngModel)]="currentBet.mise">
+    </div>
+
+
+    <div class="form-group">
+      <label for="typepari">Type de pari</label>
+      <select class="form-control" id="typepari" [(ngModel)]="currentBet.type">
+        <option value="{{typepari}}" *ngFor="let typepari of typeBets()">{{typepari}}</option>
+      </select>
+    </div>
+
+
+    <div class="form-group">
+      <label for="choixmatch">Choix du match</label>
+
+          <select class="form-control" id="choixmatch" [(ngModel)]="currentBet.games">
+              <option value="{{choixmatch}}" *ngFor="let choixmatch of betgames()">{{choixmatch.id}}</option>
+          </select>
+
+
+
+      <div><button type="button" class="btn btn-success btn-lg" *ngFor="let choixmatch of betgames()">{{choixmatch.cote1}}</button></div>
+    <div><button type="button" class="btn btn-success btn-lg" value="{{coteN}}" *ngFor="let coteN of betgames()">{{coteN.coteN}}</button></div>
+    <div><button type="button" class="btn btn-success btn-lg" value="{{cote2}}" *ngFor="let cote2 of betgames()">{{cote2.cote2}}</button></div>
+    </div>
+
+
+
+
+    <div class="form-group">
+      <label for="gain">Gains potentiel du pari:</label>
+      <input type="text" class="form-control" id="gain" value="{{gains()}}" >
+    </div>
+
+    <div class="form-group">
+      <label for="dtPari">Date de fin du pari:</label>
+      <input type="datetime-local" class="form-control" placeholder="Entrer la date du pari" id="dtPari"
+             [ngModel]="currentBet.betDate | date:'yyyy-MM-dd HH:mm'" (ngModelChange)="currentBet.betDate=$event">
+    </div>
+  </div>
+  <div class="card-footer">
+    <div class="btn-group btn-group-lg">
+      <button type="button" class="btn btn-primary" (click)="save()">
+        <fa name="check"></fa>
+      </button>
+      <button type="button" class="btn btn-warning" (click)="cancel()">
+        <fa name="undo" inverse="true"></fa>
+      </button>
+    </div>
+  </div>
+</div>
