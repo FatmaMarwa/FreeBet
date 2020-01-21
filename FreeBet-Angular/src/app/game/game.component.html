@@ -1,31 +1,43 @@
 <table>
   <thead>
   <tr>
-    <th scope="col">Identifiant</th>
-    <th scope="col">Version</th>
+
+    <th scope="col">Sport</th>
+    <th scope="col">Championnat</th>
+    <th scope="col">Opponent 1</th>
+    <th scope="col">Opponent 2</th>
     <th scope="col">Date de la rencontre</th>
     <th scope="col">Date fin de rencontre</th>
     <th scope="col">Cote1</th>
     <th scope="col">CoteN</th>
     <th scope="col">Cote2</th>
     <th scope="col">Match terminé</th>
+
+
   </tr>
   </thead>
   <tbody>
   </tbody>
   <tbody>
   <tr *ngFor="let game of list()">
-    <th scope="row" (click)="detail(content, game.id)" style="cursor: pointer">{{ game.id }}</th>
-    <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.version}}</td>
+    <th scope="row"></th>
+    <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.sport}}</td>
+    <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.opponents}}</td>
+    <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.opponents}}</td>
+    <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.opponents}}</td>
     <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.gameDate}}</td>
     <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.gameEnd}}</td>
     <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.cote1}}</td>
     <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.coteN}}</td>
     <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.cote2}}</td>
     <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.gameDone}}</td>
-    <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.opponents}}</td>
-    <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.sport}}</td>
     <td (click)="detail(content, game.id)" style="cursor: pointer">
+      <ul *ngFor="let oppo1 of game.opponents">
+        <li>{{oppo1.nom}}</li>
+      </ul>
+      <ul *ngFor="let oppo2 of game.opponents">
+        <li>{{oppo2.nom}}</li>
+      </ul>
     </td>
     <td>
       <div class="btn-group btn-group-sm">
@@ -56,13 +68,22 @@
   <div class="modal-body">
     <table class="table table-sm">
       <tbody>
+
       <tr>
-        <th>Identifiant</th>
-        <td>{{modalGame.id}}</td>
+        <th>Sport</th>
+        <td>{{modalGame.sport}}</td>
       </tr>
       <tr>
-        <th>Version</th>
-        <td>{{modalGame.version}}</td>
+        <th>Championnat</th>
+        <td>{{modalGame.opponents}}</td>
+      </tr>
+      <tr>
+        <th>Opponent 1</th>
+        <td>{{modalGame.opponents}}</td>
+      </tr>
+      <tr>
+        <th>Opponent 2</th>
+        <td>{{modalGame.opponents}}</td>
       </tr>
       <tr>
         <th>Date de la rencontre</th>
@@ -96,6 +117,29 @@
 <div class="card mt-3" *ngIf="currentGame">
   <div class="card-header bg-primary text-white">Edition d'une rencontre</div>
   <div class="card-body">
+    <div class="form-group">
+      <label for="sport">Sport:</label>
+      <select class="form-control"id="sport" [(ngModel)]="currentGame.sport">
+        <option value="{{sp.nom}}" *ngFor="let sp of sport()">{{sp.nom}}</option>
+      </select>
+      <div class="form-group" *ngIf="sportService.sports">
+        <label for="opp1">Championnat:</label>
+        <select class="form-control" id="champ" [(ngModel)]="currentGame.opponents">
+          <option value="{{oppo}}" *ngFor="let oppo of championnat()">{{oppo}}</option>
+        </select>
+      </div>
+      <div class="form-group" *ngIf="sportService.sports">
+        <label for="opp1">Adversaire 1:</label>
+        <select class="form-control" id="opp1" [(ngModel)]="currentGame.opponents">
+          <option value="{{oppo.nom}}" *ngFor="let oppo of opponent()">{{oppo.nom}}</option>
+        </select>
+      </div>
+    <div class="form-group">
+      <label for="oppo2">Adversaire 2</label>
+      <select class="form-control"id="oppo2" [(ngModel)]="currentGame.opponents">
+        <option value="{{op2.nom}}" *ngFor="let op2 of opponent()">{{op2.nom}}</option>
+      </select>
+    </div>
     <div class="form-group">
       <label for="dtGame">Date de la rencontre:</label>
       <input type="datetime-local" class="form-control" placeholder="Entrer la date de la rencontre" id="dtGame"

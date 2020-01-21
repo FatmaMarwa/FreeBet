@@ -9,18 +9,22 @@ import {SportHttpService} from '../sport/sport-http.service';
 import {Bet} from '../Model/bet';
 import {Opponent} from '../Model/opponent';
 import {Statistique} from '../Model/statistique';
+import {Sport} from '../Model/sport';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GameHttpService {
   games: Array<Game>;
+  sports: Array<Sport>;
+  opponents : Array<Opponent>
+
 
 
   constructor(private appConfig: AppConfigService, private http: HttpClient) {
     this.load();
-
-
+    this.loadsport();
+    this.loadopponent();
   }
 
   load() {
@@ -28,7 +32,24 @@ export class GameHttpService {
         this.games = resp;
       },
       err => console.log(err));
-
+  }
+    loadsport() {
+      this.http.get<Array<Sport>>(this.appConfig.backEnd + 'sport').subscribe(resp => {
+          this.sports = resp;
+        },
+        err => console.log(err));
+    }
+      loadopponent() {
+        this.http.get<Array<Opponent>>(this.appConfig.backEnd + 'opponent').subscribe(resp => {
+            this.opponents = resp;
+          },
+          err => console.log(err))
+      }
+        loadchampionnat() {
+          this.http.get<Array<Opponent>>(this.appConfig.backEnd + 'opponent').subscribe(resp => {
+              this.opponents = resp;
+            },
+            err => console.log(err))
 
   }
   findAll(): Array<Game>{
