@@ -118,6 +118,7 @@
     </div>
 
 
+
     <div class="form-group">
       <label for="choixmatch">Choix du match</label>
 
@@ -143,7 +144,7 @@
     <div class="form-group">
       <label for="dtPari">Date de fin du pari:</label>
       <input type="datetime-local" class="form-control" placeholder="Entrer la date du pari" id="dtPari"
-             [ngModel]="currentBet.betDate | date:'yyyy-MM-dd HH:mm'" (ngModelChange)="currentBet.betDate=$event">
+             [ngModel]="currentBet.betDate | date:'yyyy-MM-dd\'T\'HH:mm'" (ngModelChange)="currentBet.betDate=$event">
     </div>
   </div>
   <div class="card-footer">
