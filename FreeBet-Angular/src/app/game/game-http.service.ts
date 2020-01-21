@@ -21,7 +21,7 @@ export class GameHttpService {
 
 
 
-  constructor(private appConfig: AppConfigService, private http: HttpClient) {
+  constructor(private appConfig: AppConfigService, private http: HttpClient,private opponentService:OpponentHttpService ) {
     this.load();
     this.loadsport();
     this.loadopponent();
@@ -62,9 +62,6 @@ export class GameHttpService {
 
   save(gamesport: Game){
     if(gamesport){
-      if (gamesport && !gamesport.id){
-        gamesport = null;
-      }
       if(!gamesport.id){
         this.http.post<Game>(this.appConfig.backEnd + 'game', gamesport).subscribe( resp =>{
           this.load();

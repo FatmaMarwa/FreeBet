@@ -67,11 +67,11 @@ public class Game {
 	@JsonView(Views.ViewGame.class)
 	List<Statistical> stat = new ArrayList<Statistical>();
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JsonView(Views.ViewCommon.class)
 	private Opponent opponent1;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JsonView(Views.ViewCommon.class)
 	private Opponent opponent2;
 	
