@@ -1,9 +1,11 @@
+
+// Coverflow
 <ngb-carousel #carousel interval="1000" [pauseOnHover]="pauseOnHover" (slide)="onSlide($event)">
   <ng-template ngbSlide *ngFor="let img of images; index as i">
     <div class="carousel-caption">
       <h3>My slide {{i + 1}} title</h3>
     </div>
-    <a href="https://www.google.fr/?q=Number+{{i+1}}" target="_blank" rel="nofollow noopener noreferrer">
+    <a href="assets/img+{{i+1}}" target="_blank" rel="nofollow noopener noreferrer">
       <div class="picsum-img-wrapper">
         <img [src]="img" alt="My image {{i + 1}} description">
       </div>
@@ -13,7 +15,7 @@
 
 <hr>
 
-<div class="form-check">
+<div class="form-check visible:hidden">
   <input type="checkbox" class="form-check-input" id="pauseOnHover" [(ngModel)]="pauseOnHover">
   <label class="form-check-label" for="pauseOnHover">Pause on hover</label>
 </div>
@@ -28,3 +30,37 @@
 <button type="button" (click)="togglePaused()" class="btn btn-outline-dark btn-sm">
   {{paused ? 'Cycle' : 'Pause' }}
 </button>
+
+// Menu resultats
+
+<ngb-tabset type="pills" [orientation]="currentOrientation">
+  <ngb-tab title="Résultats">
+    <ng-template ngbTabContent>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab>
+    <ng-template ngbTabTitle><b>Football</b></ng-template>
+
+      <p>Inserer resulats base de donnee</p>
+    <ng-template ngbTabContent></ng-template>
+  </ngb-tab>
+  <ngb-tab>
+    <ng-template ngbTabTitle><b>Rugby</b></ng-template>
+    <ng-template ngbTabContent>Résultats rugby
+      <p>Inserer resulats base de donnee</p>
+    </ng-template>
+  </ngb-tab>  <ngb-tab>
+  <ng-template ngbTabTitle><b>Tennis</b></ng-template>
+  <ng-template ngbTabContent>Résultats tennis
+    <p>Inserer resulats base de donnee</p>
+  </ng-template>
+</ngb-tab>  <ngb-tab>
+  <ng-template ngbTabTitle><b>Basket</b></ng-template>
+  <ng-template ngbTabContent>Résultats basket
+    <p>Inserer resulats base de donnee</p>
+  </ng-template>
+</ngb-tab>
+
+</ngb-tabset>
+
+

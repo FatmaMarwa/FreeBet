@@ -5,7 +5,7 @@ import { NgbCarousel, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/n
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.component.html, ./carousel-pause.html',
+  templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
@@ -37,6 +37,8 @@ export class HomeComponent implements OnInit {
       this.togglePaused();
     }
   }
+
+  currentOrientation = 'horizontal';
 
   ngOnInit(): void {
   }
