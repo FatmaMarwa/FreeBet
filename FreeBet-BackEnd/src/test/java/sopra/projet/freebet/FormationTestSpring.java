@@ -75,37 +75,39 @@ public class FormationTestSpring {
 
 		Sport Basket = new Sport("Basketball", TypeSport.two);
 		sportRepo.save(Basket);
+		Sport Tennis = new Sport("Tennis", TypeSport.two);
+		sportRepo.save(Tennis);
 
-		Opponent Hawks = new Opponent("Atlanta Hawks", ChampionShip.NBA);
-		Opponent Celtics = new Opponent("Boston Celtics", ChampionShip.NBA);
-		Opponent Bulls = new Opponent("Chicago Bulls", ChampionShip.NBA);
-		Opponent Hornets = new Opponent("Charlotte Hornets", ChampionShip.NBA);
-		Opponent Nets = new Opponent("Brooklyn Nets", ChampionShip.NBA);
-		Opponent Cavaliers = new Opponent("Cleveland Cavaliers", ChampionShip.NBA);
-		Opponent Heat = new Opponent("Miami Heat", ChampionShip.NBA);
-		Opponent Knicks = new Opponent("New York Knicks", ChampionShip.NBA);
-		Opponent Pistons = new Opponent("Detroit Pistons", ChampionShip.NBA);
-		Opponent Magic = new Opponent("Orlando Magic", ChampionShip.NBA);
-		Opponent Sixers = new Opponent("Philadelphia Sixers", ChampionShip.NBA);
-		Opponent Pacers = new Opponent("Indiana Pacers", ChampionShip.NBA);
-		Opponent Wizards = new Opponent("Washinghton Wizards", ChampionShip.NBA);
-		Opponent Raptors = new Opponent("Toronto Raptors", ChampionShip.NBA);
-		Opponent Bucks = new Opponent("Milwaukee Bucks", ChampionShip.NBA);
-		Opponent Mavs = new Opponent("Dallas Mavericks", ChampionShip.NBA);
-		Opponent Nuggets = new Opponent("Denver Nuggets", ChampionShip.NBA);
-		Opponent Warriors = new Opponent("Golden State Warriors", ChampionShip.NBA);
-		Opponent Rocks = new Opponent("Houston Rockets", ChampionShip.NBA);
-		Opponent Timberwolves = new Opponent("Minnesota Timberwolves", ChampionShip.NBA);
-		Opponent Clippers = new Opponent("Los Angeles Clippers", ChampionShip.NBA);
-		Opponent Grizz = new Opponent("Memphis Grizzlies", ChampionShip.NBA);
-		Opponent Thunder = new Opponent("Oklohoma City Thunder", ChampionShip.NBA);
-		Opponent Lakers = new Opponent("Los Angeles Lakers", ChampionShip.NBA);
-		Opponent Pels = new Opponent("New Orleans Pelicans", ChampionShip.NBA);
-		Opponent Blazers = new Opponent("Portland Trail Blazers", ChampionShip.NBA);
-		Opponent Suns = new Opponent("Phoenix Suns", ChampionShip.NBA);
-		Opponent Spurs = new Opponent("San Antonio Spurs", ChampionShip.NBA);
-		Opponent Jazz = new Opponent("Utah Jazz", ChampionShip.NBA);
-		Opponent Kings = new Opponent("Sacramento Kings", ChampionShip.NBA);
+		Opponent Hawks = new Opponent("Atlanta Hawks", ChampionShip.NBA,Basket);
+		Opponent Celtics = new Opponent("Boston Celtics", ChampionShip.NBA,Basket);
+		Opponent Bulls = new Opponent("Chicago Bulls", ChampionShip.NBA,Basket);
+		Opponent Hornets = new Opponent("Charlotte Hornets", ChampionShip.NBA,Basket);
+		Opponent Nets = new Opponent("Brooklyn Nets", ChampionShip.NBA,Basket);
+		Opponent Cavaliers = new Opponent("Cleveland Cavaliers", ChampionShip.NBA,Basket);
+		Opponent Heat = new Opponent("Miami Heat", ChampionShip.NBA,Basket);
+		Opponent Knicks = new Opponent("New York Knicks", ChampionShip.NBA,Basket);
+		Opponent Pistons = new Opponent("Detroit Pistons", ChampionShip.NBA,Basket);
+		Opponent Magic = new Opponent("Orlando Magic", ChampionShip.NBA,Basket);
+		Opponent Sixers = new Opponent("Philadelphia Sixers", ChampionShip.NBA,Basket);
+		Opponent Pacers = new Opponent("Indiana Pacers", ChampionShip.NBA,Basket);
+		Opponent Wizards = new Opponent("Washinghton Wizards", ChampionShip.NBA,Basket);
+		Opponent Raptors = new Opponent("Toronto Raptors", ChampionShip.NBA,Basket);
+		Opponent Bucks = new Opponent("Milwaukee Bucks", ChampionShip.NBA,Basket);
+		Opponent Mavs = new Opponent("Dallas Mavericks", ChampionShip.NBA,Basket);
+		Opponent Nuggets = new Opponent("Denver Nuggets", ChampionShip.NBA,Basket);
+		Opponent Warriors = new Opponent("Golden State Warriors", ChampionShip.NBA,Basket);
+		Opponent Rocks = new Opponent("Houston Rockets", ChampionShip.NBA,Basket);
+		Opponent Timberwolves = new Opponent("Minnesota Timberwolves", ChampionShip.NBA,Basket);
+		Opponent Clippers = new Opponent("Los Angeles Clippers", ChampionShip.NBA,Basket);
+		Opponent Grizz = new Opponent("Memphis Grizzlies", ChampionShip.NBA,Basket);
+		Opponent Thunder = new Opponent("Oklohoma City Thunder", ChampionShip.NBA,Basket);
+		Opponent Lakers = new Opponent("Los Angeles Lakers", ChampionShip.NBA,Basket);
+		Opponent Pels = new Opponent("New Orleans Pelicans", ChampionShip.NBA,Basket);
+		Opponent Blazers = new Opponent("Portland Trail Blazers", ChampionShip.NBA,Basket);
+		Opponent Suns = new Opponent("Phoenix Suns", ChampionShip.NBA,Basket);
+		Opponent Spurs = new Opponent("San Antonio Spurs", ChampionShip.NBA,Basket);
+		Opponent Jazz = new Opponent("Utah Jazz", ChampionShip.NBA,Basket);
+		Opponent Kings = new Opponent("Sacramento Kings", ChampionShip.NBA,Basket);
 		OpponentRepo.save(Hawks);
 		OpponentRepo.save(Celtics);
 		OpponentRepo.save(Bulls);
@@ -179,16 +181,32 @@ public class FormationTestSpring {
 		opps2.add(Pacers);
 		opps2.add(Pels);
 		
-		Game dgame1 = new Game(dtevent1, 1.06F, null, 9.30F, true,opps1, stats1);
-		Game dgame2 = new Game(dtevent2, 9.10F, null, 1.07F, true,opps2, stats2);
+		Game dgame1 = new Game(dtevent1, 1.06F, null, 9.30F, true,Basket,Blazers,Grizz);
+		Game dgame2 = new Game(dtevent2, 9.10F, null, 1.07F, true,Basket, Lakers,Warriors);
 		gameRepo.save(dgame1);
 		gameRepo.save(dgame2);
+		
+		Opponent opp1 = new Opponent("Medvedev",ChampionShip.ATP,Tennis);
+		Opponent opp2 = new Opponent("Federer",ChampionShip.ATP,Tennis);
+		Opponent opp3 = new Opponent("Nadal",ChampionShip.ATP,Tennis);
+		Opponent opp4 = new Opponent("Djokovic",ChampionShip.ATP,Tennis);
+		OpponentRepo.save(opp1);
+		OpponentRepo.save(opp2);
+		OpponentRepo.save(opp3);
+		OpponentRepo.save(opp4);
+		
+		Game dgame3 = new Game(dtevent1, 1.26F, null, 6.30F, true,Tennis,opp1,opp2);
+		Game dgame4 = new Game(dtevent2, 7.10F, null, 1.17F, true,Tennis, opp4,opp3);
+		gameRepo.save(dgame3);
+		gameRepo.save(dgame4);
+		
 
+		
 		List<Game> games1 = new ArrayList<Game>();
-		games1.add(dgame1);
+		games1.add(dgame3);
 		List<Game> games2 = new ArrayList<Game>();
-		games2.add(dgame1);
-		games2.add(dgame2);
+		games2.add(dgame3);
+		games2.add(dgame4);
 
 		Bet dbet1 = new Bet(20f, false, TypeBet.simple, dtpari1, 186F, games1);
 		Bet dbet2 = new Bet(10f, true, TypeBet.combined, dtpari2, 11.34F, games2);
@@ -216,25 +234,25 @@ public class FormationTestSpring {
 		Sport foot = new Sport("Football", TypeSport.three);
 		sportRepo.save(foot);
 
-		Opponent psg = new Opponent("Paris Saint-Germain", ChampionShip.Ligue1);
-		Opponent amiens = new Opponent("Amiens SC", ChampionShip.Ligue1);
-		Opponent dijon = new Opponent("Dijon FCO", ChampionShip.Ligue1);
-		Opponent rennes = new Opponent("Stade Rennais", ChampionShip.Ligue1);
-		Opponent bordeau = new Opponent("Girondins de Bordeaux", ChampionShip.Ligue1);
-		Opponent strasbourg = new Opponent("Strasbourg", ChampionShip.Ligue1);
-		Opponent saintetienne = new Opponent("AS Saint-Etienne", ChampionShip.Ligue1);
-		Opponent monaco = new Opponent("Monaco", ChampionShip.Ligue1);
-		Opponent lille = new Opponent("Lille OSC", ChampionShip.Ligue1);
-		Opponent reims = new Opponent("Stade de Reims", ChampionShip.Ligue1);
-		Opponent lyon = new Opponent("Olympique Lyonnais", ChampionShip.Ligue1);
-		Opponent nantes = new Opponent("Nantes", ChampionShip.Ligue1);
-		Opponent angers = new Opponent("SCO Angers", ChampionShip.Ligue1);
-		Opponent nice = new Opponent("OGC Nice", ChampionShip.Ligue1);
-		Opponent toulouse = new Opponent("Toulouse FC", ChampionShip.Ligue1);
-		Opponent montpellier = new Opponent("Montpellier Hérault", ChampionShip.Ligue1);
-		Opponent brest = new Opponent("Stade Brestois", ChampionShip.Ligue1);
-		Opponent marseille = new Opponent("Olympique de Marseille", ChampionShip.Ligue1);
-		Opponent nimes = new Opponent("Nîmes", ChampionShip.Ligue1);
+		Opponent psg = new Opponent("Paris Saint-Germain", ChampionShip.Ligue1,foot);
+		Opponent amiens = new Opponent("Amiens SC", ChampionShip.Ligue1,foot);
+		Opponent dijon = new Opponent("Dijon FCO", ChampionShip.Ligue1,foot);
+		Opponent rennes = new Opponent("Stade Rennais", ChampionShip.Ligue1,foot);
+		Opponent bordeau = new Opponent("Girondins de Bordeaux", ChampionShip.Ligue1,foot);
+		Opponent strasbourg = new Opponent("Strasbourg", ChampionShip.Ligue1,foot);
+		Opponent saintetienne = new Opponent("AS Saint-Etienne", ChampionShip.Ligue1,foot);
+		Opponent monaco = new Opponent("Monaco", ChampionShip.Ligue1,foot);
+		Opponent lille = new Opponent("Lille OSC", ChampionShip.Ligue1,foot);
+		Opponent reims = new Opponent("Stade de Reims", ChampionShip.Ligue1,foot);
+		Opponent lyon = new Opponent("Olympique Lyonnais", ChampionShip.Ligue1,foot);
+		Opponent nantes = new Opponent("Nantes", ChampionShip.Ligue1,foot);
+		Opponent angers = new Opponent("SCO Angers", ChampionShip.Ligue1,foot);
+		Opponent nice = new Opponent("OGC Nice", ChampionShip.Ligue1,foot);
+		Opponent toulouse = new Opponent("Toulouse FC", ChampionShip.Ligue1,foot);
+		Opponent montpellier = new Opponent("Montpellier Hérault", ChampionShip.Ligue1,foot);
+		Opponent brest = new Opponent("Stade Brestois", ChampionShip.Ligue1,foot);
+		Opponent marseille = new Opponent("Olympique de Marseille", ChampionShip.Ligue1,foot);
+		Opponent nimes = new Opponent("Nîmes", ChampionShip.Ligue1,foot);
 
 		OpponentRepo.save(psg);
 		OpponentRepo.save(amiens);
@@ -283,10 +301,10 @@ public class FormationTestSpring {
 		List<Opponent> opps2 = new ArrayList<Opponent>();
 		opps2.add(dijon);
 		opps2.add(marseille);
-
-		Game amienspsg = new Game(date1, 9.1F, 5.2F, 1.2F, opps1);
-		Game dijonmetz = new Game(date1, 2.1F, 3.2F, 3.4F, opps2);
-		Game toulousebrest = new Game(date2, 2.2F, 3.4F, 3.2F, false);
+		
+		Game amienspsg = new Game(date1, 9.1F, 5.2F, 1.2F, true, amiens, psg);
+		Game dijonmetz = new Game(date1, 2.1F, 3.2F, 3.4F, true, dijon, marseille);
+		Game toulousebrest = new Game(date2, 2.2F, 3.4F, 3.2F, false, toulouse, brest);
 
 		Statistical st1 = new Statistical(Code.result1, 1);
 		Statistical st2 = new Statistical(Code.result1, 4);

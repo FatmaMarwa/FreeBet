@@ -9,18 +9,22 @@ import {SportHttpService} from '../sport/sport-http.service';
 import {Bet} from '../Model/bet';
 import {Opponent} from '../Model/opponent';
 import {Statistique} from '../Model/statistique';
+import {Sport} from '../Model/sport';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GameHttpService {
   games: Array<Game>;
+  sports: Array<Sport>;
+  opponents : Array<Opponent>
 
 
-  constructor(private appConfig: AppConfigService, private http: HttpClient) {
+
+  constructor(private appConfig: AppConfigService, private http: HttpClient,private opponentService:OpponentHttpService ) {
     this.load();
-
-
+    this.loadsport();
+    this.loadopponent();
   }
 
   load() {
@@ -28,7 +32,24 @@ export class GameHttpService {
         this.games = resp;
       },
       err => console.log(err));
-
+  }
+    loadsport() {
+      this.http.get<Array<Sport>>(this.appConfig.backEnd + 'sport').subscribe(resp => {
+          this.sports = resp;
+        },
+        err => console.log(err));
+    }
+      loadopponent() {
+        this.http.get<Array<Opponent>>(this.appConfig.backEnd + 'opponent').subscribe(resp => {
+            this.opponents = resp;
+          },
+          err => console.log(err))
+      }
+        loadchampionnat() {
+          this.http.get<Array<Opponent>>(this.appConfig.backEnd + 'opponent').subscribe(resp => {
+              this.opponents = resp;
+            },
+            err => console.log(err))
 
   }
   findAll(): Array<Game>{
@@ -39,20 +60,14 @@ export class GameHttpService {
     return this.http.get<Game>(this.appConfig.backEnd + 'game/' + id);
   }
 
-  save(game: Game){
-    if(game){
-      if (game.opponents){
-        game.opponents = null;
-      }
-      if (game.sport && !game.sport.id){
-        game.sport = null;
-      }
-      if(!game.id){
-        this.http.post<Game>(this.appConfig.backEnd + 'game', game).subscribe( resp =>{
+  save(gamesport: Game){
+    if(gamesport){
+      if(!gamesport.id){
+        this.http.post<Game>(this.appConfig.backEnd + 'game', gamesport).subscribe( resp =>{
           this.load();
         }, err => console.log(err));
       }else {
-        this.http.put<Game>(this.appConfig.backEnd + 'game/' + game.id, game).subscribe(resp =>{
+        this.http.put<Game>(this.appConfig.backEnd + 'game/' + gamesport.id, gamesport).subscribe(resp =>{
           this.load();
         }, err => console.log(err));
       }

@@ -24,8 +24,14 @@ import {LoginHttpService} from './login/login-http.service';
 import {SportHttpService} from './sport/sport-http.service';
 import {OpponentHttpService} from './opponent/opponent-http.service';
 import { HomeComponent } from './home/home.component';
+<<<<<<< HEAD
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+=======
+import { TennisComponent } from './tennis/tennis.component';
+import { RugbyComponent } from './rugby/rugby.component';
+import { BasketComponent } from './basket/basket.component';
+>>>>>>> master
 
 
 @NgModule({
@@ -40,7 +46,13 @@ import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
     GameComponent,
     OpponentComponent,
     HomeComponent,
+<<<<<<< HEAD
 
+=======
+    TennisComponent,
+    RugbyComponent,
+    BasketComponent,
+>>>>>>> master
   ],
   imports: [
     BrowserModule,

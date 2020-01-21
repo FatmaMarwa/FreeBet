@@ -1,5 +1,6 @@
 <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark indigo fixed-top">
 
+<<<<<<< HEAD
 <mdb-navbar-brand>
     <a class="navbar-brand" href="#" [routerLink]="['/home']" routerLinkActive="active"><img height="50" class="d-inline-block align-top" src="assets/img/FreeBetBleu.PNG"></a>
 </mdb-navbar-brand>
@@ -13,6 +14,45 @@
         <a class="dropdown-item waves-light" [routerLink]="['/football/opponent']" routerLinkActive="active"mdbWavesEffect>Opponent</a>
       </div>
     </li>
+=======
+<ul class="navbar nav-pills navbar-fixed-top">
+  <div class="navbar-header">
+    <a class="navbar-brand" [routerLink]="['/home']" routerLinkActive="active"><img class="w-25" src="assets/img/FreeBetBleu.PNG"></a>
+  </div>
+  <li class="nav-item">
+    <a class="nav-link text-white" [routerLink]="['/sport/53/detail']" routerLinkActive="active"><i class="fas fa-futbol"></i>Football</a>
+    <ul class="dropdown-menu">
+      <li><a href="#">Game</a></li>
+      <li><a href="#">Opponent</a></li>
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link text-white" [routerLink]="['/sport/rugby']" routerLinkActive="active">Rugby</a>
+    <ul class="dropdown-menu">
+      <li><a href="#">Game</a></li>
+      <li><a href="#">Opponent</a></li>
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link text-white" [routerLink]="['/sport/tennis']" routerLinkActive="active">Tennis</a>
+    <ul class="dropdown-menu">
+      <li><a href="#">Game</a></li>
+      <li><a href="#">Opponent</a></li>
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link text-white" [routerLink]="['/sport/basket']" routerLinkActive="active">Basket</a>
+    <ul class="dropdown-menu">
+      <li><a href="#">Game</a></li>
+      <li><a href="#">Opponent</a></li>
+    </ul>
+  </li>
+  <ul class="navbar nav-pills navbar-fixed-top ">
+    <li><a class="text-white" href="#"><span class="glyphicon glyphicon-user"></span> S'insrire </a></li>
+    <li><a class="text-white" href="#"><span class="	glyphicon glyphicon-log-in"></span> Se connecter</a></li>
+  </ul>
+</ul>
+>>>>>>> master
 
     <li class="nav-item dropdown" dropdown>
       <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" [routerLink]="['/rugby']" routerLinkActive="active" mdbWavesEffect>

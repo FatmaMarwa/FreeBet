@@ -56,6 +56,10 @@ export class SportHttpService {
     return this.http.get<Sport>(this.appConfig.backEnd + 'sport/' + id);
   }
 
+  findByIdWithGames(id:number): Observable<Sport> {
+    return this.http.get<Sport>(this.appConfig.backEnd + 'sport/' + id + '/detail');
+  }
+
   save(sport: Sport) {
     if (sport) {
       if (!sport.id) {

@@ -6,6 +6,7 @@ import {BetHttpService} from '../bet/bet-http.service';
 import {OpponentHttpService} from '../opponent/opponent-http.service';
 import {SportHttpService} from '../sport/sport-http.service';
 import {Sport} from '../Model/sport';
+import {Opponent} from "../Model/opponent";
 
 
 
@@ -18,7 +19,7 @@ export class GameComponent implements OnInit {
   currentGame: Game = null;
   modalGame: Game = null;
 
-  constructor(private modalService: NgbModal, private gameService: GameHttpService) {
+  constructor(private modalService: NgbModal, private gameService: GameHttpService, private sportService: SportHttpService,private opponentService: OpponentHttpService) {
   }
 
   ngOnInit() {
@@ -27,10 +28,21 @@ export class GameComponent implements OnInit {
   list(){
     return this.gameService.findAll();
   }
+  sport() {
+    return this.sportService.sports;
+  }
+  opponent() {
+    return this.opponentService.findAll();
+  }
+  championnat() {
+    return this.opponentService.championnats;
+  }
 
   add() {
     this.currentGame = new Game();
-    this.currentGame.sport = new Sport();
+    this.currentGame.sport_game = new Sport();
+    this.currentGame.opponent1= new Opponent();
+    this.currentGame.opponent2= new Opponent();
   }
   detail(content, id:number){
     this.gameService.findById(id).subscribe(resp =>{
@@ -44,8 +56,8 @@ export class GameComponent implements OnInit {
   edit(id: number){
     this.gameService.findById(id).subscribe(resp => {
       this.currentGame = resp;
-     if(!this.currentGame.sport){
-       this.currentGame.sport = new Sport();
+     if(!this.currentGame.sport_game){
+       this.currentGame.sport_game = new Sport();
      }
     }, error =>{
       console.log(error);

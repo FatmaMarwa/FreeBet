@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -61,49 +62,68 @@ public class Game {
 	@JsonView(Views.ViewGame.class)
 	private Sport sport_game;
 
-	@OneToMany(mappedBy = "game_opponent")
-	@JsonView(Views.ViewCommon.class)
-	List<Opponent> opponentGame = new ArrayList<Opponent>();
 
 	@OneToMany(mappedBy = "game_stat")
 	@JsonView(Views.ViewGame.class)
 	List<Statistical> stat = new ArrayList<Statistical>();
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JsonView(Views.ViewCommon.class)
+	private Opponent opponent1;
+
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JsonView(Views.ViewCommon.class)
+	private Opponent opponent2;
+	
+	
+	
+
+	
+
+	
 
 	public Game() {
 		super();
 	}
 
-	public Game(Date gameDate, Date gameEnd, Float cote1, Float coteN, Float cote2, boolean resultatMatch) {
+
+
+	public Game(Long id, int version, Date gameDate, Date gameEnd, Float cote1, Float coteN, Float cote2,
+			Boolean resultatMatch, Sport sport_game, Opponent opponent1, Opponent opponent2) {
 		super();
+		this.id = id;
+		this.version = version;
 		this.gameDate = gameDate;
 		this.gameEnd = gameEnd;
 		this.cote1 = cote1;
 		this.coteN = coteN;
 		this.cote2 = cote2;
 		this.resultatMatch = resultatMatch;
+		this.sport_game = sport_game;
+		this.opponent1 = opponent1;
+		this.opponent2 = opponent2;
 	}
 
-	public Game(Date gameDate, Float cote1, Float coteN, Float cote2, Boolean resultatMatch) {
+	
+	
+
+	public Game(Date gameDate, Float cote1, Float coteN, Float cote2, Boolean resultatMatch, Opponent opponent1,
+			Opponent opponent2) {
 		super();
 		this.gameDate = gameDate;
 		this.cote1 = cote1;
 		this.coteN = coteN;
 		this.cote2 = cote2;
 		this.resultatMatch = resultatMatch;
+		this.opponent1 = opponent1;
+		this.opponent2 = opponent2;
 	}
 
-	public Game(Date gameDate, Float cote1, Float coteN, Float cote2, Boolean resultatMatch, List<Statistical> stat) {
-		super();
-		this.gameDate = gameDate;
-		this.cote1 = cote1;
-		this.coteN = coteN;
-		this.cote2 = cote2;
-		this.resultatMatch = resultatMatch;
-		this.stat = stat;
-	}
+
+
 
 	public Game(Date gameDate, Date gameEnd, Float cote1, Float coteN, Float cote2, Boolean resultatMatch,
-			List<Statistical> stat) {
+			Sport sport_game, Opponent opponent1, Opponent opponent2) {
 		super();
 		this.gameDate = gameDate;
 		this.gameEnd = gameEnd;
@@ -111,31 +131,42 @@ public class Game {
 		this.coteN = coteN;
 		this.cote2 = cote2;
 		this.resultatMatch = resultatMatch;
-		this.stat = stat;
-	}
-	
-	
-	public Game(Date gameDate, Float cote1, Float coteN, Float cote2,
-			List<Opponent> opponentGame) {
-		super();
-		this.gameDate = gameDate;
-		this.cote1 = cote1;
-		this.coteN = coteN;
-		this.cote2 = cote2;
-		this.opponentGame = opponentGame;
+		this.sport_game = sport_game;
+		this.opponent1 = opponent1;
+		this.opponent2 = opponent2;
 	}
 
-	public Game(Date gameDate, Float cote1, Float coteN, Float cote2, Boolean resultatMatch,
-			List<Opponent> opponentGame, List<Statistical> stat) {
+
+
+	public Game(Date gameDate, Date gameEnd, Float cote1, Float cote2, Boolean resultatMatch, Sport sport_game,
+			Opponent opponent1, Opponent opponent2) {
+		super();
+		this.gameDate = gameDate;
+		this.gameEnd = gameEnd;
+		this.cote1 = cote1;
+		this.cote2 = cote2;
+		this.resultatMatch = resultatMatch;
+		this.sport_game = sport_game;
+		this.opponent1 = opponent1;
+		this.opponent2 = opponent2;
+	}
+
+
+
+	public Game(Date gameDate, Float cote1, Float coteN, Float cote2, Boolean resultatMatch, Sport sport_game,
+			Opponent opponent1, Opponent opponent2) {
 		super();
 		this.gameDate = gameDate;
 		this.cote1 = cote1;
 		this.coteN = coteN;
 		this.cote2 = cote2;
 		this.resultatMatch = resultatMatch;
-		this.opponentGame = opponentGame;
-		this.stat = stat;
+		this.sport_game = sport_game;
+		this.opponent1 = opponent1;
+		this.opponent2 = opponent2;
 	}
+
+
 
 	public Long getId() {
 		return id;
@@ -209,13 +240,6 @@ public class Game {
 		this.sport_game = sport;
 	}
 
-	public List<Opponent> getOpponentGame() {
-		return opponentGame;
-	}
-
-	public void setOpponentGame(List<Opponent> opponentGame) {
-		this.opponentGame = opponentGame;
-	}
 
 	public List<Statistical> getStat() {
 		return stat;
@@ -231,6 +255,30 @@ public class Game {
 
 	public void setGameEnd(Date gameEnd) {
 		this.gameEnd = gameEnd;
+	}
+
+	public Sport getSport_game() {
+		return sport_game;
+	}
+
+	public void setSport_game(Sport sport_game) {
+		this.sport_game = sport_game;
+	}
+
+	public Opponent getOpponent1() {
+		return opponent1;
+	}
+
+	public void setOpponent1(Opponent opponent1) {
+		this.opponent1 = opponent1;
+	}
+
+	public Opponent getOpponent2() {
+		return opponent2;
+	}
+
+	public void setOpponent2(Opponent opponent2) {
+		this.opponent2 = opponent2;
 	}
 
 }
