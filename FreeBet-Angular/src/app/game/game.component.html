@@ -3,8 +3,7 @@
   <tr>
 
     <th scope="col">Sport</th>
-    <th scope="col">Opponent1</th>
-    <th scope="col">Opponent2</th>
+    <th scope="col">Adversaires</th>
     <th scope="col">Date de la rencontre</th>
     <th scope="col">Date fin de rencontre</th>
     <th scope="col">Cote1</th>
@@ -22,10 +21,12 @@
     <th scope="row"></th>
     <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.sport}}</td>
     <td (click)="detail(content, game.id)" style="cursor: pointer"*ngFor="let oppo1 of game.opponents">
-    {{oppo1.nom}}
-    </td>
-    <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.gameDate}}</td>
-    <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.gameEnd}}</td>
+      <ul>
+          <li >Adversaire 1: {{oppo1.nom}}</li>
+          <li >Adversaire 2: {{oppo1.nom}}</li>
+        </ul>    </td>
+    <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.gameDate| date:'yyyy-MM-dd HH:mm' }}</td>
+    <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.gameEnd| date:'yyyy-MM-dd HH:mm' }}</td>
     <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.cote1}}</td>
     <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.coteN}}</td>
     <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.cote2}}</td>
@@ -65,43 +66,43 @@
 
       <tr>
         <th>Sport</th>
-        <td>{{modalGame.sport}}</td>
+        <td>{{modalGame.sport?.nom}}</td>
       </tr>
       <tr>
         <th>Championnat</th>
-        <td>{{modalGame.opponents}}</td>
+        <td>{{modalGame?.opponents}}</td>
       </tr>
       <tr>
         <th>Opponent 1</th>
-        <td>{{modalGame.opponents}}</td>
+        <td>{{modalGame?.opponents}}</td>
       </tr>
       <tr>
         <th>Opponent 2</th>
-        <td>{{modalGame.opponents}}</td>
+        <td>{{modalGame?.opponents}}</td>
       </tr>
       <tr>
         <th>Date de la rencontre</th>
-        <td>{{modalGame.gameDate}}</td>
+        <td>{{modalGame?.gameDate| date:'yyyy-MM-dd HH:mm' }}</td>
       </tr>
       <tr>
         <th>Date de fin de rencontre</th>
-        <td>{{modalGame.gameDate}}</td>
+        <td>{{modalGame?.gameEnd| date:'yyyy-MM-dd HH:mm' }}</td>
       </tr>
       <tr>
         <th>Cote 1</th>
-        <td>{{modalGame.cote1}}</td>
+        <td>{{modalGame?.cote1}}</td>
       </tr>
       <tr>
         <th>Cote N</th>
-        <td >{{modalGame.coteN}}</td>
+        <td >{{modalGame?.coteN}}</td>
       </tr>
       <tr>
         <th>Cote 2</th>
-        <td>{{modalGame.cote2}}</td>
+        <td>{{modalGame?.cote2}}</td>
       </tr>
       <tr>
         <th>Match terminé</th>
-        <td>{{modalGame.gameDate}}</td>
+        <td>{{modalGame?.gameDate}}</td>
       </tr>
       </tbody>
     </table>
@@ -125,11 +126,11 @@
       <div class="form-group" *ngIf="sportService.sports">
         <label for="opp1">Adversaire 1:</label>
         <select class="form-control" id="opp1" [(ngModel)]="currentGame.opponents">
-          <option value="{{oppo.nom}}" *ngFor="let oppo of opponent()">{{oppo.nom}}</option>
+          <option value="{{oppo1.nom}}" *ngFor="let oppo1 of opponent()">{{oppo1.nom}}</option>
         </select>
       </div>
       <div class="form-group" *ngIf="sportService.sports">
-        <label for="opp1">Adversaire 2:</label>
+        <label for="opp2">Adversaire 2:</label>
         <select class="form-control" id="opp2" [(ngModel)]="currentGame.opponents">
           <option value="{{oppo2.nom}}" *ngFor="let oppo2 of opponent()">{{oppo2.nom}}</option>
         </select>
