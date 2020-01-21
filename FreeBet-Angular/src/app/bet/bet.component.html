@@ -124,7 +124,7 @@
       <label for="choixmatch">Choix du match</label>
 
           <select class="form-control" id="choixmatch" [(ngModel)]="currentBet.games">
-              <option value="{{choixmatch}}" *ngFor="let choixmatch of betgames()">{{choixmatch.id}}</option>
+              <option value="{{choixmatch.id}}" *ngFor="let choixmatch of betgames()">{{choixmatch.opponent1.nom}} - {{choixmatch.opponent2.nom}}</option>
           </select>
 
 
