@@ -62,9 +62,6 @@ export class GameHttpService {
 
   save(game: Game){
     if(game){
-      if (game.opponents){
-        game.opponents = null;
-      }
       if (game.sport && !game.sport.id){
         game.sport = null;
       }

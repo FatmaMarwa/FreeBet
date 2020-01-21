@@ -39,7 +39,6 @@ export class OpponentComponent implements OnInit {
   add() {
     this.currentOpponent = new Opponent();
     this.currentOpponent.sport_opponent = new Sport();
-    this.currentOpponent.game_opponent = new Game();
   }
 
   detail(content, id: number) {
@@ -56,9 +55,6 @@ export class OpponentComponent implements OnInit {
       this.currentOpponent = resp;
       if (!this.currentOpponent.sport_opponent) {
         this.currentOpponent.sport_opponent = new Sport();
-      }
-      if (!this.currentOpponent.game_opponent) {
-        this.currentOpponent.game_opponent = new Game();
       }
     }, error => {
       console.log(error);

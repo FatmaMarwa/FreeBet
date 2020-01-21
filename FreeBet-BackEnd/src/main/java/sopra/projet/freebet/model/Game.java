@@ -82,6 +82,12 @@ public class Game {
 
 	
 
+	public Game() {
+		super();
+	}
+
+
+
 	public Game(Long id, int version, Date gameDate, Date gameEnd, Float cote1, Float coteN, Float cote2,
 			Boolean resultatMatch, Sport sport_game, Opponent opponent1, Opponent opponent2) {
 		super();

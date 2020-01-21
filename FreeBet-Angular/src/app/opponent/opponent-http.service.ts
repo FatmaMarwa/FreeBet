@@ -37,9 +37,6 @@ export class OpponentHttpService {
       if (opponent.sport_opponent) {
         opponent.sport_opponent = null;
       }
-      if (opponent.game_opponent) {
-        opponent.game_opponent = null;
-      }
       if (!opponent.id) {
         console.log(opponent);
         this.http.post<Opponent>(this.appConfig.backEnd + 'opponent', opponent).subscribe(resp => {
