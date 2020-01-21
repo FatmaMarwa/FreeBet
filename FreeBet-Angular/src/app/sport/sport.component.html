@@ -38,8 +38,7 @@
                 </button>
               </div>
             </div>
-            </div>
-
+</div>
 <ng-template #content let-modal>
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title">Détails du Sport</h4>
@@ -106,3 +105,15 @@
   </div>
 </div>
 
+<div>
+  <ul *ngFor="let sport of list()">
+    <ul *ngFor="let game of sport.game">
+      <li>{{game.id}}</li>
+      <li>{{game.opponents}}</li>
+      <li>{{game.gameDate}}</li>
+      <li>{{game.id}}</li>
+      <li>{{game.id}}</li>
+      <li>{{game.id}}</li>
+    </ul>
+  </ul>
+</div>
