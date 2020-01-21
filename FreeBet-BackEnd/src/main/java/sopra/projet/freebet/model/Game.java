@@ -113,6 +113,29 @@ public class Game {
 		this.resultatMatch = resultatMatch;
 		this.stat = stat;
 	}
+	
+	
+	public Game(Date gameDate, Float cote1, Float coteN, Float cote2,
+			List<Opponent> opponentGame) {
+		super();
+		this.gameDate = gameDate;
+		this.cote1 = cote1;
+		this.coteN = coteN;
+		this.cote2 = cote2;
+		this.opponentGame = opponentGame;
+	}
+
+	public Game(Date gameDate, Float cote1, Float coteN, Float cote2, Boolean resultatMatch,
+			List<Opponent> opponentGame, List<Statistical> stat) {
+		super();
+		this.gameDate = gameDate;
+		this.cote1 = cote1;
+		this.coteN = coteN;
+		this.cote2 = cote2;
+		this.resultatMatch = resultatMatch;
+		this.opponentGame = opponentGame;
+		this.stat = stat;
+	}
 
 	public Long getId() {
 		return id;

@@ -6,7 +6,6 @@ import { SportComponent } from './sport/sport.component';
 import {FormsModule} from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
-
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -39,7 +38,7 @@ import { HomeComponent } from './home/home.component';
     LoginComponent,
     GameComponent,
     OpponentComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,6 +50,10 @@ import { HomeComponent } from './home/home.component';
 
 
   ],
+  exports: [
+    HomeComponent
+  ],
+  // tslint:disable-next-line:max-line-length
   providers: [AppConfigService, AdminHttpService, BetHttpService, BettorHttpService, GameHttpService, LoginHttpService, SportHttpService, OpponentHttpService],
   bootstrap: [AppComponent]
 })

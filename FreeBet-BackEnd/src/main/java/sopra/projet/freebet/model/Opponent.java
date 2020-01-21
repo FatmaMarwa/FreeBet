@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -33,12 +34,12 @@ public class Opponent {
 	@JsonView(Views.ViewCommon.class)
 	private ChampionShip championnat;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "SPORT_ID")
 	@JsonView(Views.ViewOpponent.class)
 	private Sport sport_opponent;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "GAME_ID")
 	@JsonView(Views.ViewOpponent.class)
 	private Game game_opponent;
@@ -60,6 +61,16 @@ public class Opponent {
 		this.version = version;
 		this.nom = nom;
 		this.championnat = championnat;
+	}
+	
+	
+
+	public Opponent(String nom, ChampionShip championnat, Sport sport_opponent, Game game_opponent) {
+		super();
+		this.nom = nom;
+		this.championnat = championnat;
+		this.sport_opponent = sport_opponent;
+		this.game_opponent = game_opponent;
 	}
 
 	public Long getId() {

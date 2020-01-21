@@ -1,0 +1,10 @@
+ul {
+  background-color: #245dff;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav-link:hover {
+  color: yellow;
+}
