@@ -41,7 +41,7 @@ public class Opponent {
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "GAME_ID")
-	@JsonView(Views.ViewOpponent.class)
+	@JsonView(Views.ViewOpponentDetail.class)
 	private Game game_opponent;
 
 	public Opponent() {
@@ -71,6 +71,15 @@ public class Opponent {
 		this.championnat = championnat;
 		this.sport_opponent = sport_opponent;
 		this.game_opponent = game_opponent;
+	}
+
+
+
+	public Opponent(String nom, ChampionShip championnat, Sport sport_opponent) {
+		super();
+		this.nom = nom;
+		this.championnat = championnat;
+		this.sport_opponent = sport_opponent;
 	}
 
 	public Long getId() {

@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -61,7 +62,7 @@ public class Game {
 	@JsonView(Views.ViewGame.class)
 	private Sport sport_game;
 
-	@OneToMany(mappedBy = "game_opponent")
+	@OneToMany(fetch = FetchType.EAGER,mappedBy = "game_opponent")
 	@JsonView(Views.ViewCommon.class)
 	List<Opponent> opponentGame = new ArrayList<Opponent>();
 
