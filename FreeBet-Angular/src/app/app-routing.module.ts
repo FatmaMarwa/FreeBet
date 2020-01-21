@@ -16,7 +16,7 @@ const routes: Routes = [
   {path: 'bet', component: BetComponent},
   {path: 'bettor', component:BettorComponent },
   {path: 'sport', component: SportComponent},
-  {path: 'sport/2/detail', component: SportComponent},
+  {path: 'sport/:id/detail', component: SportComponent},
   {path: 'login', component: LoginComponent },
   {path: 'game', component: GameComponent},
   {path: 'opponent', component:OpponentComponent },
