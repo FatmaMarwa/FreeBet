@@ -60,17 +60,17 @@ export class GameHttpService {
     return this.http.get<Game>(this.appConfig.backEnd + 'game/' + id);
   }
 
-  save(game: Game){
-    if(game){
-      if (game.sport && !game.sport.id){
-        game.sport = null;
+  save(gamesport: Game){
+    if(gamesport){
+      if (gamesport && !gamesport.id){
+        gamesport = null;
       }
-      if(!game.id){
-        this.http.post<Game>(this.appConfig.backEnd + 'game', game).subscribe( resp =>{
+      if(!gamesport.id){
+        this.http.post<Game>(this.appConfig.backEnd + 'game', gamesport).subscribe( resp =>{
           this.load();
         }, err => console.log(err));
       }else {
-        this.http.put<Game>(this.appConfig.backEnd + 'game/' + game.id, game).subscribe(resp =>{
+        this.http.put<Game>(this.appConfig.backEnd + 'game/' + gamesport.id, gamesport).subscribe(resp =>{
           this.load();
         }, err => console.log(err));
       }
