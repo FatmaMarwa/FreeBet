@@ -39,14 +39,23 @@ public class Opponent {
 	@JsonView(Views.ViewOpponent.class)
 	private Sport sport_opponent;
 
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "GAME_ID")
-	@JsonView(Views.ViewOpponentDetail.class)
-	private Game game_opponent;
 
 	public Opponent() {
 		super();
 	}
+	
+	
+
+	public Opponent(Long id, int version, String nom, ChampionShip championnat, Sport sport_opponent) {
+		super();
+		this.id = id;
+		this.version = version;
+		this.nom = nom;
+		this.championnat = championnat;
+		this.sport_opponent = sport_opponent;
+	}
+
+
 
 	public Opponent(String nom, ChampionShip championnat) {
 		super();
@@ -64,15 +73,6 @@ public class Opponent {
 	}
 	
 	
-
-	public Opponent(String nom, ChampionShip championnat, Sport sport_opponent, Game game_opponent) {
-		super();
-		this.nom = nom;
-		this.championnat = championnat;
-		this.sport_opponent = sport_opponent;
-		this.game_opponent = game_opponent;
-	}
-
 
 
 	public Opponent(String nom, ChampionShip championnat, Sport sport_opponent) {
@@ -122,12 +122,5 @@ public class Opponent {
 		this.sport_opponent = sport_opponent;
 	}
 
-	public Game getGame_opponent() {
-		return game_opponent;
-	}
-
-	public void setGame_opponent(Game game_opponent) {
-		this.game_opponent = game_opponent;
-	}
 
 }

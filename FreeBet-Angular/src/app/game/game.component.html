@@ -138,12 +138,12 @@
     <div class="form-group">
       <label for="dtGame">Date de la rencontre:</label>
       <input type="datetime-local" class="form-control" placeholder="Entrer la date de la rencontre" id="dtGame"
-             [ngModel]="currentGame.gameDate | date:'yyyy-MM-dd HH:mm'" (ngModelChange)="currentGame.gameDate=$event">
+             [ngModel]="currentGame.gameDate | date:'yyyy-MM-dd \'T\' HH:mm'" (ngModelChange)="currentGame.gameDate=$event">
     </div>
     <div class="form-group">
       <label for="dtEnd">Date de fin de rencontre:</label>
       <input type="datetime-local" class="form-control" placeholder="Entrer la date de la fin de rencontre" id="dtEnd"
-             [ngModel]="currentGame.gameEnd | date:'yyyy-MM-dd HH:mm'" (ngModelChange)="currentGame.gameEnd=$event">
+             [ngModel]="currentGame.gameEnd | date:'yyyy-MM-dd \'T\' HH:mm'" (ngModelChange)="currentGame.gameEnd=$event">
     </div>
     <div class="form-group">
       <label for="cote1">Cote 1:</label>
