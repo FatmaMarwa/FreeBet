@@ -23,10 +23,10 @@
         <td (click)="detail(content, bet.id)" style="cursor: pointer" >
           <ul *ngFor="let game of bet.games">
             <li>{{game.id}}</li>
-                <ul *ngFor="let cot of bet.games">
-                  <li >Côte 1: {{cot.cote1}}</li>
-                  <li >Côte N: {{cot.coteN}}</li>
-                  <li >Côte 2: {{cot.cote2}}</li>
+                <ul>
+                  <li >Côte 1: {{game.cote1}}</li>
+                  <li >Côte N: {{game.coteN}}</li>
+                  <li >Côte 2: {{game.cote2}}</li>
               </ul>
           </ul>
         </td>
@@ -127,11 +127,10 @@
 
 
 
-    <div><button type="button" class="btn btn-success btn-lg" value="{{cote1}}" *ngFor="let cote1 of betgames()">{{cote1.coteN}}</button></div>
+      <div><button type="button" class="btn btn-success btn-lg" *ngFor="let choixmatch of betgames()">{{choixmatch.cote1}}</button></div>
     <div><button type="button" class="btn btn-success btn-lg" value="{{coteN}}" *ngFor="let coteN of betgames()">{{coteN.coteN}}</button></div>
     <div><button type="button" class="btn btn-success btn-lg" value="{{cote2}}" *ngFor="let cote2 of betgames()">{{cote2.cote2}}</button></div>
     </div>
-
 
 
 

@@ -26,6 +26,8 @@ export class SportComponent implements OnInit {
     return this.sportService.findAll();
   }
 
+
+
  // games() {
 //    return this.gameService.findAll();
  // }
@@ -57,6 +59,14 @@ export class SportComponent implements OnInit {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title', scrollable: true});
   }
 
+  detailwithGames(content,id:number){
+    this.sportService.findByIdWithGames(id).subscribe(resp => {
+      this.modalSport = resp;
+    }, error => {
+      console.log(error);
+    });
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title', scrollable: true});
+  }
   edit(id: number) {
     this.sportService.findById(id).subscribe(resp => {
       this.currentSport = resp;

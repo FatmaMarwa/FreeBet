@@ -41,7 +41,7 @@ public class SportControllerRest {
 	}
 
 	@GetMapping("/{id}")
-	@JsonView(Views.ViewSportDetail.class)
+	@JsonView(Views.ViewSport.class)
 	public Sport find(@PathVariable Long id) {
 		Optional<Sport> opt = sportRepo.findById(id);
 
@@ -52,6 +52,18 @@ public class SportControllerRest {
 		}
 	}
 
+	@GetMapping("/{id}/detail")
+	@JsonView(Views.ViewSportDetail.class)
+	public Sport detail(@PathVariable Long id) {
+		Sport sport = sportRepo.findByIdWithGames(id);
+
+		if (sport != null) {
+			return sport;
+		} else {
+			throw new NotFoundException();
+		}
+	}
+	
 	@PostMapping("")
 	@JsonView(Views.ViewSport.class)
 	public Sport create(@RequestBody Sport sport) {

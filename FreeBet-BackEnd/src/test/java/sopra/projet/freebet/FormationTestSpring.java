@@ -186,8 +186,8 @@ public class FormationTestSpring {
 		gameRepo.save(dgame1);
 		gameRepo.save(dgame2);
 		
-		Game dgame3 = new Game(dtevent1, 1.26F, null, 6.30F, true, stats1);
-		Game dgame4 = new Game(dtevent2, 7.10F, null, 1.17F, true, stats2);
+		Game dgame3 = new Game(dtevent1, 1.26F, null, 6.30F, true,Tennis, stats1);
+		Game dgame4 = new Game(dtevent2, 7.10F, null, 1.17F, true,Tennis, stats2);
 		gameRepo.save(dgame3);
 		gameRepo.save(dgame4);
 		
