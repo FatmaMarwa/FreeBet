@@ -31,13 +31,18 @@ export class BetComponent implements OnInit {
     return this.betService.typesBets;
   }
 
+  gains() {
+    return this.currentBet.mise* 5
+
+  }
+
  /* bettors(){
     return this.bettorService.findAll();
   }*/
 
-  /*betgames(){
+  betgames(){
     return this.gameService.findAll();
-  }*/
+  }
 
   add() {
     this.currentBet = new Bet();
