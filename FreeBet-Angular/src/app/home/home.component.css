@@ -1,7 +1,15 @@
 .picsum-img-wrapper img{
   opacity: 100;
-  height: 150px;
-  width: 1000px;
+  max-height: 150px;
+  max-width: 1000px;
   display: block;
-}
+  justify-content: center;
 
+}
+.container-fluid{
+  background-color: #feff55;
+  height: 100px;
+  width: 500px;
+
+
+}

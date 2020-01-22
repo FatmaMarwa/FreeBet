@@ -1,40 +1,25 @@
-<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark indigo fixed-top">
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark indigo">
+
+
   <mdb-navbar-brand>
     <a class="navbar-brand" href="#" [routerLink]="['/home']" routerLinkActive="active"><img height="50" class="d-inline-block align-top" src="assets/img/FreeBetBleu.PNG"></a>
   </mdb-navbar-brand>
   <ul class="navbar-nav mr-auto">
-    <li class="nav-item dropdown" dropdown>
-      <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" [routerLink]="['/sport/football']" routerLinkActive="active" mdbWavesEffect><fa name="fas fa-futbol"></fa>
-        Football<span class="caret"></span></a>
-      <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
-        <a class="dropdown-item waves-light" [routerLink]="['/:id/detail']" routerLinkActive="active" mdbWavesEffec>Game</a>
-        <a class="dropdown-item waves-light" [routerLink]="['/:id']" routerLinkActive="active"mdbWavesEffect>Opponent</a>
-      </div>
+    <li class="nav-item active">
+      <a class="nav-link" [routerLink]="['/sport/:id/detail']" routerLinkActive="active" mdbWavesEffect><i class="fas fa-futbol"></i><span class="sr-only">(current)</span>
+        Football<span class="sr-only">(current)</span></a>
     </li>
-
-    <li class="nav-item dropdown" dropdown>
-      <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" [routerLink]="['/sport/rugby']" routerLinkActive="active" mdbWavesEffect><i class="fas fa-football-ball"></i>
-        Rugby<span class="caret"></span></a>
-      <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
-        <a class="dropdown-item waves-light" [routerLink]="['/:id/detail']" routerLinkActive="active"mdbWavesEffect>Game</a>
-        <a class="dropdown-item waves-light" [routerLink]="['/:id']" routerLinkActive="active"mdbWavesEffect>Opponent</a>
-      </div>
+    <li class="nav-item active">
+      <a class="nav-link" [routerLink]="['/sport/:id/detail']" routerLinkActive="active" mdbWavesEffect><i class="fas fa-football-ball"></i>
+        Rugby<span class="sr-only">(current)</span></a>
     </li>
-    <li class="nav-item dropdown" dropdown>
-      <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" [routerLink]="['/sport/tennis']" routerLinkActive="active" mdbWavesEffect><i class="fas fa-table-tennis"></i>
-        Tennis<span class="caret"></span></a>
-      <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
-        <a class="dropdown-item waves-light" [routerLink]="['/:id/detail']" routerLinkActive="active"mdbWavesEffect >Game</a>
-        <a class="dropdown-item waves-light" [routerLink]="['/:id']" routerLinkActive="active"mdbWavesEffect >Opponent</a>
-      </div>
+    <li class="nav-item active">
+      <a class="nav-link" [routerLink]="['/sport/:id/detail']" routerLinkActive="active" mdbWavesEffect><i class="fas fa-table-tennis"></i>
+        Tennis<span class="sr-only">(current)</span></a>
     </li>
-    <li class="nav-item dropdown" dropdown>
-      <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" [routerLink]="['/sport/basket']" routerLinkActive="active" mdbWavesEffect><i class="fas fa-basketball-ball"></i>
-        Basket<span class="caret"></span></a>
-      <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
-        <a class="dropdown-item waves-light" [routerLink]="['/:id/detail']" routerLinkActive="active" mdbWavesEffect >Game</a>
-        <a class="dropdown-item waves-light" [routerLink]="['/:id']" routerLinkActive="active"mdbWavesEffect>Opponent</a>
-      </div>
+    <li class="nav-item active">
+      <a class="nav-link" [routerLink]="['/sport/:id/detail']" routerLinkActive="active" mdbWavesEffect><i class="fas fa-basketball-ball"></i>
+        Basket<span class="sr-only">(current)</span></a>
     </li>
 
   </ul>
@@ -46,6 +31,14 @@
       <a class="nav-link"><fa name="fas fa-user-plus" ></fa></a>
     </li>
   </ul>
+
+
+  <form class="form-inline">
+    <div class="md-form my-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+    </div>
+  </form>
+
 </mdb-navbar>
 
 
