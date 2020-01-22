@@ -27,3 +27,17 @@ img {
   max-width: 1200px;
 
 }
+.btn {
+  padding: 5rem 10rem !important;
+  border-radius:50% !important;
+
+}
+#clignote{
+  animation: Clignote 1.5s infinite;
+}
+@keyframes Clignote{
+  0%{opacity: 1;}
+  50%{opacity: 0;}
+  100%{opacity: 1;}
+}
+
