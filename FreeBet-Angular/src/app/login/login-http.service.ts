@@ -7,6 +7,8 @@ import {Observable} from 'rxjs';
 import {AppConfigService} from '../app-config.service';
 import {AdminHttpService} from '../admin/admin-http.service';
 import {Login} from '../Model/Login';
+import {Bettor} from "../Model/bettor";
+import {Router} from "@angular/router";
 
 class BettorHttpService {
 }
@@ -29,7 +31,7 @@ export class LoginHttpService {
       err => console.log(err));
   }
 
-  findAll(): Array<Login> {
+    findAll(): Array<Login> {
     return this.logins;
   }
 
