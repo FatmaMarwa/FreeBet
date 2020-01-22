@@ -13,3 +13,17 @@
 
 
 }
+
+.carousel-inner {
+  height: 300px;
+  max-height: 300px;
+  width: 1200px;
+  max-width: 1200px;
+}
+img {
+  height: 300px;
+  max-height: 300px;
+  width: 1200px;
+  max-width: 1200px;
+
+}
