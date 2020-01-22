@@ -9,10 +9,7 @@ import {StatistiqueComponent} from './statistique/statistique.component';
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from './home/home.component';
-import {TennisComponent} from './tennis/tennis.component';
-import {RugbyComponent} from './rugby/rugby.component';
-import {BasketComponent} from './basket/basket.component';
-import {FootballComponent} from './football/football.component';
+import {SportDetailComponent} from './sport-detail/sport-detail.component';
 
 const routes: Routes = [
 
@@ -24,10 +21,8 @@ const routes: Routes = [
   {path: 'game', component: GameComponent},
   {path: 'opponent', component:OpponentComponent },
   {path: 'home', component: HomeComponent},
-  {path: 'sport/tennis', component: TennisComponent},
-  {path: 'sport/rugby', component: RugbyComponent},
-  {path: 'sport/basket', component: BasketComponent},
-  {path: 'sport/football', component: FootballComponent},
+  {path: 'sport/:id/detail', component: SportDetailComponent},
+
 ];
 
 @NgModule({

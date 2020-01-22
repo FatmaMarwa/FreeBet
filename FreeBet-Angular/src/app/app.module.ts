@@ -31,6 +31,7 @@ import { TennisComponent } from './tennis/tennis.component';
 import { RugbyComponent } from './rugby/rugby.component';
 import { BasketComponent } from './basket/basket.component';
 import { FootballComponent } from './football/football.component';
+import { SportDetailComponent } from './sport-detail/sport-detail.component';
 
 
 @NgModule({
@@ -52,6 +53,7 @@ import { FootballComponent } from './football/football.component';
     RugbyComponent,
     BasketComponent,
     FootballComponent,
+    SportDetailComponent,
   ],
   imports: [
     BrowserModule,
