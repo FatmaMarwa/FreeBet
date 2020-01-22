@@ -11,6 +11,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from './home/home.component';
 import {SportDetailComponent} from './sport-detail/sport-detail.component';
 
+
 const routes: Routes = [
 
   {path: 'admin', component: AdminComponent},
@@ -30,4 +31,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {
+
 }

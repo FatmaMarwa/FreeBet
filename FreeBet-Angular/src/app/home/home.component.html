@@ -1,5 +1,5 @@
 <!--carousel-->
-<div class="row" style="height: 500px;">
+<div class="row">
 <mdb-carousel class="carousel slide carousel-fade" [animation]="'fade'">
 
 
@@ -59,42 +59,80 @@
 </div>
 
 <!-- Menu resultats-->
-<div class="container-fluid rounded-left">
-<ngb-tabset type="pills" [orientation]="currentOrientation">
-  <ngb-tab title="Résultats">
-    <ng-template ngbTabContent>
-    </ng-template>
-  </ngb-tab>
-  <ngb-tab>
-    <ng-template ngbTabTitle><b>Football</b></ng-template>
-    <ng-template ngbTabContent>
-      <p>Inserer resulats base de donnee</p>
-   </ng-template>
-  </ngb-tab>
-  <ngb-tab>
-    <ng-template ngbTabTitle><b>Rugby</b></ng-template>
-    <ng-template ngbTabContent>
-      <p>Inserer resulats base de donnee</p>
-    </ng-template>
-  </ngb-tab>
-  <ngb-tab>
-  <ng-template ngbTabTitle><b>Tennis</b></ng-template>
-  <ng-template ngbTabContent>
-    <p>Inserer resulats base de donnee</p>
-  </ng-template>
-</ngb-tab>
-  <ngb-tab>
-  <ng-template ngbTabTitle><b>Basket</b></ng-template>
-  <ng-template ngbTabContent>
-    <p>Inserer resulats base de donnee</p>
-  </ng-template>
-</ngb-tab>
-</ngb-tabset>
-</div>
-<a mdbBtn href="#" role="button" color="primary" mdbWavesEffect>Pariez !</a>
-<div class="container-fluid">
+<!--<div class="container-fluid rounded-left">-->
+<!--<ngb-tabset type="pills" [orientation]="currentOrientation">-->
+<!--  <ngb-tab title="Résultats">-->
+<!--    <ng-template ngbTabContent>-->
+<!--    </ng-template>-->
+<!--  </ngb-tab>-->
+<!--  <ngb-tab>-->
+<!--    <ng-template ngbTabTitle><b>Football</b></ng-template>-->
+<!--    <ng-template ngbTabContent>-->
+<!--      <p>Inserer resulats base de donnee</p>-->
+<!--   </ng-template>-->
+<!--  </ngb-tab>-->
+<!--  <ngb-tab>-->
+<!--    <ng-template ngbTabTitle><b>Rugby</b></ng-template>-->
+<!--    <ng-template ngbTabContent>-->
+<!--      <p>Inserer resulats base de donnee</p>-->
+<!--    </ng-template>-->
+<!--  </ngb-tab>-->
+<!--  <ngb-tab>-->
+<!--  <ng-template ngbTabTitle><b>Tennis</b></ng-template>-->
+<!--  <ng-template ngbTabContent>-->
+<!--    <p>Inserer resulats base de donnee</p>-->
+<!--  </ng-template>-->
+<!--</ngb-tab>-->
+<!--  <ngb-tab>-->
+<!--  <ng-template ngbTabTitle><b>Basket</b></ng-template>-->
+<!--  <ng-template ngbTabContent>-->
+<!--    <p>Inserer resulats base de donnee</p>-->
+<!--  </ng-template>-->
+<!--</ngb-tab>-->
+<!--</ngb-tabset>-->
+<!--</div>-->
 
-</div>
+<table>
+  <thead>
+  <tr>
+
+    <th scope="col">Sport</th>
+    <th scope="col">Adversaire 1</th>
+    <th scope="col">Adversaire 2</th>
+    <th scope="col">Date de la rencontre</th>
+    <th scope="col">Date fin de rencontre</th>
+    <th scope="col">Cote1</th>
+    <th scope="col">CoteN</th>
+    <th scope="col">Cote2</th>
+    <th scope="col">Match terminé</th>
+
+
+  </tr>
+  </thead>
+  <tbody>
+  </tbody>
+  <tbody>
+  <tr *ngFor="let game of game()">
+    <th scope="row"></th>
+    <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.sport_game?.nom}}</td>
+    <td (click)="game.detail(game.content, game.id)" style="cursor: pointer">{{game.opponent1?.nom}}</td>
+    <td (click)="game.detail(game.content, game.id)" style="cursor: pointer">{{game.opponent2?.nom}}</td>
+    <td (click)="game.detail(game.content, game.id)" style="cursor: pointer">{{game.gameDate| date:'yyyy-MM-dd HH:mm' }}</td>
+    <td (click)="game.detail(game.content, game.id)" style="cursor: pointer">{{game.gameEnd| date:'yyyy-MM-dd HH:mm' }}</td>
+    <td (click)="game.detail(game.content, game.id)" style="cursor: pointer">{{game.cote1}}</td>
+    <td (click)="game.detail(game.content, game.id)" style="cursor: pointer">{{game.coteN}}</td>
+    <td (click)="game.detail(game.content, game.id)" style="cursor: pointer">{{game.cote2}}</td>
+    <td (click)="game.detail(game.content, game.id)" style="cursor: pointer">{{game.gameDone}}</td>
+    <td (click)="game.detail(game.content, game.id)" style="cursor: pointer">
+
+    </td>
+
+  </tr>
+  </tbody>
+</table>
+
+
+<a mdbBtn href="#" role="button" color="primary" mdbWavesEffect>Pariez !</a>
 
 
 

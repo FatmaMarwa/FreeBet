@@ -4,6 +4,8 @@ import {Bettor} from "../Model/bettor";
 import {Subscription} from "rxjs";
 import {HomeService} from "./home-http.service";
 import {BettorHttpService} from "../bettor/bettor-http.service";
+import {GameHttpService} from '../game/game-http.service';
+import {Game} from '../Model/game';
 
 
 
@@ -14,7 +16,10 @@ import {BettorHttpService} from "../bettor/bettor-http.service";
 })
 export class HomeComponent implements OnInit {
 
-  images = [62, 83, 466, 965, 982, 1043, 738].map((n) => `https://picsum.photos/id/${n}/900/500`);
+
+  constructor(private gameService: GameHttpService) {
+    this.gameService = gameService;
+  }
 
   paused = false;
   unpauseOnArrow = false;
@@ -47,6 +52,9 @@ export class HomeComponent implements OnInit {
   currentBettor: Bettor;
   currentBettorSubscription: Subscription;
   bettors: Bettor[] = [];
+  game() {
+    return this.gameService.findAll();
+  }
 
 
   constructor(private homeService: HomeService,private bettorService:BettorHttpService) {

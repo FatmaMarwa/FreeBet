@@ -10,25 +10,25 @@
         Football<span class="sr-only">(current)</span></a>
     </li>
     <li class="nav-item active">
-      <a class="nav-link" [routerLink]="['/sport/:id/detail']" routerLinkActive="active" mdbWavesEffect><i class="fas fa-football-ball"></i>
+      <a class="nav-link" [routerLink]="['/sport', '54', 'detail']" routerLinkActive="active" mdbWavesEffect><i class="fas fa-football-ball"></i>
         Rugby<span class="sr-only">(current)</span></a>
     </li>
     <li class="nav-item active">
-      <a class="nav-link" [routerLink]="['/sport/:id/detail']" routerLinkActive="active" mdbWavesEffect><i class="fas fa-table-tennis"></i>
+      <a class="nav-link" [routerLink]="['/sport', '2', 'detail']" routerLinkActive="active" mdbWavesEffect><i class="fas fa-table-tennis"></i>
         Tennis<span class="sr-only">(current)</span></a>
     </li>
     <li class="nav-item active">
-      <a class="nav-link" [routerLink]="['/sport/:id/detail']" routerLinkActive="active" mdbWavesEffect><i class="fas fa-basketball-ball"></i>
+      <a class="nav-link" [routerLink]="['/sport', '1', 'detail']" routerLinkActive="active" mdbWavesEffect><i class="fas fa-basketball-ball"></i>
         Basket<span class="sr-only">(current)</span></a>
     </li>
 
   </ul>
   <ul class="navbar-nav nav-flex-icons">
     <li class="nav-item waves-light" mdbWavesEffect>
-      <a class="nav-link"><fa name="fas fa-sign-out-alt"></fa></a>
+      <a class="nav-link" [routerLink]="['/sport', '1', 'detail']"><fa name="fas fa-sign-out-alt"></fa></a>
     </li>
     <li class="nav-item waves-light" mdbWavesEffect>
-      <a class="nav-link"><fa name="fas fa-user-plus" ></fa></a>
+      <a class="nav-link" [routerLink]="['/login']"><fa name="fas fa-user-plus" ></fa></a>
     </li>
   </ul>
 
