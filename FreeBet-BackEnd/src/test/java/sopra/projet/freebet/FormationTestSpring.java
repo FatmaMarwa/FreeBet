@@ -77,6 +77,7 @@ public class FormationTestSpring {
 		sportRepo.save(Basket);
 		Sport Tennis = new Sport("Tennis", TypeSport.two);
 		sportRepo.save(Tennis);
+		
 
 		Opponent Hawks = new Opponent("Atlanta Hawks", ChampionShip.NBA,Basket);
 		Opponent Celtics = new Opponent("Boston Celtics", ChampionShip.NBA,Basket);
@@ -233,7 +234,12 @@ public class FormationTestSpring {
 
 		Sport foot = new Sport("Football", TypeSport.three);
 		sportRepo.save(foot);
+		Sport rugby = new Sport("Rugby", TypeSport.three);
+		sportRepo.save(rugby);
 
+		Opponent stadeToulousain = new Opponent("Stade Toulousain", ChampionShip.Top14,rugby);
+		Opponent RCToulon = new Opponent("RCToulon", ChampionShip.Top14,rugby);
+		
 		Opponent psg = new Opponent("Paris Saint-Germain", ChampionShip.Ligue1,foot);
 		Opponent amiens = new Opponent("Amiens SC", ChampionShip.Ligue1,foot);
 		Opponent dijon = new Opponent("Dijon FCO", ChampionShip.Ligue1,foot);
@@ -254,6 +260,9 @@ public class FormationTestSpring {
 		Opponent marseille = new Opponent("Olympique de Marseille", ChampionShip.Ligue1,foot);
 		Opponent nimes = new Opponent("Nîmes", ChampionShip.Ligue1,foot);
 
+		
+		OpponentRepo.save(stadeToulousain);
+		OpponentRepo.save(RCToulon);
 		OpponentRepo.save(psg);
 		OpponentRepo.save(amiens);
 		OpponentRepo.save(dijon);
@@ -302,9 +311,10 @@ public class FormationTestSpring {
 		opps2.add(dijon);
 		opps2.add(marseille);
 		
-		Game amienspsg = new Game(date1, 9.1F, 5.2F, 1.2F, true, amiens, psg);
-		Game dijonmetz = new Game(date1, 2.1F, 3.2F, 3.4F, true, dijon, marseille);
-		Game toulousebrest = new Game(date2, 2.2F, 3.4F, 3.2F, false, toulouse, brest);
+		Game amienspsg = new Game(date1, 9.1F, 5.2F, 1.2F, true, foot, amiens, psg);
+		Game dijonmetz = new Game(date1, 2.1F, 3.2F, 3.4F, true, foot, dijon, marseille);
+		Game toulousebrest = new Game(date2, 2.2F, 3.4F, 3.2F, false, foot, toulouse, brest);
+		Game stadeToulousainRCToulon = new Game(date2, 2.9F, 3.4F, 4.2F, false, rugby, stadeToulousain, RCToulon);
 
 		Statistical st1 = new Statistical(Code.result1, 1);
 		Statistical st2 = new Statistical(Code.result1, 4);
@@ -328,6 +338,7 @@ public class FormationTestSpring {
 		gameRepo.save(amienspsg);
 		gameRepo.save(dijonmetz);
 		gameRepo.save(toulousebrest);
+		gameRepo.save(stadeToulousainRCToulon);
 
 		List<Game> amienspsg2 = new ArrayList<Game>();
 		amienspsg2.add(amienspsg);
@@ -340,8 +351,7 @@ public class FormationTestSpring {
 		betRepo.save(lb1);
 		betRepo.save(lb2);
 
-		Sport sp = new Sport("balle", TypeSport.one, Duree.A);
-		sportRepo.save(sp);
+		
 	}
 
 }

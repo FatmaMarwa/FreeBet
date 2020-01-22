@@ -18,9 +18,11 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 import sopra.projet.freebet.exception.NotFoundException;
 import sopra.projet.freebet.model.Duree;
+import sopra.projet.freebet.model.Game;
 import sopra.projet.freebet.model.Sport;
 import sopra.projet.freebet.model.TypeSport;
 import sopra.projet.freebet.model.Views;
+import sopra.projet.freebet.repository.IGameRepository;
 import sopra.projet.freebet.repository.ISportRepository;
 
 @CrossOrigin("*")
@@ -31,6 +33,9 @@ public class SportControllerRest {
 
 	@Autowired
 	private ISportRepository sportRepo;
+	
+	@Autowired
+	private IGameRepository gameRepo;
 
 	@GetMapping("")
 	@JsonView(Views.ViewSport.class)
@@ -62,6 +67,12 @@ public class SportControllerRest {
 		} else {
 			throw new NotFoundException();
 		}
+	}
+	
+	@GetMapping("/{id}/games")
+	@JsonView(Views.ViewGame.class)
+	public List<Game> findAllGames(@PathVariable Long id) {
+		return gameRepo.findAllBySport(id);
 	}
 	
 	@PostMapping("")
