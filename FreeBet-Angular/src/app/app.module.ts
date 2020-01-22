@@ -29,6 +29,7 @@ import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 
 import { SportDetailComponent } from './sport-detail/sport-detail.component';
 import {SportDetailHttpService} from './sport-detail/sport-detail.http.service';
+import { ConnexionComponent } from './connexion/connexion.component';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import {SportDetailHttpService} from './sport-detail/sport-detail.http.service';
     OpponentComponent,
     HomeComponent,
     SportDetailComponent,
+    ConnexionComponent,
   ],
   imports: [
     BrowserModule,

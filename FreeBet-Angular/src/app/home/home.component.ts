@@ -40,6 +40,8 @@ export class HomeComponent implements OnInit {
 
   currentOrientation = 'horizontal';
 
+
+
   ngOnInit(): void {
   }
 
