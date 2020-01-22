@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
   }
 
 
+
   add() {
     this.currentLogin = new Login();
     this.currentLogin.admin = new Admin();

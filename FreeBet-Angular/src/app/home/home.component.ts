@@ -1,5 +1,9 @@
 import { Component, OnInit, ViewChild  } from '@angular/core';
 import { NgbCarousel, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/ng-bootstrap';
+import {Bettor} from "../Model/bettor";
+import {Subscription} from "rxjs";
+import {HomeService} from "./home-http.service";
+import {BettorHttpService} from "../bettor/bettor-http.service";
 
 
 
@@ -40,9 +44,28 @@ export class HomeComponent implements OnInit {
 
   currentOrientation = 'horizontal';
 
+  currentBettor: Bettor;
+  currentBettorSubscription: Subscription;
+  bettors: Bettor[] = [];
 
 
-  ngOnInit(): void {
+  constructor(private homeService: HomeService,private bettorService:BettorHttpService) {
+    this.currentBettorSubscription = this.homeService.currentBettor.subscribe(bettor =>{
+      this.currentBettor = bettor;
+    });
   }
 
+  ngOnInit(): void {
+    this.loadAllBettors();
+  }
+
+   loadAllBettors() {
+     return this.bettorService.findAll();
+   }
+
+  login(pseudo: string, motDePasse: string)
+  {
+    localStorage.clear();
+    this.homeService.login(pseudo, motDePasse);
+  }
 }
