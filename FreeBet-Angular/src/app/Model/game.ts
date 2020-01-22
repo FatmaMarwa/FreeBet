@@ -17,6 +17,7 @@ export class Game {
   opponent1: Opponent;
   opponent2: Opponent;
   statisticals: Statistique[];
+  checked: boolean = false;
 
 
   constructor(id?: number, version?: number, gameDate?: Date, gameEnd?: Date, cote1?: number, coteN?: number, cote2?: number, gameDone?: boolean, bets?: Bet[], sport_game?: Sport, opponent1?: Opponent, opponent2?: Opponent, statisticals?: Statistique[]) {

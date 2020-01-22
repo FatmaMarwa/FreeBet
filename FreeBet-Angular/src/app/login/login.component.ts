@@ -80,5 +80,9 @@ export class LoginComponent implements OnInit {
     this.currentLogin = null;
   }
 
+  validate () {
+    // if (this.currentLogin.motDePasse && this.currentLogin.pseudo )
+
+  }
 
 }

@@ -3,10 +3,15 @@ package sopra.projet.freebet.rest;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -72,4 +77,19 @@ public class LoginControllerRest {
 		loginRepo.deleteById(id);
 	}
 
+	
+	@PostMapping("/edit/{id}")
+	public String processAdd(@Valid @ModelAttribute("pseudo") Login login,BindingResult result, Model model) {
+		if(result.hasErrors()) {
+			model.addAttribute("pseudo", login);
+			model.addAttribute("login", this.loginRepo.findAll());
+
+			return "login-auth";
+		}else {
+		
+		this.loginRepo.save(login);
+		return "redirect:/login";
 }
+	}
+}
+	

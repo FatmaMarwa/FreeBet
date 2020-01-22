@@ -19,11 +19,11 @@
         <td (click)="detail(content, bet.id)" style="cursor: pointer">{{bet.mise}}</td>
         <td (click)="detail(content, bet.id)" style="cursor: pointer">{{bet.resultatPari}}</td>
         <td (click)="detail(content, bet.id)" style="cursor: pointer">{{bet.type}}</td>
-        <td (click)="detail(content, bet.id)" style="cursor: pointer">{{bet.betDate | date:'yyyy-MM-dd HH:mm' }}</td>
+        <td (click)="detail(content, bet.id)" style="cursor: pointer">{{bet.betDate | date:'yyyy-MM-dd\'T\'HH:mm' }}</td>
         <td (click)="detail(content, bet.id)" style="cursor: pointer">{{bet.gain}}</td>
         <td (click)="detail(content, bet.id)" style="cursor: pointer" >
           <ul *ngFor="let game of bet.games">
-            <li>{{game.id}}</li>
+            <li>{{game.opponent1.nom}} - {{game.opponent2.nom}}</li>
                 <ul>
                   <li >Côte 1: {{game.cote1}}</li>
                   <li >Côte N: {{game.coteN}}</li>
@@ -81,7 +81,7 @@
       </tr>
       <tr>
         <th>Date de bet</th>
-        <td>{{modalBet?.betDate | date:'yyyy-MM-dd HH:mm'}}</td>
+        <td>{{modalBet?.betDate | date:'yyyy-MM-dd\'T\'HH:mm'}}</td>
       </tr>
       <tr>
         <th>Gain</th>
@@ -90,12 +90,12 @@
       <tr>
         <th>Games</th>
         <ul *ngFor="let game of modalBet.games">
-         <li>{{game.id}}</li>
+         <li>{{game.opponent1}}-{{game.opponent2}}</li>
         </ul>
       </tr>
       <tr>
         <th>Pseudo</th>
-        <td>{{modalBet?.bettor.login.pseudo}}</td>
+        <td>{{modalBet.bettor?.login.pseudo}}</td>
       </tr>
       </tbody>
     </table>
@@ -121,25 +121,29 @@
 
 
     <div class="form-group">
-      <label for="choixmatch">Choix du match</label>
+      <label>Choix du match</label>
 
-          <select class="form-control" id="choixmatch" [(ngModel)]="currentBet.games">
-              <option value="{{choixmatch.id}}" *ngFor="let choixmatch of betgames()">{{choixmatch.opponent1.nom}} - {{choixmatch.opponent2.nom}}</option>
-          </select>
-
-
-
-      <div><button type="button" class="btn btn-success btn-lg" *ngFor="let choixmatch of betgames()">{{choixmatch.cote1}}</button></div>
-    <div><button type="button" class="btn btn-success btn-lg" value="{{coteN}}" *ngFor="let coteN of betgames()">{{coteN.coteN}}</button></div>
-    <div><button type="button" class="btn btn-success btn-lg" value="{{cote2}}" *ngFor="let cote2 of betgames()">{{cote2.cote2}}</button></div>
-    </div>
-
-
-
+      <ul role="listbox" tabindex="0" aria-label="Choix des matchs">
+        <li tabindex="-1" role="option" aria-checked="false" *ngFor="let game of games">
+          <input tabindex="-1" class="o-checkbox" type="checkbox" [(ngModel)]="game.checked">
+          {{game.opponent1?.nom}} - {{game.opponent2?.nom}}
+          <div class="btn-group btn-group-sm">
+            <label class="btn btn-primary active">
+              <input type="radio" name="g{{game.id}}" (click)="calcul(game.cote1)" [disabled]="!game.checked"> {{game.cote1}}
+            </label>
+            <label class="btn btn-primary active">
+              <input type="radio" name="g{{game.id}}" (click)="calcul(game.coteN)" [disabled]="!game.checked"> {{game.coteN}}
+            </label>
+            <label class="btn btn-primary active">
+              <input type="radio" name="g{{game.id}}" (click)="calcul(game.cote2)" [disabled]="!game.checked"> {{game.cote2}}
+            </label>
+          </div>
+        </li>
+      </ul>
 
     <div class="form-group">
       <label for="gain">Gains potentiel du pari:</label>
-      <input type="text" class="form-control" id="gain" value="{{gains()}}" >
+      <input type="text" class="form-control" id="gain" value="{{currentBet.gain}}" >
     </div>
 
     <div class="form-group">

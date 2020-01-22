@@ -56,6 +56,10 @@ export class GameHttpService {
     return this.games;
   }
 
+  findAllObservable(): Observable<Array<Game>> {
+    return this.http.get<Array<Game>>(this.appConfig.backEnd + 'game');
+  }
+
   findById(id: number): Observable<Game>{
     return this.http.get<Game>(this.appConfig.backEnd + 'game/' + id);
   }
