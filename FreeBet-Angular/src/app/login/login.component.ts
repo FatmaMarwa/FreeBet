@@ -6,6 +6,7 @@ import {LoginHttpService} from './login-http.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {Bettor} from '../Model/bettor';
 import {BettorHttpService} from '../bettor/bettor-http.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'login, [login]',
@@ -17,7 +18,15 @@ export class LoginComponent implements OnInit {
 
   modalLogin: Login = null;
 
-  constructor(private modalService: NgbModal, private loginService: LoginHttpService, private adminService: AdminHttpService, private bettorService: BettorHttpService) { }
+  login: Login
+
+  constructor(private route: ActivatedRoute, private modalService: NgbModal, private loginService: LoginHttpService, private adminService: AdminHttpService, private bettorService: BettorHttpService) {
+
+    this.route.params.subscribe(params =>
+    err => console.log(err))
+
+  }
+
 
   ngOnInit() {
   }

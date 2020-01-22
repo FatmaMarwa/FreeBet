@@ -10,7 +10,7 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from './home/home.component';
 import {SportDetailComponent} from './sport-detail/sport-detail.component';
-import {ConnexionComponent} from './connexion/connexion.component';
+
 
 const routes: Routes = [
 
@@ -23,7 +23,7 @@ const routes: Routes = [
   {path: 'opponent', component:OpponentComponent },
   {path: 'home', component: HomeComponent},
   {path: 'sport/:id/detail', component: SportDetailComponent},
-  {path: 'connexion', component: ConnexionComponent},
+
 ];
 
 @NgModule({
