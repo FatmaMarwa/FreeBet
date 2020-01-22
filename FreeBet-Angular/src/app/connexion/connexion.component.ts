@@ -17,6 +17,8 @@ export class ConnexionComponent implements OnInit {
   constructor(private modalService: NgbModal, private loginService: LoginHttpService, private connexionService: ConnexionHttpService) { }
 
   ngOnInit() {
+
+
   }
 
 
