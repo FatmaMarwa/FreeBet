@@ -3,6 +3,7 @@ package sopra.projet.freebet.rest;
 import java.util.List;
 import java.util.Optional;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +36,7 @@ public class LoginControllerRest {
 	@Autowired
 	private ILoginRepository loginRepo;
 
-	@GetMapping("")
+	@GetMapping("/detail")
 	@JsonView(Views.ViewLogin.class)
 	public List<Login> list() {
 		List<Login> logins = loginRepo.findAll();
@@ -77,19 +78,10 @@ public class LoginControllerRest {
 		loginRepo.deleteById(id);
 	}
 
-	
-	@PostMapping("/edit/{id}")
-	public String processAdd(@Valid @ModelAttribute("pseudo") Login login,BindingResult result, Model model) {
-		if(result.hasErrors()) {
-			model.addAttribute("pseudo", login);
-			model.addAttribute("login", this.loginRepo.findAll());
-
-			return "login-auth";
-		}else {
-		
-		this.loginRepo.save(login);
-		return "redirect:/login";
-}
+	@GetMapping("/{pseudo/{password}")
+	@JsonView(Views.ViewCommon.class)
+	public Login findByLP(@RequestBody Login login,@PathVariable String pseudo,@PathVariable String password,HttpSession session) {
+		login = loginRepo.findByLoginAndPassword(login.getPseudo(), login.getMotDePasse());
+		return login;
 	}
 }
-	

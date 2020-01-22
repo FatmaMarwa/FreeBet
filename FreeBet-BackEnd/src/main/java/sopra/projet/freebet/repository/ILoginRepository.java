@@ -6,5 +6,5 @@ import sopra.projet.freebet.model.Login;
 
 public interface ILoginRepository  extends JpaRepository<Login, Long>{
 
-
+	Login findByLoginAndPassword(String pseudo,String motDePasse);
 }
