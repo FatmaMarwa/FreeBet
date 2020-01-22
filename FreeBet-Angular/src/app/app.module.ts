@@ -27,11 +27,8 @@ import { HomeComponent } from './home/home.component';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 
-import { TennisComponent } from './tennis/tennis.component';
-import { RugbyComponent } from './rugby/rugby.component';
-import { BasketComponent } from './basket/basket.component';
-
-import { FootballComponent } from './football/football.component';
+import { SportDetailComponent } from './sport-detail/sport-detail.component';
+import {SportDetailHttpService} from './sport-detail/sport-detail.http.service';
 
 
 @NgModule({
@@ -46,14 +43,7 @@ import { FootballComponent } from './football/football.component';
     GameComponent,
     OpponentComponent,
     HomeComponent,
-    TennisComponent,
-    RugbyComponent,
-    BasketComponent,
-    TennisComponent,
-    RugbyComponent,
-    BasketComponent,
-    FootballComponent,
-
+    SportDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,7 +59,7 @@ import { FootballComponent } from './football/football.component';
     HomeComponent
   ],
   // tslint:disable-next-line:max-line-length
-  providers: [AppConfigService, AdminHttpService, BetHttpService, BettorHttpService, GameHttpService, LoginHttpService, SportHttpService, OpponentHttpService],
+  providers: [AppConfigService, AdminHttpService, BetHttpService, BettorHttpService, GameHttpService, LoginHttpService, SportHttpService, OpponentHttpService, SportDetailHttpService],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA]
 })
