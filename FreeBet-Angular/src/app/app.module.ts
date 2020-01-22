@@ -6,7 +6,6 @@ import { SportComponent } from './sport/sport.component';
 import {FormsModule} from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +24,10 @@ import {LoginHttpService} from './login/login-http.service';
 import {SportHttpService} from './sport/sport-http.service';
 import {OpponentHttpService} from './opponent/opponent-http.service';
 import { HomeComponent } from './home/home.component';
+<<<<<<< HEAD
+import {MDBBootstrapModule} from 'angular-bootstrap-md';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+=======
 import { TennisComponent } from './tennis/tennis.component';
 import { RugbyComponent } from './rugby/rugby.component';
 import { BasketComponent } from './basket/basket.component';
@@ -43,6 +46,9 @@ import { FootballComponent } from './football/football.component';
     GameComponent,
     OpponentComponent,
     HomeComponent,
+<<<<<<< HEAD
+
+=======
     TennisComponent,
     RugbyComponent,
     BasketComponent,
@@ -55,6 +61,7 @@ import { FootballComponent } from './football/football.component';
     AngularFontAwesomeModule,
     NgbModule,
     HttpClientModule,
+    MDBBootstrapModule.forRoot(),
 
 
   ],
@@ -63,6 +70,7 @@ import { FootballComponent } from './football/football.component';
   ],
   // tslint:disable-next-line:max-line-length
   providers: [AppConfigService, AdminHttpService, BetHttpService, BettorHttpService, GameHttpService, LoginHttpService, SportHttpService, OpponentHttpService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [NO_ERRORS_SCHEMA]
 })
 export class AppModule { }
