@@ -12,6 +12,7 @@ import {HomeComponent} from './home/home.component';
 import {TennisComponent} from './tennis/tennis.component';
 import {RugbyComponent} from './rugby/rugby.component';
 import {BasketComponent} from './basket/basket.component';
+import {FootballComponent} from './football/football.component';
 
 const routes: Routes = [
 
@@ -26,6 +27,7 @@ const routes: Routes = [
   {path: 'sport/tennis', component: TennisComponent},
   {path: 'sport/rugby', component: RugbyComponent},
   {path: 'sport/basket', component: BasketComponent},
+  {path: 'sport/football', component: FootballComponent},
 ];
 
 @NgModule({
