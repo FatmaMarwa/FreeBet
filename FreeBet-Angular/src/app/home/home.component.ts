@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild  } from '@angular/core';
 import { NgbCarousel, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/ng-bootstrap';
+import {GameHttpService} from '../game/game-http.service';
+import {Game} from '../Model/game';
 
 
 
@@ -10,7 +12,10 @@ import { NgbCarousel, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/n
 })
 export class HomeComponent implements OnInit {
 
-  images = [62, 83, 466, 965, 982, 1043, 738].map((n) => `https://picsum.photos/id/${n}/900/500`);
+
+  constructor(private gameService: GameHttpService) {
+    this.gameService = gameService;
+  }
 
   paused = false;
   unpauseOnArrow = false;
@@ -40,7 +45,9 @@ export class HomeComponent implements OnInit {
 
   currentOrientation = 'horizontal';
 
-
+  game() {
+    return this.gameService.findAll();
+  }
 
   ngOnInit(): void {
   }
