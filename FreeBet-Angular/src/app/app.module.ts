@@ -30,6 +30,7 @@ import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { TennisComponent } from './tennis/tennis.component';
 import { RugbyComponent } from './rugby/rugby.component';
 import { BasketComponent } from './basket/basket.component';
+
 import { FootballComponent } from './football/football.component';
 import { SportDetailComponent } from './sport-detail/sport-detail.component';
 
@@ -63,9 +64,8 @@ import { SportDetailComponent } from './sport-detail/sport-detail.component';
     NgbModule,
     HttpClientModule,
     MDBBootstrapModule.forRoot(),
-
-
   ],
+
   exports: [
     HomeComponent
   ],

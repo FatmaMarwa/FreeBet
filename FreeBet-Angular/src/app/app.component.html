@@ -1,18 +1,22 @@
 <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark indigo fixed-top">
+<<<<<<< HEAD
 
 <mdb-navbar-brand>
+=======
+  <mdb-navbar-brand>
+>>>>>>> master
     <a class="navbar-brand" href="#" [routerLink]="['/home']" routerLinkActive="active"><img height="50" class="d-inline-block align-top" src="assets/img/FreeBetBleu.PNG"></a>
-</mdb-navbar-brand>
+  </mdb-navbar-brand>
   <ul class="navbar-nav mr-auto">
     <li class="nav-item dropdown" dropdown>
-      <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" [routerLink]="['/football']" routerLinkActive="active" mdbWavesEffect><i class="fas fa-futbol"></i>
+      <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" [routerLink]="['/sport/football']" routerLinkActive="active" mdbWavesEffect><i class="fas fa-futbol"></i>
         Football<span class="caret"></span></a>
-
       <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
-        <a class="dropdown-item waves-light" [routerLink]="['/football/game']" routerLinkActive="active" mdbWavesEffec>Game</a>
-        <a class="dropdown-item waves-light" [routerLink]="['/football/opponent']" routerLinkActive="active"mdbWavesEffect>Opponent</a>
+        <a class="dropdown-item waves-light" [routerLink]="['/:id/detail']" routerLinkActive="active" mdbWavesEffec>Game</a>
+        <a class="dropdown-item waves-light" [routerLink]="['/:id']" routerLinkActive="active"mdbWavesEffect>Opponent</a>
       </div>
     </li>
+<<<<<<< HEAD
 <ul class="navbar nav-pills navbar-fixed-top">
   <div class="navbar-header">
     <a class="navbar-brand" [routerLink]="['/home']" routerLinkActive="active"><img class="w-25" src="assets/img/FreeBetBleu.PNG"></a>
@@ -50,39 +54,34 @@
     <li><a class="text-white" href="#"><span class="	glyphicon glyphicon-log-in"></span> Se connecter</a></li>
   </ul>
 </ul>
+=======
+>>>>>>> master
 
     <li class="nav-item dropdown" dropdown>
-      <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" [routerLink]="['/rugby']" routerLinkActive="active" mdbWavesEffect>
+      <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" [routerLink]="['/sport/rugby']" routerLinkActive="active" mdbWavesEffect>
         Rugby<span class="caret"></span></a>
       <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
-        <a class="dropdown-item waves-light" [routerLink]="['/rugby/game']" routerLinkActive="active"mdbWavesEffect>Game</a>
-        <a class="dropdown-item waves-light" [routerLink]="['/rugby/opponent']" routerLinkActive="active"mdbWavesEffect>Opponent</a>
+        <a class="dropdown-item waves-light" [routerLink]="['/:id/detail']" routerLinkActive="active"mdbWavesEffect>Game</a>
+        <a class="dropdown-item waves-light" [routerLink]="['/:id']" routerLinkActive="active"mdbWavesEffect>Opponent</a>
       </div>
     </li>
     <li class="nav-item dropdown" dropdown>
-      <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" [routerLink]="['/tennis']" routerLinkActive="active" mdbWavesEffect><i class="fas fa-table-tennis"></i>
+      <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" [routerLink]="['/sport/tennis']" routerLinkActive="active" mdbWavesEffect><i class="fas fa-table-tennis"></i>
         Tennis<span class="caret"></span></a>
       <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
-        <a class="dropdown-item waves-light" [routerLink]="['/tennis/game']" routerLinkActive="active"mdbWavesEffect >Game</a>
-        <a class="dropdown-item waves-light" [routerLink]="['/tennis/opponent']" routerLinkActive="active"mdbWavesEffect >Opponent</a>
+        <a class="dropdown-item waves-light" [routerLink]="['/:id/detail']" routerLinkActive="active"mdbWavesEffect >Game</a>
+        <a class="dropdown-item waves-light" [routerLink]="['/:id']" routerLinkActive="active"mdbWavesEffect >Opponent</a>
       </div>
     </li>
     <li class="nav-item dropdown" dropdown>
-      <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" [routerLink]="['/basket']" routerLinkActive="active" mdbWavesEffect><i class="fas fa-basketball-ball"></i>
+      <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" [routerLink]="['/sport/basket']" routerLinkActive="active" mdbWavesEffect><i class="fas fa-basketball-ball"></i>
         Basket<span class="caret"></span></a>
       <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
-        <a class="dropdown-item waves-light" [routerLink]="['/basket/game']" routerLinkActive="active" mdbWavesEffect >Game</a>
-        <a class="dropdown-item waves-light" [routerLink]="['/basket/opponent']" routerLinkActive="active"mdbWavesEffect>Opponent</a>
+        <a class="dropdown-item waves-light" [routerLink]="['/:id/detail']" routerLinkActive="active" mdbWavesEffect >Game</a>
+        <a class="dropdown-item waves-light" [routerLink]="['/:id']" routerLinkActive="active"mdbWavesEffect>Opponent</a>
       </div>
     </li>
-    <li class="nav-item dropdown" dropdown>
-      <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" [routerLink]="['/skiAlpin']" routerLinkActive="active" mdbWavesEffect><i class="fas fa-skiing"></i>
-        Ski Alpin<span class="caret"></span></a>
-      <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
-        <a class="dropdown-item waves-light" [routerLink]="['/skiAlpin/game']" routerLinkActive="active" mdbWavesEffect >Game</a>
-        <a class="dropdown-item waves-light" [routerLink]="['/skiAlpin/opponent']" routerLinkActive="active"mdbWavesEffect>Opponent</a>
-      </div>
-    </li>
+
   </ul>
   <ul class="navbar-nav nav-flex-icons">
     <li class="nav-item waves-light" mdbWavesEffect>
@@ -93,6 +92,7 @@
     </li>
   </ul>
 </mdb-navbar>
+
 
 <div class="container">
   <router-outlet></router-outlet>
