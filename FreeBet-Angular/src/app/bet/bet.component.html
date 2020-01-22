@@ -23,7 +23,7 @@
         <td (click)="detail(content, bet.id)" style="cursor: pointer">{{bet.gain}}</td>
         <td (click)="detail(content, bet.id)" style="cursor: pointer" >
           <ul *ngFor="let game of bet.games">
-            <li>{{game.opponent1.nom}} - {{game.opponent2.nom}}</li>
+            <li>{{game.opponent1.nom}} - {{game.opponent2.nom }}</li>
                 <ul>
                   <li >Côte 1: {{game.cote1}}</li>
                   <li >Côte N: {{game.coteN}}</li>
