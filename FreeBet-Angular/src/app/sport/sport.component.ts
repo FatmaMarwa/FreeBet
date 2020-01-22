@@ -4,6 +4,7 @@ import {SportHttpService} from './sport-http.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {GameHttpService} from '../game/game-http.service';
 import {OpponentHttpService} from '../opponent/opponent-http.service';
+import {SportDetailHttpService} from '../sport-detail/sport-detail.http.service';
 
 @Component({
   selector: 'sport,[sport]',
@@ -16,7 +17,7 @@ export class SportComponent implements OnInit {
   modalSport: Sport = null;
 
 
-  constructor(private modalService: NgbModal, private sportService: SportHttpService, ) {
+  constructor(private modalService: NgbModal, private sportService: SportHttpService,) {
   }
 
   ngOnInit() {

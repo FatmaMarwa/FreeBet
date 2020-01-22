@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {SportDetailHttpService} from './Sport-detail.http.service';
+import {SportDetailHttpService} from './sport-detail.http.service';
+import {SportHttpService} from '../sport/sport-http.service';
 
 @Component({
-  selector: 'app-sport-detail',
+  selector: 'sport-detail',
   templateUrl: './sport-detail.component.html',
   styleUrls: ['./sport-detail.component.css']
 })

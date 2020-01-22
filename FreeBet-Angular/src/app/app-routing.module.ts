@@ -21,7 +21,7 @@ const routes: Routes = [
   {path: 'game', component: GameComponent},
   {path: 'opponent', component:OpponentComponent },
   {path: 'home', component: HomeComponent},
-  {path: 'sport/:id/detail', component: SportDetailComponent},
+  {path: 'sport/:53/detail', component: SportDetailComponent},
 
 ];
 
