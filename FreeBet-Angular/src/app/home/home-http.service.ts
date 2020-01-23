@@ -39,6 +39,6 @@ export class HomeService {
     // remove bettor from local storage to log bettor out
     localStorage.removeItem('userConnected');
     localStorage.clear();
-    this.router.navigate(['']);
+    this.router.navigate(['/home']);
   }
 }
