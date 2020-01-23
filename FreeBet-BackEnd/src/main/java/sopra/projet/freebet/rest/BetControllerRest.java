@@ -58,20 +58,20 @@ public class BetControllerRest {
 	@PostMapping("")
 	@JsonView(Views.ViewBet.class)
 	public Bet create(@RequestBody Bet bet) {
-		bet = betRepo.save(bet);
-		Bettor bettor = bet.getBettorr();
-		bettor = bettorRepo.save(bettor);
+		Bettor bettor = bettorRepo.save(bet.getBettorr());
 		bet.setBettorr(bettor);
+		bet = betRepo.save(bet);
+
 		return bet;
 	}
 
 	@PutMapping("/{id}")
 	@JsonView(Views.ViewBet.class)
 	public Bet update(@RequestBody Bet bet, @PathVariable Long id) {
-		bet = betRepo.save(bet);
-		Bettor bettor = bet.getBettorr();
-		bettor = bettorRepo.save(bettor);
+		Bettor bettor = bettorRepo.save(bet.getBettorr());
 		bet.setBettorr(bettor);
+		bet = betRepo.save(bet);
+		
 		return bet;
 	}
 

@@ -35,6 +35,22 @@ export class HomeService {
       error => console.log(error));
   }
 
+  refreshLogin() {
+    this.http.get<Login>(this.appConfig.backEnd + 'login/' + this.logInfo().id).subscribe(resp => {
+        this.log = resp;
+        this.log.connected = true;
+        if(this.log.admin) {
+          localStorage.setItem('userConnected',JSON.stringify(this.log));
+          console.log('userConnected')
+        } else if (this.log.bettor){
+          localStorage.setItem('userConnected', JSON.stringify(this.log));
+          console.log('userConnected')
+        }
+        this.router.navigate(['/home']);
+      },
+      error => console.log(error));
+  }
+
   logout() {
     // remove bettor from local storage to log bettor out
     localStorage.removeItem('userConnected');

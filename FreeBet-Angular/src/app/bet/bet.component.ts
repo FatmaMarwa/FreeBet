@@ -21,7 +21,7 @@ export class BetComponent implements OnInit {
   modalBet: Bet = null;
   games: Array<Game> = new Array<Game>();
 
-  constructor(private modalService: NgbModal, private betService: BetHttpService, private gameService: GameHttpService,private homeService:HomeService) {
+  constructor(private modalService: NgbModal, private betService: BetHttpService, private gameService: GameHttpService, private homeService: HomeService, private bettorService: BettorHttpService,) {
     gameService.findAllObservable().subscribe(resp => {
       this.games = resp;
     }, err => console.log(err));
@@ -39,7 +39,7 @@ export class BetComponent implements OnInit {
   }
 
   logInfo(): Login {
-    if(localStorage.getItem('userConnected')) {
+    if (localStorage.getItem('userConnected')) {
       return JSON.parse(localStorage.getItem('userConnected'));
     }
 
@@ -88,31 +88,30 @@ export class BetComponent implements OnInit {
 
   save() {
     console.log("0");
-    if(!this.currentBet.id)
-    {
 
-      this.currentBet.bettorr=this.homeService.logInfo().bettor;
-      console.log(this.currentBet.bettorr);
-      if(this.currentBet.bettorr.soldeCagnotte>this.currentBet.mise)
-      {
-        this.currentBet.bettorr.soldeCagnotte=this.currentBet.bettorr.soldeCagnotte - this.currentBet.mise;
-        console.log("2");
+    this.bettorService.findById(this.homeService.logInfo().bettor.id).subscribe(resp => {
+      if (!this.currentBet.id) {
+        this.currentBet.bettorr = resp;
+        if (this.currentBet.bettorr.soldeCagnotte > this.currentBet.mise) {
+          this.currentBet.bettorr.soldeCagnotte = this.currentBet.bettorr.soldeCagnotte - this.currentBet.mise;
+          console.log("2");
+        }
       }
-    }
-      if(this.currentBet.id && this.currentBet.resultatPari == true) {
-        this.currentBet.bettorr.soldeCagnotte=this.currentBet.bettorr.soldeCagnotte + this.currentBet.gain;
+      if (this.currentBet.id && this.currentBet.resultatPari == true) {
+        this.currentBet.bettorr.soldeCagnotte = this.currentBet.bettorr.soldeCagnotte + this.currentBet.gain;
         console.log("3");
       }
 
-        this.currentBet.games = new Array<Game>();
-        for (let game of this.games) {
-          if (game.checked) {
-            this.currentBet.games.push(game);
-          }
+      this.currentBet.games = new Array<Game>();
+      for (let game of this.games) {
+        if (game.checked) {
+          this.currentBet.games.push(game);
         }
-        console.log(this.currentBet.bettorr);
-        this.betService.save(this.currentBet);
-        this.cancel();
+      }
+      console.log(this.currentBet.bettorr);
+      this.betService.save(this.currentBet);
+      this.cancel();
+    }, error => console.log(error));
 
 
   }
