@@ -35,8 +35,8 @@
         <td (click)="detail(content, bet.id)" style="cursor: pointer">{{bet.bettorr?.login?.pseudo}}</td>
         <td>
           <div class="btn-group btn-group-sm">
-            <button type="button" class="btn btn-info" (click)="edit(bet.id)" *ngIf="homeService.logInfo().admin">
-              <fa name="pencil"></fa>
+            <button type="button" class="btn btn-info" (click)="edit(bet.id)">
+              <i class="fas fa-edit"></i>
             </button>
             <button type="button" class="btn btn-danger" (click)="delete(bet.id)" *ngIf="homeService.logInfo().admin">
               <fa name="trash" inverse="true"></fa>

@@ -5,7 +5,7 @@
 </div>
 
 
-<div class="game text-center" style="margin: auto">
+<div class="game text-center" style="display: flex" >
   <ul  class="listematch" role="listbox" tabindex="0" aria-label="Choix des matchs">
     <li class="match " tabindex="-1" role="option" aria-checked="false" *ngFor="let game of games">{{game.opponent1?.nom}} - {{game.opponent2?.nom}}<br>
       <label  class="btn btn-primary active">
@@ -23,7 +23,7 @@
 
 <br>
 <div class="text-center">
-  <a class="button" mdbBtn [routerLink]="['/login']" routerLinkActive="active" role="button" mdbWavesEffec><h3>Pariez !</h3></a>
+  <a class="button" mdbBtn [routerLink]="['/login']" routerLinkActive="active" role="button" mdbWavesEffec ><h3>Pariez !</h3></a>
 </div>
 </body>
 <footer >

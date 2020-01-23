@@ -11,7 +11,7 @@ export class Game {
   cote1: number;
   coteN: number;
   cote2: number;
-  gameDone: boolean;
+  resultatMatch: boolean;
   bets: Bet[];
   sport_game: Sport;
   opponent1: Opponent;
@@ -20,7 +20,7 @@ export class Game {
   checked: boolean = false;
 
 
-  constructor(id?: number, version?: number, gameDate?: Date, gameEnd?: Date, cote1?: number, coteN?: number, cote2?: number, gameDone?: boolean, bets?: Bet[], sport_game?: Sport, opponent1?: Opponent, opponent2?: Opponent, statisticals?: Statistique[]) {
+  constructor(id?: number, version?: number, gameDate?: Date, gameEnd?: Date, cote1?: number, coteN?: number, cote2?: number, resultatMatch?: boolean, bets?: Bet[], sport_game?: Sport, opponent1?: Opponent, opponent2?: Opponent, statisticals?: Statistique[]) {
     this.id = id;
     this.version = version;
     this.gameDate = gameDate;
@@ -28,7 +28,7 @@ export class Game {
     this.cote1 = cote1;
     this.coteN = coteN;
     this.cote2 = cote2;
-    this.gameDone = gameDone;
+    this.resultatMatch = resultatMatch;
     this.bets = bets;
     this.sport_game = sport_game;
     this.opponent1 = opponent1;
