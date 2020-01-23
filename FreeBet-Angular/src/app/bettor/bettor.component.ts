@@ -15,14 +15,16 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./bettor.component.css']
 })
 export class BettorComponent implements OnInit {
-  currentBettor: Bettor = new Bettor();
+  currentBettor: Bettor=null;
 
   //currentAdress: Adress = new Adress();
 
   modalBettor:Bettor = null;
 
   constructor(private modalService:NgbModal,private bettorService:BettorHttpService) {
-
+    this.currentBettor = new Bettor();
+    this.currentBettor.adress = new Adress();
+    this.currentBettor.login = new Login();
   }
 
   ngOnInit() {
@@ -76,15 +78,16 @@ export class BettorComponent implements OnInit {
   }
 
   save() {
+    console.log(this.currentBettor);
     this.bettorService.save(this.currentBettor);
-    this.cancel();
+    // this.cancel();
   }
 
   delete(id: number) {
     this.bettorService.delete(id);
   }
 
-  cancel() {
-    this.currentBettor = null;
-  }
+//  cancel() {
+  //  this.currentBettor = null;
+ // }
 }
