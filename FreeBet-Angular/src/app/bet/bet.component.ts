@@ -6,6 +6,7 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {BettorHttpService} from "../bettor/bettor-http.service";
 import {GameHttpService} from "../game/game-http.service";
 import {Game} from "../Model/game";
+import {log} from "util";
 
 @Component({
   selector: 'bet,[bet]',

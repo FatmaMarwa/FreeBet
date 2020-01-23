@@ -14,21 +14,20 @@ export class HomeService {
   public log: Login = null;
   public currentBettor: Bettor;
   public currentAdmin:Admin;
-  public router:Router;
 
-  constructor(private appConfig: AppConfigService,private http: HttpClient) {
+  constructor(private appConfig: AppConfigService,private http: HttpClient, private router: Router) {
   }
 
 
   login(pseudo: string, motDePasse: string) {
     this.http.get<Login>(this.appConfig.backEnd + 'login/' + pseudo + '/' + motDePasse).subscribe(resp => {
         this.log = resp;
-        console.log(this.log);
+        this.log.connected = true;
         if(this.log.admin) {
-          localStorage.setItem('userConnected',JSON.stringify(this.currentAdmin));
+          localStorage.setItem('userConnected',JSON.stringify(this.log));
           console.log('userConnected')
         } else if (this.log.bettor){
-          localStorage.setItem('userConnected', JSON.stringify(this.currentBettor));
+          localStorage.setItem('userConnected', JSON.stringify(this.log));
           console.log('userConnected')
         }
          this.router.navigate(['/home']);
@@ -40,6 +39,6 @@ export class HomeService {
     // remove bettor from local storage to log bettor out
     localStorage.removeItem('userConnected');
     localStorage.clear();
-    this.router.navigate(['']);
+    this.router.navigate(['/home']);
   }
 }

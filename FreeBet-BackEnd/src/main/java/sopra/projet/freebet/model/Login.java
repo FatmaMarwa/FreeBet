@@ -35,11 +35,11 @@ public class Login {
 	private String motDePasse;
 
 	@OneToOne(mappedBy = "login")
-	@JsonView(Views.ViewCommon.class)
+	@JsonView(Views.ViewLogin.class)
 	private Admin admin;
 
 	@OneToOne(mappedBy = "login")
-	@JsonView(Views.ViewCommon.class)
+	@JsonView(Views.ViewLogin.class)
 	private Bettor bettor;
 
 	public Login() {
