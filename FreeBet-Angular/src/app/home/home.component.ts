@@ -17,9 +17,9 @@ import {Game} from '../Model/game';
 export class HomeComponent implements OnInit {
 
 
-  constructor(private gameService: GameHttpService) {
-    this.gameService = gameService;
-  }
+  // constructor(private gameService: GameHttpService) {
+  //   this.gameService = gameService;
+  // }
 
   paused = false;
   unpauseOnArrow = false;

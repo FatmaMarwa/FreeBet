@@ -1,0 +1,22 @@
+body {
+  background-image: url('https://actus.sfr.fr/assets/images/topic_sport.jpg');
+
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.game{
+  display: flex;
+  justify-content: center;
+
+  flex-flow: column;
+
+}
+
+.titre{
+  display: flex;
+  justify-content: center;
+}
