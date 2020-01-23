@@ -53,9 +53,9 @@
 
     <b><div style="color: #edce02" *ngIf="logInfo().connected" >
       Bonjour {{logInfo().pseudo}}<br>
-      <li *ngIf="logInfo().connected && logInfo().bettor ">Vous avez {{logInfo().bettor.soldeCagnotte}} BetCoins  <i class="fas fa-shopping-basket"></i></li>
+      <p *ngIf="logInfo().connected && logInfo().bettor ">Vous avez {{logInfo().bettor.soldeCagnotte}} BetCoins  <i class="fas fa-shopping-basket"></i></p>
     </div></b>
-      
+
 
 
 </mdb-navbar>
