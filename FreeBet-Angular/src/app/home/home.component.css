@@ -28,8 +28,16 @@ img {
 
 }
 .btn {
-  padding: 3rem 3rem !important;
-  border-radius:50% !important;
+
+  background-color: #edce02;
+  border: none;
+  color: #5392ff;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 12px;
 
 }
 #clignote{
