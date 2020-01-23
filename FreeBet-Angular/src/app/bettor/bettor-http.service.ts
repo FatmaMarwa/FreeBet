@@ -47,10 +47,12 @@ export class BettorHttpService{
         console.log(bettor);
         this.http.post<Bettor>(this.appConfig.backEnd + 'bettor', bettor).subscribe(resp => {
           this.load();
+          bettor = null;
         }, err => console.log(err));
       } else {
         this.http.put<Bettor>(this.appConfig.backEnd + 'bettor/' + bettor.id, bettor).subscribe(resp => {
           this.load();
+          bettor = null;
         }, err => console.log(err));
       }
     }
