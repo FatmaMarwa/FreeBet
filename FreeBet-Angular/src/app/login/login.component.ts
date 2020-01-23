@@ -14,7 +14,9 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  currentLogin: Login = null;
+  currentLogin: Login = new Login();
+
+
 
   modalLogin: Login = null;
 
