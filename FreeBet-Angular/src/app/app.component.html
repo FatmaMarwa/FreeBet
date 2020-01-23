@@ -42,7 +42,7 @@
 
   </ul>
   <ul class="navbar-nav nav-flex-icons">
-    <li class="nav-item waves-light" mdbWavesEffect *ngIf="logInfo().connected">
+    <li class="nav-item waves-light" mdbWavesEffect *ngIf="homeService.logInfo().connected">
       <a class="nav-link" (click)="logout()"><fa name="fas fa-sign-out-alt"></fa></a>
     </li>
     <li class="nav-item waves-light" mdbWavesEffect *ngIf="!logInfo().connected">
@@ -55,7 +55,7 @@
       Bonjour {{logInfo().pseudo}}<br>
       <li *ngIf="logInfo().connected && logInfo().bettor ">Vous avez {{logInfo().bettor.soldeCagnotte}} BetCoins  <i class="fas fa-shopping-basket"></i></li>
     </div></b>
-      
+
 
 
 </mdb-navbar>

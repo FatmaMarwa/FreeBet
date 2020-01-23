@@ -41,4 +41,12 @@ export class HomeService {
     localStorage.clear();
     this.router.navigate(['/home']);
   }
+
+  logInfo(): Login {
+    if(localStorage.getItem('userConnected')) {
+      return JSON.parse(localStorage.getItem('userConnected'));
+    }
+
+    return new Login();
+  }
 }

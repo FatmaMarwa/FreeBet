@@ -56,8 +56,8 @@ public class Bettor {
 	@JsonView(Views.ViewCommon.class)
 	private Adress adress;
 
-	@OneToOne(fetch=FetchType.EAGER)
-	@JsonView(Views.ViewBettor.class)
+	@OneToOne(fetch = FetchType.EAGER)
+	@JsonView({ Views.ViewBettor.class, Views.ViewBet.class })
 	private Login login;
 
 	@OneToMany(mappedBy = "bettorr")

@@ -44,8 +44,8 @@ export class BetHttpService{
 
   save(bet: Bet) {
     if (bet) {
-      if (bet.bettor && !bet.bettor.id) {
-        bet.bettor = null;
+      if (bet.bettorr && !bet.bettorr.id) {
+        bet.bettorr = null;
       }
       if (!bet.id) {
         this.http.post<Bet>(this.appConfig.backEnd + 'bet', bet).subscribe(resp => {

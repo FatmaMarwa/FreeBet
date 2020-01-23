@@ -8,7 +8,6 @@
         <th scope="col">Mise</th>
         <th scope="col">Resultat du Pari</th>
         <th scope="col">Type du Bet</th>
-        <th scope="col">Date du Bet</th>
         <th scope="col">Gain</th>
         <th scope="col">Games</th>
         <th scope="col">Pseudo</th>
@@ -20,7 +19,6 @@
         <td (click)="detail(content, bet.id)" style="cursor: pointer">{{bet.mise}}</td>
         <td (click)="detail(content, bet.id)" style="cursor: pointer">{{bet.resultatPari}}</td>
         <td (click)="detail(content, bet.id)" style="cursor: pointer">{{bet.type}}</td>
-        <td (click)="detail(content, bet.id)" style="cursor: pointer">{{bet.betDate | date:'yyyy-MM-dd\'T\'HH:mm' }}</td>
         <td (click)="detail(content, bet.id)" style="cursor: pointer">{{bet.gain}}</td>
         <td (click)="detail(content, bet.id)" style="cursor: pointer" >
           <ul *ngFor="let game of bet.games">
@@ -32,13 +30,13 @@
               </ul>
           </ul>
         </td>
-        <td (click)="detail(content, bet.id)" style="cursor: pointer">{{bet.bettor?.login.pseudo}}</td>
+        <td (click)="detail(content, bet.id)" style="cursor: pointer">{{bet.bettorr?.login.pseudo}}</td>
         <td>
           <div class="btn-group btn-group-sm">
-            <button type="button" class="btn btn-info" (click)="edit(bet.id)">
+            <button type="button" class="btn btn-info" (click)="edit(bet.id)" *ngIf="homeService.logInfo().admin">
               <fa name="pencil"></fa>
             </button>
-            <button type="button" class="btn btn-danger" (click)="delete(bet.id)">
+            <button type="button" class="btn btn-danger" (click)="delete(bet.id)" *ngIf="homeService.logInfo().admin">
               <fa name="trash" inverse="true"></fa>
             </button>
           </div>
@@ -47,7 +45,7 @@
       </tbody>
     </table>
     <div class="card-footer">
-      <button type="button" class="btn btn-success btn-lg" (click)="add()">
+      <button type="button" class="btn btn-success btn-lg" (click)="add()" *ngIf="homeService.logInfo().bettor">
         <fa name="plus"></fa>
       </button>
     </div>
@@ -96,7 +94,7 @@
       </tr>
       <tr>
         <th>Pseudo</th>
-        <td>{{modalBet.bettor?.login.pseudo}}</td>
+        <td>{{modalBet.bettorr?.login.pseudo}}</td>
       </tr>
       </tbody>
     </table>

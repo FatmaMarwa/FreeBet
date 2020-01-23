@@ -18,19 +18,23 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 import sopra.projet.freebet.exception.NotFoundException;
 import sopra.projet.freebet.model.Bet;
+import sopra.projet.freebet.model.Bettor;
 import sopra.projet.freebet.model.TypeBet;
 import sopra.projet.freebet.model.Views;
 import sopra.projet.freebet.repository.IBetRepository;
+import sopra.projet.freebet.repository.IBettorRepository;
 
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/bet")
 
 public class BetControllerRest {
-	
+
 	@Autowired
 	private IBetRepository betRepo;
-	
+	@Autowired
+	private IBettorRepository bettorRepo;
+
 	@GetMapping("")
 	@JsonView(Views.ViewBet.class)
 	public List<Bet> list() {
@@ -38,7 +42,7 @@ public class BetControllerRest {
 
 		return bets;
 	}
-	
+
 	@GetMapping("/{id}")
 	@JsonView(Views.ViewBetDetail.class)
 	public Bet find(@PathVariable Long id) {
@@ -55,7 +59,9 @@ public class BetControllerRest {
 	@JsonView(Views.ViewBet.class)
 	public Bet create(@RequestBody Bet bet) {
 		bet = betRepo.save(bet);
-
+		Bettor bettor = bet.getBettorr();
+		bettor = bettorRepo.save(bettor);
+		bet.setBettorr(bettor);
 		return bet;
 	}
 
@@ -63,7 +69,9 @@ public class BetControllerRest {
 	@JsonView(Views.ViewBet.class)
 	public Bet update(@RequestBody Bet bet, @PathVariable Long id) {
 		bet = betRepo.save(bet);
-
+		Bettor bettor = bet.getBettorr();
+		bettor = bettorRepo.save(bettor);
+		bet.setBettorr(bettor);
 		return bet;
 	}
 
@@ -71,10 +79,10 @@ public class BetControllerRest {
 	public void delete(@PathVariable Long id) {
 		betRepo.deleteById(id);
 	}
-	
+
 	@GetMapping("/typeBet")
 	public TypeBet[] typeBet() {
 		return TypeBet.values();
 	}
-	
+
 }

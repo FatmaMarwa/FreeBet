@@ -9,6 +9,7 @@ import {Game} from "../Model/game";
 import {log} from "util";
 import {HomeService} from "../home/home-http.service";
 import {Login} from "../Model/Login";
+import {AppComponent} from "../app.component";
 
 @Component({
   selector: 'bet,[bet]',
@@ -45,8 +46,8 @@ export class BetComponent implements OnInit {
     return new Login();
   }
 
-  /* bettors(){
-     return this.bettorService.findAll();
+  /* bettorrs(){
+     return this.bettorrService.findAll();
    }*/
 
 
@@ -56,7 +57,7 @@ export class BetComponent implements OnInit {
 
   add() {
     this.currentBet = new Bet();
-    this.currentBet.bettor = new Bettor();
+    this.currentBet.bettorr = new Bettor();
     this.games.find(g => g.checked == true).checked = false;
   }
 
@@ -77,8 +78,8 @@ export class BetComponent implements OnInit {
         this.games.find(g => g.id == game.id).checked = true;
       }
 
-      if (!this.currentBet.bettor) {
-        this.currentBet.bettor = new Bettor();
+      if (!this.currentBet.bettorr) {
+        this.currentBet.bettorr = new Bettor();
       }
     }, error => {
       console.log(error);
@@ -86,15 +87,34 @@ export class BetComponent implements OnInit {
   }
 
   save() {
-    this.currentBet.games = new Array<Game>();
-    for (let game of this.games) {
-      if (game.checked) {
-        this.currentBet.games.push(game);
+    console.log("0");
+    if(!this.currentBet.id)
+    {
+
+      this.currentBet.bettorr=this.homeService.logInfo().bettor;
+      console.log(this.currentBet.bettorr);
+      if(this.currentBet.bettorr.soldeCagnotte>this.currentBet.mise)
+      {
+        this.currentBet.bettorr.soldeCagnotte=this.currentBet.bettorr.soldeCagnotte - this.currentBet.mise;
+        console.log("2");
       }
     }
+      if(this.currentBet.id && this.currentBet.resultatPari == true) {
+        this.currentBet.bettorr.soldeCagnotte=this.currentBet.bettorr.soldeCagnotte + this.currentBet.gain;
+        console.log("3");
+      }
 
-    this.betService.save(this.currentBet);
-    this.cancel();
+        this.currentBet.games = new Array<Game>();
+        for (let game of this.games) {
+          if (game.checked) {
+            this.currentBet.games.push(game);
+          }
+        }
+        console.log(this.currentBet.bettorr);
+        this.betService.save(this.currentBet);
+        this.cancel();
+
+
   }
 
   delete(id: number) {
@@ -113,4 +133,6 @@ export class BetComponent implements OnInit {
   gains(cote: number) {
     return this.currentBet.mise * cote;
   }
+
+
 }

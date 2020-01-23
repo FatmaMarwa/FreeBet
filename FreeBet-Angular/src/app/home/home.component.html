@@ -62,10 +62,11 @@
 
 
 
-<div id="clignote" class="text-center">
+<div id="clignote" class="text-center" >
 <!--  <button type="button" class="btn btn-warning btn-lg btn-block" [routerLink]="['/login']" routerLinkActive="active">Pariez !</button>-->
 
-    <a class="btn btn-warning btn-lg btn-block" mdbBtn [routerLink]="['/login']" routerLinkActive="active" role="button" mdbWavesEffec><h3>Pariez !</h3></a>
+    <a class="btn btn-warning btn-lg btn-block" mdbBtn [routerLink]="['/login']" routerLinkActive="active" role="button" mdbWavesEffec *ngIf="!homeService.logInfo().connected"><h3>Pariez !</h3></a>
+    <a class="btn btn-warning btn-lg btn-block" mdbBtn [routerLink]="['/bet']" routerLinkActive="active" role="button" mdbWavesEffec *ngIf="homeService.logInfo().connected && homeService.logInfo().bettor"><h3>Pariez !</h3></a>
   </div>
 
 <footer >

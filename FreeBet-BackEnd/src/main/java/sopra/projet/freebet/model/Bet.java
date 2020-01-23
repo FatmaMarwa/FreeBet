@@ -59,7 +59,7 @@ public class Bet {
 
 	@ManyToOne
 	@JoinColumn(name = "bettor_id")
-	@JsonView(Views.ViewBetDetail.class)
+	@JsonView(Views.ViewBet.class)
 	private Bettor bettorr;
 
 	public Bet() {
@@ -149,11 +149,11 @@ public class Bet {
 		this.games = games;
 	}
 
-	public Bettor getBettor() {
+	public Bettor getBettorr() {
 		return bettorr;
 	}
 
-	public void setBettor(Bettor bettor) {
+	public void setBettorr(Bettor bettor) {
 		this.bettorr = bettor;
 	}
 
