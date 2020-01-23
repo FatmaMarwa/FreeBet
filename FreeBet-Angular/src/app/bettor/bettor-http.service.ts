@@ -41,7 +41,7 @@ export class BettorHttpService{
     return this.http.get<Bettor>(this.appConfig.backEnd + 'bettor/' + id);
   }
 
-  save(bettor: Bettor) {5
+  save(bettor: Bettor) {
     if (bettor) {
       if (!bettor.id) {
         console.log(bettor);
