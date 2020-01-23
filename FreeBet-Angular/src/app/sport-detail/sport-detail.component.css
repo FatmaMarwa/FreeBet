@@ -49,6 +49,9 @@ body {
 .titre{
   display: flex;
   justify-content: center;
+  font-weight: bold;
+  color: #4471eb;
+
 }
 
 
