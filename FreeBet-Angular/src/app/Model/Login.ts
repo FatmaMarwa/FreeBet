@@ -10,6 +10,7 @@ export class Login {
   motDePasse: string;
   admin: Admin;
   bettor: Bettor;
+  connected: boolean = false;
 
 
   constructor(id?: number, version?: number, pseudo?: string, mail?: string, motDePasse?: string, admin?: Admin, bettor?: Bettor) {
