@@ -23,7 +23,7 @@ export class HomeService {
         this.log = resp;
 
         if(this.log.admin) {
-        
+
         } else {
 
         }

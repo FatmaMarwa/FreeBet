@@ -22,10 +22,8 @@ export class LoginComponent implements OnInit {
 
   login: Login
 
-  constructor(private route: ActivatedRoute, private modalService: NgbModal, private loginService: LoginHttpService, private adminService: AdminHttpService, private bettorService: BettorHttpService) {
+  constructor(private modalService: NgbModal, private loginService: LoginHttpService, private adminService: AdminHttpService, private bettorService: BettorHttpService) {
 
-    this.route.params.subscribe(params =>
-    err => console.log(err))
 
   }
 
