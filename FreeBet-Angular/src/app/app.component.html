@@ -48,14 +48,13 @@
     <li class="nav-item waves-light" mdbWavesEffect *ngIf="!logInfo().connected">
       <a class="nav-link" [routerLink]="['/login']"><fa name="fas fa-user-plus" ></fa></a>
     </li>
+    <li class="nav-item" style="color: #edce02" >
+      <a class="nav-link" *ngIf="logInfo().connected" ><i class="fas fa-user"></i>Bonjour {{logInfo().pseudo}}</a>
+    </li>
+    <li class="nav-item" style="color: #edce02">
+      <a class="nav-link" *ngIf="logInfo().connected && logInfo().bettor "><i class="fas fa-shopping-basket"></i>Vous avez {{logInfo().bettor.soldeCagnotte}} BetCoins </a>
+    </li>
   </ul>
-
-
-    <b><div style="color: #edce02" *ngIf="logInfo().connected" >
-      Bonjour {{logInfo().pseudo}}<br>
-      <li *ngIf="logInfo().connected && logInfo().bettor ">Vous avez {{logInfo().bettor.soldeCagnotte}} BetCoins  <i class="fas fa-shopping-basket"></i></li>
-    </div></b>
-      
 
 
 </mdb-navbar>
