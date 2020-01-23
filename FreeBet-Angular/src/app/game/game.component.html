@@ -1,41 +1,47 @@
-<table>
-  <thead>
-  <tr>
-
-    <th scope="col">Sport</th>
-    <th scope="col">Adversaire 1</th>
-    <th scope="col">Adversaire 2</th>
-    <th scope="col">Date de la rencontre</th>
-    <th scope="col">Date fin de rencontre</th>
-    <th scope="col">Cote1</th>
-    <th scope="col">CoteN</th>
-    <th scope="col">Cote2</th>
-    <th scope="col">Match terminé</th>
-
-
+<div class="card card-cascade narrower text-center">
+  <div
+    class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+    <b><a href="" class="text-warning mx-3">Matchs</a></b>
+  </div>
+  <div class="px-4">
+    <div class="table-wrapper">
+      <table class="table table-hover mb-0">
+        <thead>
+        <tr>
+          <th class="th-lg">Sport</th>
+          <th class="th-lg">Adversaire 1</th>
+          <th class="th-lg">Adversaire 2</th>
+          <th class="th-lg">Date de la rencontre</th>
+<!--          <th class="th-lg">Date fin de rencontre</th>-->
+          <th class="th-lg">Cote1</th>
+          <th class="th-lg">CoteN</th>
+          <th class="th-lg">Cote2</th>
+          <th class="th-lg">Match terminé</th>
   </tr>
   </thead>
-  <tbody>
-  </tbody>
+
   <tbody>
   <tr *ngFor="let game of list()">
-    <th scope="row"></th>
+<!--    <th scope="row"></th>-->
     <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.sport_game?.nom}}</td>
     <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.opponent1?.nom}}</td>
     <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.opponent2?.nom}}</td>
     <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.gameDate| date:'yyyy-MM-dd HH:mm' }}</td>
-    <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.gameEnd| date:'yyyy-MM-dd HH:mm' }}</td>
+<!--    <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.gameEnd| date:'yyyy-MM-dd HH:mm' }}</td>-->
     <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.cote1}}</td>
     <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.coteN}}</td>
     <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.cote2}}</td>
-    <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.gameDone}}</td>
     <td (click)="detail(content, game.id)" style="cursor: pointer">
-
+<!--      <fa name="check" size="2x" *ngIf="{{game.gameDone}}===true" style="color: green"></fa>-->
     </td>
+
+<!--    <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.gameDone}}</td>-->
+
+
+
     <td>
       <div class="btn-group btn-group-sm" *ngIf="!readOnly">
-        <button type="button" class="btn btn-info" (click)="edit(game.id)">
-          <fa name="pencil"></fa>
+        <button type="button" class="btn btn-info" (click)="edit(game.id)"><i class="fas fa-edit"></i>
         </button>
         <button type="button" class="btn btn-danger" (click)="delete(game.id)">
           <fa name="trash" inverse="true"></fa>
@@ -169,3 +175,6 @@
 </div>
   </div>
 </div>
+
+
+

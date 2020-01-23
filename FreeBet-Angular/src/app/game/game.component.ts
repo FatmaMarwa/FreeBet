@@ -20,6 +20,7 @@ export class GameComponent implements OnInit {
   modalGame: Game = null;
   @Input()
   readOnly:boolean=false;
+  gameDone: boolean;
 
   constructor(private modalService: NgbModal, private gameService: GameHttpService, private sportService: SportHttpService,private opponentService: OpponentHttpService) {
   }
