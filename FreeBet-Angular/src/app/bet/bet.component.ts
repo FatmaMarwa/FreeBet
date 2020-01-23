@@ -101,7 +101,7 @@ export class BetComponent implements OnInit {
     this.currentBet.gain = this.currentBet.mise * cote;
   }
 
-  gains() {
-    return this.currentBet.mise * 5
+  gains(cote: number) {
+    return this.currentBet.mise * cote;
   }
 }
