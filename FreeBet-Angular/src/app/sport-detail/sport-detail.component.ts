@@ -6,6 +6,7 @@ import {ActivatedRoute} from '@angular/router';
 import {Sport} from '../Model/sport';
 import {GameHttpService} from '../game/game-http.service';
 import {Game} from '../Model/game';
+import {Login} from '../Model/Login';
 
 @Component({
   selector: 'sport-detail',
@@ -28,6 +29,8 @@ export class SportDetailComponent implements OnInit {
       }, err => console.log(err));
     });
   }
+
+
 
   ngOnInit() {
   }
