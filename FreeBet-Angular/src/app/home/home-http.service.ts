@@ -41,10 +41,10 @@ export class HomeService {
         this.log.connected = true;
         if(this.log.admin) {
           localStorage.setItem('userConnected',JSON.stringify(this.log));
-          console.log('userConnected')
+          console.log('userConnected');
         } else if (this.log.bettor){
           localStorage.setItem('userConnected', JSON.stringify(this.log));
-          console.log('userConnected')
+          console.log('userConnected');
         }
         this.router.navigate(['/home']);
       },

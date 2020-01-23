@@ -10,6 +10,7 @@ import {log} from "util";
 import {HomeService} from "../home/home-http.service";
 import {Login} from "../Model/Login";
 import {AppComponent} from "../app.component";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'bet,[bet]',
@@ -21,7 +22,7 @@ export class BetComponent implements OnInit {
   modalBet: Bet = null;
   games: Array<Game> = new Array<Game>();
 
-  constructor(private modalService: NgbModal, private betService: BetHttpService, private gameService: GameHttpService, private homeService: HomeService, private bettorService: BettorHttpService,) {
+  constructor(private modalService: NgbModal, private betService: BetHttpService, private gameService: GameHttpService, private homeService: HomeService, private bettorService: BettorHttpService,private  router:Router) {
     gameService.findAllObservable().subscribe(resp => {
       this.games = resp;
     }, err => console.log(err));
