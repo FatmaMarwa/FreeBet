@@ -26,17 +26,19 @@ export class HomeService {
         console.log(this.log);
         if(this.log.admin) {
           localStorage.setItem('userConnected',JSON.stringify(this.currentAdmin));
+          console.log('userConnected')
         } else if (this.log.bettor){
           localStorage.setItem('userConnected', JSON.stringify(this.currentBettor));
+          console.log('userConnected')
         }
-          this.router.navigate(['home']);
+         this.router.navigate(['/home']);
       },
       error => console.log(error));
   }
 
   logout() {
     // remove bettor from local storage to log bettor out
-    localStorage.removeItem('currentBettor');
+    localStorage.removeItem('userConnected');
     localStorage.clear();
     this.router.navigate(['']);
   }

@@ -80,9 +80,14 @@ public class LoginControllerRest {
 
 	@GetMapping("/{pseudo}/{motDePasse}")
 	@JsonView(Views.ViewCommon.class)
-	public Login findByLoginAndPassword(@RequestBody Login login,@PathVariable String pseudo,@PathVariable String motDePasse,HttpSession session) {
-		login = loginRepo.findByLoginAndPassword(login.getPseudo(), login.getMotDePasse());
-		return login;
+	public Login findByLoginAndPassword(@PathVariable String pseudo,@PathVariable String motDePasse,HttpSession session) {
+		Login login = loginRepo.findByLoginAndPassword(pseudo, motDePasse);
+		
+		if (login !=null) {
+			return login;
+		} else {
+			throw new NotFoundException();
+		}
 	}
 
 }
