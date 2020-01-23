@@ -48,6 +48,7 @@ export class BettorComponent implements OnInit {
     this.currentBettor = new Bettor();
     this.currentBettor.adress = new Adress();
     this.currentBettor.login=new Login();
+    //pseudo rentré different que dans la base
   }
 
   detail(content, id: number) {
