@@ -17,10 +17,6 @@ import {Game} from '../Model/game';
 export class HomeComponent implements OnInit {
 
 
-  constructor(private gameService: GameHttpService) {
-    this.gameService = gameService;
-  }
-
   paused = false;
   unpauseOnArrow = false;
   pauseOnIndicator = false;
@@ -52,19 +48,21 @@ export class HomeComponent implements OnInit {
   currentBettor: Bettor;
   currentBettorSubscription: Subscription;
   bettors: Bettor[] = [];
+
   game() {
     return this.gameService.findAll();
   }
 
 
-  constructor(private homeService: HomeService,private bettorService:BettorHttpService) {
-    this.currentBettorSubscription = this.homeService.currentBettor.subscribe(bettor =>{
-      this.currentBettor = bettor;
-    });
+  constructor(private homeService: HomeService,private bettorService:BettorHttpService, private gameService: GameHttpService) {
+    // this.currentBettorSubscription = this.homeService.currentBettor.subscribe(bettor =>{
+    //   this.currentBettor = bettor;
+    // });
   }
 
   ngOnInit(): void {
     this.loadAllBettors();
+
   }
 
    loadAllBettors() {

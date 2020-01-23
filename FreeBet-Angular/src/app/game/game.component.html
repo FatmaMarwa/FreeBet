@@ -33,7 +33,7 @@
 
     </td>
     <td>
-      <div class="btn-group btn-group-sm">
+      <div class="btn-group btn-group-sm" *ngIf="!readOnly">
         <button type="button" class="btn btn-info" (click)="edit(game.id)">
           <fa name="pencil"></fa>
         </button>
@@ -46,7 +46,7 @@
   </tbody>
 </table>
 <div class="card-footer">
-  <button type="button" class="btn btn-success btn-lg" (click)="add()">
+  <button type="button" class="btn btn-success btn-lg" (click)="add()" *ngIf="!readOnly">
     <fa name="plus"></fa>
   </button>
 </div>
@@ -103,7 +103,7 @@
   </div>
 </ng-template>
 
-<div class="card mt-3" *ngIf="currentGame">
+<div class="card mt-3" *ngIf="currentGame && !readOnly" >
   <div class="card-header bg-primary text-white">Edition d'une rencontre</div>
   <div class="card-body">
     <div class="form-group">

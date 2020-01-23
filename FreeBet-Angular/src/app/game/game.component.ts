@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Game} from '../Model/game';
 import {GameHttpService} from './game-http.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
@@ -18,11 +18,14 @@ import {Opponent} from "../Model/opponent";
 export class GameComponent implements OnInit {
   currentGame: Game = null;
   modalGame: Game = null;
+  @Input()
+  readOnly:boolean=false;
 
   constructor(private modalService: NgbModal, private gameService: GameHttpService, private sportService: SportHttpService,private opponentService: OpponentHttpService) {
   }
 
   ngOnInit() {
+    console.log(this.readOnly);
   }
 
   list(){
