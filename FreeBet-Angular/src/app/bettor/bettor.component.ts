@@ -7,6 +7,7 @@ import {BettorHttpService} from "./bettor-http.service";
 import {Adress} from "../Model/adress";
 import {LoginHttpService} from "../login/login-http.service";
 import {Login} from "../Model/Login";
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'bettor,[bettor]',
@@ -18,7 +19,7 @@ export class BettorComponent implements OnInit {
 
   modalBettor:Bettor = null;
 
-  constructor(private modalService:NgbModal,private bettorService:BettorHttpService) { }
+  constructor(private route: ActivatedRoute, private modalService:NgbModal,private bettorService:BettorHttpService) { }
 
   ngOnInit() {
   }
