@@ -1,53 +1,34 @@
 
-
-
-<header></header>
 <body>
 
 <div class="bg"></div>
 
 <p class="py-5 text-center"></p>
 
-
-
 <h1 style="color: blue" class="titre">Prépare tes paris {{sport?.nom}}</h1>
 
-<br>
-<br>
-<br>
-<br>
-
-<div class="game">
-<ul  class="listematch" role="listbox" tabindex="0" aria-label="Choix des matchs">
-
-  <li class="match" tabindex="-1" role="option" aria-checked="false" *ngFor="let game of games">
-    <input tabindex="-1" class="o-checkbox" type="checkbox" [(ngModel)]="game.checked">
-    {{game.opponent1?.nom}} - {{game.opponent2?.nom}}
-
-    <div class="btn-group btn-group-sm">
-      <label  class="btn btn-primary active">
-        <input type="radio" name="g{{game.id}}" [disabled]="!game.checked"> {{game.cote1}}
-      </label>
+<div class="game text-center">
+  <ul  class="listematch" role="listbox" tabindex="0" aria-label="Choix des matchs">
+    <li class="match" tabindex="-1" role="option" aria-checked="false" *ngFor="let game of games">{{game.opponent1?.nom}} - {{game.opponent2?.nom}}
       <br>
-      <br>
-      <label class="btn btn-primary active">
-        <input type="radio" name="g{{game.id}}"  [disabled]="!game.checked"> {{game.coteN}}
-      </label>
-      <br>
-      <br>
-      <label class="btn btn-primary active">
-        <input type="radio" name="g{{game.id}}"  [disabled]="!game.checked"> {{game.cote2}}
-      </label>
-    </div>
-    <div class="btn-group btn-group-sm">
 
-    </div>
-  </li>
-</ul>
+        <label  class="btn btn-primary active">
+          <input type="radio" name="g{{game.id}}" [disabled]="!game.checked"> {{game.cote1}}
+        </label>
+      <div *ngIf="game.coteN!=null">
+        <label class="btn btn-primary active">
+          <input type="radio" name="g{{game.id}}"  [disabled]="!game.checked"> {{game.coteN}}
+        </label>
+      </div>
+        <label class="btn btn-primary active">
+          <input type="radio" name="g{{game.id}}"  [disabled]="!game.checked"> {{game.cote2}}
+        </label>
+
+
+    </li>
+  </ul>
 </div>
-<br>
-<br>
-<br>
+
 <br>
 
 <div class="text-center">

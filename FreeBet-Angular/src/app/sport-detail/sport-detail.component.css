@@ -13,16 +13,21 @@ body {
   justify-content: center;
   font-size: 100%;
 
+
+
+
 }
 
 .match{
   border: 5px solid #edce02;
   padding-top: 30px;
-  padding-right: 50px;
+  padding-right: 30px;
   padding-bottom: 30px;
-  padding-left: 50px;
-
+  padding-left: 30px;
+  list-style-type: none;
   margin: 30px;
+  background-color: white;
+
 
 }
 
@@ -36,6 +41,7 @@ body {
   display: inline-block;
   font-size: 16px;
   border-radius: 12px;
+
 
 }
 
