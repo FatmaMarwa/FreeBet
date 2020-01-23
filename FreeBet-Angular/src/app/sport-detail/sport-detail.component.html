@@ -12,22 +12,29 @@
 
 <h1 style="color: blue" class="titre">Prépare tes paris {{sport?.nom}}</h1>
 
+<br>
+<br>
+<br>
+<br>
 
+<div class="game">
+<ul  class="listematch" role="listbox" tabindex="0" aria-label="Choix des matchs">
 
-
-<ul class="game" style="color: ghostwhite" role="listbox" tabindex="0" aria-label="Choix des matchs">
-
-  <li tabindex="-1" role="option" aria-checked="false" *ngFor="let game of games">
+  <li class="match" tabindex="-1" role="option" aria-checked="false" *ngFor="let game of games">
     <input tabindex="-1" class="o-checkbox" type="checkbox" [(ngModel)]="game.checked">
     {{game.opponent1?.nom}} - {{game.opponent2?.nom}}
 
     <div class="btn-group btn-group-sm">
-      <label class="btn btn-primary activ">
+      <label  class="btn btn-primary active">
         <input type="radio" name="g{{game.id}}" [disabled]="!game.checked"> {{game.cote1}}
       </label>
+      <br>
+      <br>
       <label class="btn btn-primary active">
         <input type="radio" name="g{{game.id}}"  [disabled]="!game.checked"> {{game.coteN}}
       </label>
+      <br>
+      <br>
       <label class="btn btn-primary active">
         <input type="radio" name="g{{game.id}}"  [disabled]="!game.checked"> {{game.cote2}}
       </label>
@@ -37,5 +44,21 @@
     </div>
   </li>
 </ul>
+</div>
+<br>
+<br>
+<br>
+<br>
 
-</body>
+<div class="text-center">
+  <a class="button" mdbBtn [routerLink]="['/login']" routerLinkActive="active" role="button" mdbWavesEffec><h3>Pariez !</h3></a>
+</div>
+
+</body >
+<footer >
+<br>
+  <br>
+  <br>
+  <br>
+  <br>
+</footer>
