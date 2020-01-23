@@ -1,48 +1,31 @@
-
 <body>
+<div class="py-5 text-center">
+<h1 class="titre">Prêts à parier ?</h1>
+<b><h5 style="color: #4471eb"> Mises sur un match de {{sport?.nom}}</h5></b>
+</div>
 
-<div class="bg"></div>
 
-<p class="py-5 text-center"></p>
-
-
-
-<h1 class="titre">Prépares tes paris {{sport?.nom}}</h1>
-<h1 style="color: blue" class="titre">Prépare tes paris {{sport?.nom}}</h1>
-
-<div class="game text-center">
+<div class="game text-center" style="display: flex" >
   <ul  class="listematch" role="listbox" tabindex="0" aria-label="Choix des matchs">
-    <li class="match" tabindex="-1" role="option" aria-checked="false" *ngFor="let game of games">{{game.opponent1?.nom}} - {{game.opponent2?.nom}}
-      <br>
-
-        <label  class="btn btn-primary active">
-          <input type="radio" name="g{{game.id}}" [disabled]="!game.checked"> {{game.cote1}}
-        </label>
-      <div *ngIf="game.coteN!=null">
-        <label class="btn btn-primary active">
-          <input type="radio" name="g{{game.id}}"  [disabled]="!game.checked"> {{game.coteN}}
-        </label>
-      </div>
-        <label class="btn btn-primary active">
-          <input type="radio" name="g{{game.id}}"  [disabled]="!game.checked"> {{game.cote2}}
-        </label>
-
-
+    <li class="match " tabindex="-1" role="option" aria-checked="false" *ngFor="let game of games">{{game.opponent1?.nom}} - {{game.opponent2?.nom}}<br>
+      <label  class="btn btn-primary active">
+        <input type="radio" name="g{{game.id}}" [disabled]="!game.checked"> {{game.cote1}}
+      </label>
+      <label class="btn btn-primary active" *ngIf="game.coteN!=null">
+        <input type="radio" name="g{{game.id}}"  [disabled]="!game.checked"> {{game.coteN}}
+      </label>
+      <label class="btn btn-primary active">
+        <input type="radio" name="g{{game.id}}"  [disabled]="!game.checked"> {{game.cote2}}
+      </label>
     </li>
   </ul>
 </div>
 
 <br>
-
 <div class="text-center">
   <a class="button" mdbBtn [routerLink]="['/login']" routerLinkActive="active" role="button" mdbWavesEffec ><h3>Pariez !</h3></a>
 </div>
-
-</body >
+</body>
 <footer >
-<br>
-  <br>
-  <br>
-  <br>
-  <br>
+
 </footer>

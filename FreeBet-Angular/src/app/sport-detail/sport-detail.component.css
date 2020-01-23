@@ -10,8 +10,8 @@ body {
 }
 .game{
   display: flex;
-  justify-content: center;
   font-size: 100%;
+
 
 
 
@@ -20,13 +20,12 @@ body {
 
 .match{
   border: 5px solid #edce02;
-  padding-top: 30px;
-  padding-right: 30px;
-  padding-bottom: 30px;
-  padding-left: 30px;
   list-style-type: none;
   margin: 30px;
   background-color: white;
+  height: 100px;
+  width: 500px;
+
 
 
 }
@@ -35,13 +34,15 @@ body {
   background-color: #edce02;
   border: none;
   color: #5392ff;
-  padding: 10px 32px;
+  padding: 10px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
   border-radius: 12px;
+}
 
+.aaa{
 
 }
 
@@ -50,6 +51,7 @@ body {
   height: 100%;
   width: 100%;
   font-weight: bold;
+
 }
 
 .titre{

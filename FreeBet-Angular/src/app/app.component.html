@@ -23,7 +23,7 @@
     </li>
 
 
-    <li class="nav-item active" *ngIf="logInfo().connected && logInfo().admin">
+    <li class="nav-item active" *ngIf="logInfo().connected">
       <a class="nav-link" [routerLink]="['/bet']" routerLinkActive="active" mdbWavesEffect>
         Liste des paris<span class="sr-only">(current)</span></a>
     </li>
@@ -51,9 +51,11 @@
   </ul>
 
 
-    <div *ngIf="logInfo().connected">
-      Bonjour,{{logInfo().pseudo}}
-    </div>
+    <b><div style="color: #edce02" *ngIf="logInfo().connected" >
+      Bonjour {{logInfo().pseudo}}<br>
+      <li *ngIf="logInfo().connected && logInfo().bettor ">Vous avez {{logInfo().bettor.soldeCagnotte}} BetCoins  <i class="fas fa-shopping-basket"></i></li>
+    </div></b>
+      
 
 
 </mdb-navbar>

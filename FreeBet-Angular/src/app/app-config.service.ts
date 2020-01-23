@@ -7,5 +7,7 @@ export class AppConfigService {
 
   backEnd = "http://localhost:8080/";
 
-  constructor() { }
+  constructor() {
+
+  }
 }
