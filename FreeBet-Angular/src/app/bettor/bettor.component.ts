@@ -7,6 +7,7 @@ import {BettorHttpService} from "./bettor-http.service";
 import {Adress} from "../Model/adress";
 import {LoginHttpService} from "../login/login-http.service";
 import {Login} from "../Model/Login";
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'bettor,[bettor]',

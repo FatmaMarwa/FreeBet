@@ -1,13 +1,21 @@
 
 
 
+<header></header>
+<body>
 
-<p>ca marche bien {{sport?.nom}}</p>
-<p>ca marche bien </p>
+<div class="bg"></div>
+
+<p class="py-5 text-center"></p>
 
 
 
-<ul role="listbox" tabindex="0" aria-label="Choix des matchs">
+<h1 style="color: blue" class="titre">Prépare tes paris {{sport?.nom}}</h1>
+
+
+
+
+<ul class="game" style="color: ghostwhite" role="listbox" tabindex="0" aria-label="Choix des matchs">
 
   <li tabindex="-1" role="option" aria-checked="false" *ngFor="let game of games">
     <input tabindex="-1" class="o-checkbox" type="checkbox" [(ngModel)]="game.checked">
@@ -29,3 +37,5 @@
     </div>
   </li>
 </ul>
+
+</body>

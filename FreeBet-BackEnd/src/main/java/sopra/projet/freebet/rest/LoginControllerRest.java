@@ -78,10 +78,19 @@ public class LoginControllerRest {
 		loginRepo.deleteById(id);
 	}
 
+<<<<<<< HEAD
 //	@GetMapping("/{pseudo/{password}")
 //	@JsonView(Views.ViewCommon.class)
 //	public Login findByLP(@RequestBody Login login,@PathVariable String pseudo,@PathVariable String password,HttpSession session) {
 //		login = loginRepo.findByLoginAndPassword(login.getPseudo(), login.getMotDePasse());
 //		return login;
 //	}
+=======
+	@GetMapping("/{pseudo}/{motDePasse}")
+	@JsonView(Views.ViewCommon.class)
+	public Login findByLoginAndPassword(@RequestBody Login login,@PathVariable String pseudo,@PathVariable String motDePasse,HttpSession session) {
+		login = loginRepo.findByLoginAndPassword(login.getPseudo(), login.getMotDePasse());
+		return login;
+	}
+>>>>>>> master
 }
