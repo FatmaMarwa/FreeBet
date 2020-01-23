@@ -12,7 +12,7 @@
 
     <div class="card-footer">
       <div class="btn-group btn-group-lg">
-        <button type="button" class="btn btn-primary" (click)="validate()">
+        <button type="button" class="btn btn-primary" (click)="validate(currentLogin.pseudo,currentLogin.motDePasse)">
           <fa name="check"></fa>
         </button>
         <button type="button" class="btn btn-warning" (click)="cancel()">
@@ -20,16 +20,13 @@
         </button>
       </div>
       <div>
-        <div class="btn-group btn-group-lg">
-          <button type="button" class="btn btn-primary" (click)="login()">
-            <fa name="check">Connection en tant qu'admin</fa>
-          </button>
-        </div>
-      </div>
-      <div class="btn-group btn-group-lg" [routerLink]="['/bettor']">pas encore inscrit, inscrivez vous!
-        <button type="button" class="btn btn-primary" (click)="validate()">
+        <div>
+      <div class="btn-group btn-group-lg" >
+        <button type="button" class="btn btn-primary" [routerLink]="['/bettor']">pas encore inscrit, inscrivez vous!
           <fa name="check"></fa>
         </button>
+      </div>
+        </div>
       </div>
     </div>
   </div>

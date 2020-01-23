@@ -15,11 +15,15 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./bettor.component.css']
 })
 export class BettorComponent implements OnInit {
-  currentBettor: Bettor = null;
+  currentBettor: Bettor = new Bettor();
+
+  //currentAdress: Adress = new Adress();
 
   modalBettor:Bettor = null;
 
-  constructor(private modalService:NgbModal,private bettorService:BettorHttpService) { }
+  constructor(private modalService:NgbModal,private bettorService:BettorHttpService) {
+
+  }
 
   ngOnInit() {
   }

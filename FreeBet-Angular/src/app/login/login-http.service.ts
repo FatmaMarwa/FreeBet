@@ -21,7 +21,7 @@ export class LoginHttpService {
   logins: Array<Login>;
 
   constructor(private appConfig: AppConfigService, private http: HttpClient) {
-    this.load();
+    //this.load();
   }
 
   load() {

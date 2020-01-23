@@ -8,10 +8,7 @@ import sopra.projet.freebet.model.Login;
 
 public interface ILoginRepository  extends JpaRepository<Login, Long>{
 
-<<<<<<< HEAD
-//	Login findByLoginAndPassword(String pseudo,String motDePasse);
-=======
 	@Query("select l from Login l where l.pseudo= :pseudo and l.motDePasse= :motDePasse")
 	public Login findByLoginAndPassword(@Param("pseudo") String pseudo,@Param("motDePasse")String motDePasse);
->>>>>>> master
+
 }

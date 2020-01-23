@@ -7,6 +7,7 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {Bettor} from '../Model/bettor';
 import {BettorHttpService} from '../bettor/bettor-http.service';
 import {ActivatedRoute} from '@angular/router';
+import {HomeService} from "../home/home-http.service";
 
 @Component({
   selector: 'login, [login]',
@@ -14,16 +15,16 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  currentLogin: Login = null;
+  currentLogin: Login = new Login();
+
+
 
   modalLogin: Login = null;
 
   login: Login
 
-  constructor(private route: ActivatedRoute, private modalService: NgbModal, private loginService: LoginHttpService, private adminService: AdminHttpService, private bettorService: BettorHttpService) {
+  constructor(private modalService: NgbModal, private loginService: LoginHttpService, private adminService: AdminHttpService, private bettorService: BettorHttpService, private homeService: HomeService) {
 
-    this.route.params.subscribe(params =>
-    err => console.log(err))
 
   }
 
@@ -90,9 +91,8 @@ export class LoginComponent implements OnInit {
     this.currentLogin = null;
   }
 
-  validate () {
-    // if (this.currentLogin.motDePasse && this.currentLogin.pseudo )
-
+  validate (pseudo:string,motDePasse:String) {
+    this.homeService.login(pseudo,motDePasse);
   }
 
 }
