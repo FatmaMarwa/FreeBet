@@ -1,6 +1,11 @@
 
+<!--<div class="card card-cascade narrower text-center">-->
+<!--  <div class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between">-->
+<!--    <b><a href="" class="text-warning mx-3">Formulaire d'inscription</a></b>-->
+<!--  </div>-->
+
 <div class="card mt-3">
-  <div class="card-header bg-primary text-white">Formulaire d'inscription</div>
+  <div class="card-header gradient-card-header blue-gradient text-warning mx-3"><b>Formulaire d'inscription</b></div>
   <div class="card-body">
     <div class="form-group">
       <label for="nom">Nom:</label>
@@ -72,10 +77,10 @@
   <div class="card-footer">
     <div class="btn-group btn-group-lg">
       <button type="button" class="btn btn-primary" (click)="save()">
-        <fa name="check"></fa>
+        <i class="fas fa-check" ></i>
       </button>
       <button type="button" class="btn btn-warning" (click)="cancel()">
-        <fa name="undo" inverse="true"></fa>
+        <i class="fas fa-undo fa-inverse"></i>
       </button>
     </div>
   </div>
