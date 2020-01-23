@@ -14,7 +14,7 @@
         Rugby<span class="sr-only">(current)</span></a>
     </li>
     <li class="nav-item active">
-      <a class="nav-link" [routerLink]="['/sport', '2', 'detail']" routerLinkActive="active" mdbWavesEffect><i class="fas fa-table-tennis"></i>
+      <a class="nav-link" [routerLink]="['/sport', '2', 'detail']" routerLinkActive="active" mdbWavesEffect><i class="fas fa-baseball-ball"></i>
         Tennis<span class="sr-only">(current)</span></a>
     </li>
     <li class="nav-item active">
@@ -49,10 +49,10 @@
       <a class="nav-link" [routerLink]="['/login']"><fa name="fas fa-user-plus" ></fa></a>
     </li>
     <li class="nav-item"  >
-      <a class="nav-link" style="color: #edce02" *ngIf="logInfo().connected" ><i class="fas fa-user"></i>Bonjour {{logInfo().pseudo}}</a>
+      <a class="nav-link" *ngIf="logInfo().connected" ><i class="fas fa-user"></i>Bonjour {{logInfo().pseudo}}</a>
     </li>
     <li class="nav-item" >
-      <a class="nav-link" style="color: #edce02" *ngIf="logInfo().connected && logInfo().bettor "><i class="fas fa-shopping-basket"></i>Vous avez {{logInfo().bettor.soldeCagnotte}} BetCoins </a>
+      <a class="nav-link" *ngIf="logInfo().connected && logInfo().bettor "><i class="fas fa-shopping-basket"></i>Vous avez {{logInfo().bettor.soldeCagnotte}} BetCoins </a>
     </li>
   </ul>
 
