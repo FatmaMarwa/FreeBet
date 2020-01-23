@@ -20,7 +20,7 @@ export class HomeService {
   }
 
 
-  login(pseudo: String, motDePasse: String) {
+  login(pseudo: string, motDePasse: string) {
     this.http.get<Login>(this.appConfig.backEnd + 'login/' + pseudo + '/' + motDePasse).subscribe(resp => {
         this.log = resp;
         console.log(this.log);

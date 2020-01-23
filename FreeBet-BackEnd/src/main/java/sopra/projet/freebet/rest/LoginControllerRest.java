@@ -79,7 +79,7 @@ public class LoginControllerRest {
 	}
 
 	@GetMapping("/{pseudo}/{motDePasse}")
-	@JsonView(Views.ViewCommon.class)
+	@JsonView(Views.ViewLogin.class)
 	public Login findByLoginAndPassword(@PathVariable String pseudo,@PathVariable String motDePasse,HttpSession session) {
 		Login login = loginRepo.findByLoginAndPassword(pseudo, motDePasse);
 		
