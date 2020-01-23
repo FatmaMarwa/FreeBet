@@ -6,7 +6,7 @@
   <div class="px-4">
     <div class="table-wrapper">
       <table class="table table-hover mb-0">
-        <thead>
+        <thead style="background-color: #adacad">
         <tr>
           <th class="th-lg">Sport</th>
           <th class="th-lg">Adversaire 1</th>
@@ -21,7 +21,7 @@
   </thead>
 
   <tbody>
-  <tr *ngFor="let game of list()">
+  <tr style="background-color: #ecebed" *ngFor="let game of list()">
 <!--    <th scope="row"></th>-->
     <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.sport_game?.nom}}</td>
     <td (click)="detail(content, game.id)" style="cursor: pointer">{{game.opponent1?.nom}}</td>
