@@ -11,6 +11,7 @@
         <th scope="col">Date du Bet</th>
         <th scope="col">Gain</th>
         <th scope="col">Games</th>
+        <th scope="col">Pseudo</th>
         <th></th>
       </tr>
       </thead>
@@ -31,7 +32,7 @@
               </ul>
           </ul>
         </td>
-        <td (click)="detail(content, bet.id)" style="cursor: pointer">{{bet.bettor}}</td>
+        <td (click)="detail(content, bet.id)" style="cursor: pointer">{{bet.bettor?.login.pseudo}}</td>
         <td>
           <div class="btn-group btn-group-sm">
             <button type="button" class="btn btn-info" (click)="edit(bet.id)">
@@ -90,7 +91,7 @@
       <tr>
         <th>Games</th>
         <ul *ngFor="let game of modalBet.games">
-         <li>{{game.opponent1}}-{{game.opponent2}}</li>
+         <li>{{game.opponent1.nom}}-{{game.opponent2.nom}}</li>
         </ul>
       </tr>
       <tr>

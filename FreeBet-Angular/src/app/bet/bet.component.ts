@@ -7,6 +7,8 @@ import {BettorHttpService} from "../bettor/bettor-http.service";
 import {GameHttpService} from "../game/game-http.service";
 import {Game} from "../Model/game";
 import {log} from "util";
+import {HomeService} from "../home/home-http.service";
+import {Login} from "../Model/Login";
 
 @Component({
   selector: 'bet,[bet]',
@@ -18,7 +20,7 @@ export class BetComponent implements OnInit {
   modalBet: Bet = null;
   games: Array<Game> = new Array<Game>();
 
-  constructor(private modalService: NgbModal, private betService: BetHttpService, private gameService: GameHttpService) {
+  constructor(private modalService: NgbModal, private betService: BetHttpService, private gameService: GameHttpService,private homeService:HomeService) {
     gameService.findAllObservable().subscribe(resp => {
       this.games = resp;
     }, err => console.log(err));
@@ -35,7 +37,13 @@ export class BetComponent implements OnInit {
     return this.betService.typesBets;
   }
 
+  logInfo(): Login {
+    if(localStorage.getItem('userConnected')) {
+      return JSON.parse(localStorage.getItem('userConnected'));
+    }
 
+    return new Login();
+  }
 
   /* bettors(){
      return this.bettorService.findAll();
