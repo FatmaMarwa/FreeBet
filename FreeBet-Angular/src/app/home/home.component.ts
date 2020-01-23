@@ -53,9 +53,9 @@ export class HomeComponent implements OnInit {
 
 
   constructor(private homeService: HomeService,private bettorService:BettorHttpService) {
-    // this.currentBettorSubscription = this.homeService.currentBettor.subscribe(bettor =>{
-    //   this.currentBettor = bettor;
-    // });
+    this.currentBettorSubscription = this.homeService.currentBettor.subscribe(bettor =>{
+      this.currentBettor = bettor;
+    });
   }
 
   //constructor(private homeService: HomeService,private bettorService:BettorHttpService) {
