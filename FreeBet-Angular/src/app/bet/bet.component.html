@@ -106,7 +106,7 @@
 <div class="card mt-3" *ngIf="currentBet">
   <div class="card-header bg-primary text-white">Edition d'un Pari</div>
   <div class="card-body">
-    <div class="form-group form-check" *ngIf="!homeService.logInfo().admin">
+    <div class="form-group form-check" *ngIf="homeService.logInfo().admin">
       <label class="form-check-label">
         <input class="form-check-input" type="checkbox" [(ngModel)]="currentBet.resultatPari"> Pari Gagné
       </label>
