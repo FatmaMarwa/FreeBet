@@ -36,7 +36,7 @@ public class LoginControllerRest {
 	@Autowired
 	private ILoginRepository loginRepo;
 
-	@GetMapping("/detail")
+	@GetMapping("")
 	@JsonView(Views.ViewLogin.class)
 	public List<Login> list() {
 		List<Login> logins = loginRepo.findAll();
