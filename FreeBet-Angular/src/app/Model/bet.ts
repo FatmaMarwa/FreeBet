@@ -10,10 +10,10 @@ export class Bet {
   betDate: Date;
   gain: number;
   games: Game[];
-  bettor: Bettor;
+  bettorr: Bettor;
 
 
-  constructor(id?: number, version?: number, mise?: number, resultatPari?: boolean, type?: string, betDate?: Date, gain?: number, games?: Game[], bettor?: Bettor) {
+  constructor(id?: number, version?: number, mise?: number, resultatPari?: boolean, type?: string, betDate?: Date, gain?: number, games?: Game[], bettorr?: Bettor) {
     this.id = id;
     this.version = version;
     this.mise = mise;
@@ -22,6 +22,6 @@ export class Bet {
     this.betDate = betDate;
     this.gain = gain;
     this.games = games;
-    this.bettor = bettor;
+    this.bettorr = bettorr;
   }
 }

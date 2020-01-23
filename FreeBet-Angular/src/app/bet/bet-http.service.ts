@@ -5,6 +5,7 @@ import {Observable} from "rxjs";
 import {AppConfigService} from '../app-config.service';
 import {BettorHttpService} from "../bettor/bettor-http.service";
 import {GameHttpService} from "../game/game-http.service";
+import {HomeService} from "../home/home-http.service";
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class BetHttpService{
 
   typesBets:Array<string>;
 
-  constructor(private appConfig: AppConfigService,private http: HttpClient) {
+  constructor(private appConfig: AppConfigService,private http: HttpClient, private homeService: HomeService) {
     this.load();
     this.loadTypeBet();
   }
@@ -44,16 +45,18 @@ export class BetHttpService{
 
   save(bet: Bet) {
     if (bet) {
-      if (bet.bettor && !bet.bettor.id) {
-        bet.bettor = null;
+      if (bet.bettorr && !bet.bettorr.id) {
+        bet.bettorr = null;
       }
       if (!bet.id) {
         this.http.post<Bet>(this.appConfig.backEnd + 'bet', bet).subscribe(resp => {
           this.load();
+          this.homeService.refreshLogin();
         }, err => console.log(err));
       } else {
         this.http.put<Bet>(this.appConfig.backEnd + 'bet/' + bet.id, bet).subscribe(resp => {
           this.load();
+          this.homeService.refreshLogin();
         }, err => console.log(err));
       }
     }

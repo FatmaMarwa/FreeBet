@@ -25,11 +25,7 @@ export class AppComponent {
   }
 
   logInfo(): Login {
-    if(localStorage.getItem('userConnected')) {
-      return JSON.parse(localStorage.getItem('userConnected'));
-    }
-
-    return new Login();
+    return this.homeService.logInfo();
   }
 
   logout() {
