@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
 
   login: Login
 
-  constructor(private modalService: NgbModal, private loginService: LoginHttpService, private adminService: AdminHttpService, private bettorService: BettorHttpService) {
+  constructor(private modalService: NgbModal, private loginService: LoginHttpService, private adminService: AdminHttpService, private bettorService: BettorHttpService, private homeService: HomeService) {
 
 
   }
