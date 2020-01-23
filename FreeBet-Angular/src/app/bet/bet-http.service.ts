@@ -6,6 +6,7 @@ import {AppConfigService} from '../app-config.service';
 import {BettorHttpService} from "../bettor/bettor-http.service";
 import {GameHttpService} from "../game/game-http.service";
 import {HomeService} from "../home/home-http.service";
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class BetHttpService{
 
   typesBets:Array<string>;
 
-  constructor(private appConfig: AppConfigService,private http: HttpClient, private homeService: HomeService) {
+  constructor(private appConfig: AppConfigService,private http: HttpClient, private homeService: HomeService,private router:Router) {
     this.load();
     this.loadTypeBet();
   }
@@ -60,6 +61,7 @@ export class BetHttpService{
         }, err => console.log(err));
       }
     }
+    this.router.navigate(['/bet']);
   }
 
   delete(id: number) {

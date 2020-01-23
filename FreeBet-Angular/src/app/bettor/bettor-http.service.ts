@@ -5,6 +5,7 @@ import {BetHttpService} from "../bet/bet-http.service";
 import {AppConfigService} from "../app-config.service";
 import {Bettor} from "../Model/bettor";
 import {LoginHttpService} from "../login/login-http.service";
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class BettorHttpService{
 
   civilites:Array<string>
 
-  constructor(private appConfig: AppConfigService,private http: HttpClient) {
+  constructor(private appConfig: AppConfigService,private http: HttpClient,private router:Router) {
     this.load();
     this.loadCiv();
   }
@@ -56,6 +57,7 @@ export class BettorHttpService{
         }, err => console.log(err));
       }
     }
+    this.router.navigate(['/login']);
   }
 
   delete(id: number) {

@@ -21,6 +21,7 @@ export class BettorComponent implements OnInit {
 
   modalBettor:Bettor = null;
 
+
   constructor(private modalService:NgbModal,private bettorService:BettorHttpService) {
     this.currentBettor = new Bettor();
     this.currentBettor.adress = new Adress();

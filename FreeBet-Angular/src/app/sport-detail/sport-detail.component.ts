@@ -7,6 +7,7 @@ import {Sport} from '../Model/sport';
 import {GameHttpService} from '../game/game-http.service';
 import {Game} from '../Model/game';
 import {Login} from '../Model/Login';
+import {HomeService} from "../home/home-http.service";
 
 @Component({
   selector: 'sport-detail',
@@ -18,7 +19,7 @@ export class SportDetailComponent implements OnInit {
   sport: Sport;
   games: Array<Game>;
 
-  constructor(private route: ActivatedRoute, private sportDetailService: SportDetailHttpService, private gameService: GameHttpService) {
+  constructor(private route: ActivatedRoute, private sportDetailService: SportDetailHttpService, private gameService: GameHttpService,private homeService:HomeService) {
     this.route.params.subscribe(params => {
       this.sportDetailService.findById(params.id).subscribe(resp => {
         this.sport = resp;
