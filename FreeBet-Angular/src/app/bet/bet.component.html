@@ -1,5 +1,4 @@
 <script src="../sport/sport.component.ts"></script>
-
 <div class="card mt-3">
   <div class="card-header bg-primary text-white">Liste des bets</div>
   <div class="card-body">
@@ -26,18 +25,18 @@
         <td (click)="detail(content, bet.id)" style="cursor: pointer" >
           <ul *ngFor="let game of bet.games">
             <li>{{game.opponent1.nom}} - {{game.opponent2.nom }}</li>
-                <ul>
-                  <li >Côte 1: {{game.cote1}}</li>
-                  <li >Côte N: {{game.coteN}}</li>
-                  <li >Côte 2: {{game.cote2}}</li>
-              </ul>
+            <ul>
+              <li >Côte 1: {{game.cote1}}</li>
+              <li >Côte N: {{game.coteN}}</li>
+              <li >Côte 2: {{game.cote2}}</li>
+            </ul>
           </ul>
         </td>
-        <td (click)="detail(content, bet.id)" style="cursor: pointer">{{bet.bettorr?.login?.pseudo}}</td>
+        <td (click)="detail(content, bet.id)" style="cursor: pointer">{{bet.bettorr?.login.pseudo}}</td>
         <td>
           <div class="btn-group btn-group-sm">
             <button type="button" class="btn btn-info" (click)="edit(bet.id)" *ngIf="homeService.logInfo().admin">
-              <i class="fas fa-edit"></i>
+              <fa name="pencil"></fa>
             </button>
             <button type="button" class="btn btn-danger" (click)="delete(bet.id)" *ngIf="homeService.logInfo().admin">
               <fa name="trash" inverse="true"></fa>
@@ -55,179 +54,118 @@
   </div>
 </div>
 
-
-<div class="card card-cascade narrower text-center">
-  <div class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between">
-    <b><a id="a" class="text-warning mx-3">Liste des paris</a></b>
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Détail du pari</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
+  <div class="modal-body">
+    <table class="table table-sm">
+      <tbody>
+      <tr>
+        <th>Identifiant</th>
+        <td>{{modalBet?.id}}</td>
+      </tr>
+      <tr>
+        <th>Version</th>
+        <td>{{modalBet?.version}}</td>
+      </tr>
+      <tr>
+        <th>Mise</th>
+        <td>{{modalBet?.mise}}</td>
+      </tr>
+      <tr>
+        <th>Resultat du bet</th>
+        <td>{{modalBet?.resultatPari}}</td>
+      </tr>
+      <tr>
+        <th>Date de bet</th>
+        <td>{{modalBet?.betDate | date:'yyyy-MM-dd\'T\'HH:mm'}}</td>
+      </tr>
+      <tr>
+        <th>Gain</th>
+        <td>{{modalBet?.gain}}</td>
+      </tr>
+      <tr>
+        <th>Games</th>
+        <ul *ngFor="let game of modalBet.games">
+          <li>{{game.opponent1.nom}}-{{game.opponent2.nom}}</li>
+        </ul>
+      </tr>
+      <tr>
+        <th>Pseudo</th>
+        <td>{{modalBet.bettorr?.login.pseudo}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</ng-template>
+
+<div class="card mt-3" *ngIf="currentBet">
+  <div class="card-header bg-primary text-white">Edition d'un Pari</div>
+  <div class="card-body">
+    <div class="form-group form-check">
+      <label class="form-check-label">
+        <input class="form-check-input" type="checkbox" [(ngModel)]="currentBet.resultatPari"> Pari Gagné
+      </label>
+    </div>
+    <div class="form-group">
+      <label for="mise">Mise du pari:</label>
+      <input type="text" class="form-control" placeholder="Entrer la mise du pari" id="mise" [(ngModel)]="currentBet.mise">
+    </div>
 
 
-  <div class="px-4">
-    <div class="table-wrapper">
-      <table class="table table-hover mb-0">
-        <thead style="background-color: #adacad">
-        <tr>
-          <th scope="col">Mise</th>
-          <th scope="col">Resultat</th>
-          <th scope="col">Type</th>
-          <th scope="col">Date</th>
-          <th scope="col">Gain</th>
-          <th scope="col">Match</th>
-          <th scope="col">Pseudo</th>
-          <th></th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr style="background-color: #ecebed"  *ngFor="let bet of list()">
-
-          <td (click)="detail(content, bet.id)" style="cursor: pointer">{{bet.mise}}</td>
-          <td (click)="detail(content, bet.id)" style="cursor: pointer" *ngIf="bet.resultatPari">Gagné</td>
-          <td (click)="detail(content, bet.id)" style="cursor: pointer" *ngIf="!bet.resultatPari">Perdu</td>
+    <div class="form-group">
+      <label for="typepari">Type de pari</label>
+      <select class="form-control" id="typepari" [(ngModel)]="currentBet.type">
+        <option value="{{typepari}}" *ngFor="let typepari of typeBets()">{{typepari}}</option>
+      </select>
+    </div>
 
 
-          <td (click)="detail(content, bet.id)" style="cursor: pointer">{{bet.type}}</td>
-          <td (click)="detail(content, bet.id)" style="cursor: pointer">{{bet.betDate | date:'yyyy-MM-dd\'T\'HH:mm' }}</td>
-          <td (click)="detail(content, bet.id)" style="cursor: pointer">{{bet.gain}}</td>
-          <td (click)="detail(content, bet.id)" style="cursor: pointer" >
 
-            <ul class="listematch" role="listbox" tabindex="0" aria-label="Listes des paris">
-              <li class="match " tabindex="-1" role="option" aria-checked="false" *ngFor="let game of bet.games"> {{game.opponent1.nom}} - {{game.opponent2.nom }}<br>
-                <label  class="btn btn-primary active">
-                  <input type="radio" name="g{{game.id}}" [disabled]="!game.checked"> {{game.cote1}}
-                </label>
-                <label class="btn btn-primary active" *ngIf="game.coteN!=null">
-                  <input type="radio" name="g{{game.id}}"  [disabled]="!game.checked"> {{game.coteN}}
-                </label>
-                <label class="btn btn-primary active">
-                  <input type="radio" name="g{{game.id}}"  [disabled]="!game.checked"> {{game.cote2}}
-                </label>
-              </li>
-            </ul>
-          </td>
-          <td (click)="detail(content, bet.id)" style="cursor: pointer">{{bet.bettorr?.login.pseudo}}</td>
-          <td>
-            <div class="btn-group btn-group-sm">
-              <button type="button" class="btn btn-info" (click)="edit(bet.id)" *ngIf="homeService.logInfo().admin">
-                <i class="fas fa-edit"></i>
-              </button>
-              <button type="button" class="btn btn-danger" (click)="delete(bet.id)" *ngIf="homeService.logInfo().admin">
-                <fa name="trash" inverse="true"></fa>
-              </button>
-            </div>
-          </td>
-        </tr>
-        </tbody>
-      </table>
-      <div class="card-footer">
-        <button type="button" class="btn btn-success btn-lg" (click)="add()" *ngIf="homeService.logInfo().bettor">
-          <fa name="plus"></fa>
+    <div class="form-group">
+      <label>Choix du match</label>
+
+      <ul role="listbox" tabindex="0" aria-label="Choix des matchs">
+        <li tabindex="-1" role="option" aria-checked="false" *ngFor="let game of games">
+          <input tabindex="-1" class="o-checkbox" type="checkbox" [(ngModel)]="game.checked">
+          {{game.opponent1?.nom}} - {{game.opponent2?.nom}}
+          <div class="btn-group btn-group-sm">
+            <label class="btn btn-primary active">
+              <input type="radio" name="g{{game.id}}" (click)="calcul(game.cote1)" [disabled]="!game.checked"> {{game.cote1}}
+            </label>
+            <label class="btn btn-primary active">
+              <input type="radio" name="g{{game.id}}" (click)="calcul(game.coteN)" [disabled]="!game.checked"> {{game.coteN}}
+            </label>
+            <label class="btn btn-primary active">
+              <input type="radio" name="g{{game.id}}" (click)="calcul(game.cote2)" [disabled]="!game.checked"> {{game.cote2}}
+            </label>
+          </div>
+        </li>
+      </ul>
+
+      <div class="form-group">
+        <label for="gain">Gains potentiel du pari:</label>
+        <input type="text" class="form-control" id="gain" value="{{currentBet.gain}}" >
+      </div>
+
+
+    </div>
+    <div class="card-footer">
+      <div class="btn-group btn-group-lg">
+        <button type="button" class="btn btn-primary" (click)="save()" *ngIf="homeService.logInfo().bettor">
+          <fa name="check"></fa>
+        </button>
+        <button type="button" class="btn btn-primary" (click)="saveAdmin()" *ngIf="homeService.logInfo().admin">
+          <fa name="check"></fa>
+        </button>
+        <button type="button" class="btn btn-warning" (click)="cancel()">
+          <fa name="undo" inverse="true"></fa>
         </button>
       </div>
     </div>
   </div>
-
-  <ng-template #content let-modal>
-    <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Détail du pari</h4>
-      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <table class="table table-sm">
-        <tbody>
-        <tr>
-          <th>Identifiant</th>
-          <td>{{modalBet?.id}}</td>
-        </tr>
-        <tr>
-          <th>Version</th>
-          <td>{{modalBet?.version}}</td>
-        </tr>
-        <tr>
-          <th>Mise</th>
-          <td>{{modalBet?.mise}}</td>
-        </tr>
-        <tr>
-          <th>Resultat du bet</th>
-          <td>{{modalBet?.resultatPari}}</td>
-        </tr>
-        <tr>
-          <th>Date de bet</th>
-          <td>{{modalBet?.betDate | date:'yyyy-MM-dd\'T\'HH:mm'}}</td>
-        </tr>
-        <tr>
-          <th>Gain</th>
-          <td>{{modalBet?.gain}}</td>
-        </tr>
-        <tr>
-          <th>Games</th>
-          <ul *ngFor="let game of modalBet.games">
-            <li>{{game.opponent1.nom}}-{{game.opponent2.nom}}</li>
-          </ul>
-        </tr>
-        <tr>
-          <th>Pseudo</th>
-          <td>{{modalBet.bettorr?.login.pseudo}}</td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
-  </ng-template>
-
-    <div class="form-group form-check" *ngIf="logInfo().connected && logInfo().admin">
-      <label class="form-check-label">
-        <input class="form-check-input" type="checkbox" [(ngModel)]="currentBet.resultatPari"> Résultat du pari
-      </label>
-    </div>
-
-
-      <div class="form-group">
-        <label for="typepari">Type de pari</label>
-        <select class="form-control" id="typepari" [(ngModel)]="currentBet.type">
-          <option value="{{typepari}}" *ngFor="let typepari of typeBets()">{{typepari}}</option>
-        </select>
-      </div>
-
-
-
-      <div class="form-group">
-        <label>Choix du match</label>
-
-        <ul role="listbox" tabindex="0" aria-label="Choix des matchs">
-          <li tabindex="-1" role="option" aria-checked="false" *ngFor="let game of games">
-            <input tabindex="-1" class="o-checkbox" type="checkbox" [(ngModel)]="game.checked">
-            {{game.opponent1?.nom}} - {{game.opponent2?.nom}}
-            <div class="btn-group btn-group-sm">
-              <label class="btn btn-primary active">
-                <input type="radio" name="g{{game.id}}" (click)="calcul(game.cote1)" [disabled]="!game.checked"> {{game.cote1}}
-              </label>
-              <label class="btn btn-primary active">
-                <input type="radio" name="g{{game.id}}" (click)="calcul(game.coteN)" [disabled]="!game.checked"> {{game.coteN}}
-              </label>
-              <label class="btn btn-primary active">
-                <input type="radio" name="g{{game.id}}" (click)="calcul(game.cote2)" [disabled]="!game.checked"> {{game.cote2}}
-              </label>
-            </div>
-          </li>
-        </ul>
-
-        <div class="form-group">
-          <label for="gain">Gains potentiel du pari:</label>
-          <input type="text" class="form-control" id="gain" value="{{currentBet.gain}}" >
-        </div>
-
-
-      </div>
-      <div class="card-footer">
-        <div class="btn-group btn-group-lg">
-          <button type="button" class="btn btn-primary" (click)="save()">
-            <fa name="check"></fa>
-          </button>
-          <button type="button" class="btn btn-warning" (click)="cancel()">
-            <fa name="undo" inverse="true"></fa>
-          </button>
-        </div>
-      </div>
-    </div>
-
+</div>

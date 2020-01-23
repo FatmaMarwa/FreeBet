@@ -112,8 +112,14 @@ export class BetComponent implements OnInit {
       this.betService.save(this.currentBet);
       this.cancel();
     }, error => console.log(error));
+  }
 
-
+  saveAdmin(){
+    if (this.currentBet.id && this.currentBet.resultatPari == true) {
+      this.currentBet.bettorr.soldeCagnotte = this.currentBet.bettorr.soldeCagnotte + this.currentBet.gain;
+    }
+    this.betService.save(this.currentBet);
+    this.cancel();
   }
 
   delete(id: number) {
