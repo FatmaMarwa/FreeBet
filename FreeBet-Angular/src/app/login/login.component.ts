@@ -91,7 +91,7 @@ export class LoginComponent implements OnInit {
     this.currentLogin = null;
   }
 
-  validate (pseudo:string,motDePasse:String) {
+  validate (pseudo:string,motDePasse:string) {
     this.homeService.login(pseudo,motDePasse);
   }
 
